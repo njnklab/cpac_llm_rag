@@ -1,0 +1,235 @@
+# CPAC智能预处理项目
+
+基于LLM和RAG技术的功能磁共振成像(fMRI)预处理自动化工具，支持CPAC(Configurable Pipeline for the Analysis of Connectomes)参数优化和智能报告生成。
+
+## 项目概述
+
+本项目提供三种配置模式来优化CPAC预处理参数：
+- **默认模式**：使用预设的标准CPAC配置
+- **LLM模式**：利用本地Ollama模型优化预处理参数
+- **RAG模式**：基于知识库检索增强生成最佳配置参数
+
+## 项目结构
+
+```
+project/
+├── config.py              # 主配置文件
+├── main.py                # 主程序入口
+├── src/
+│   ├── config_checker.py  # 配置验证模块
+│   └── config_loader.py   # 配置文件加载模块
+├── config_yml/            # CPAC配置文件目录
+│   ├── pipeline_config_default.yml
+│   ├── pipeline_config_gemma.yml
+│   ├── pipeline_config_depseek.yml
+│   └── pipeline_config_rag.yml
+└── log/                   # 日志文件目录
+```
+
+## 环境要求
+
+### 必需软件
+- Python 3.8+
+- CPAC (Configurable Pipeline for the Analysis of Connectomes)
+- Ollama (本地LLM服务)
+
+### Python依赖
+```bash
+pip install pandas numpy chromadb
+```
+
+### 可选依赖
+- **LLM模式**：需要安装并运行Ollama
+- **RAG模式**：需要ChromaDB和相关嵌入模型
+
+## 安装配置
+
+### 1. 克隆项目
+```bash
+git clone <repository-url>
+cd cpac-smart-preprocessing
+```
+
+### 2. 安装Ollama (LLM模式需要)
+```bash
+# 安装Ollama
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# 拉取模型
+ollama pull llama3.1:8b
+ollama pull gemma3:27b
+ollama pull deepseek-coder:6.7b
+```
+
+### 3. 准备CPAC配置文件
+将您的CPAC配置文件放置在 `config_yml/` 目录下：
+- `pipeline_config_default.yml` - 默认配置
+- `pipeline_config_gemma.yml` - Gemma模型优化配置
+- `pipeline_config_depseek.yml` - DeepSeek模型优化配置  
+- `pipeline_config_rag.yml` - RAG优化配置
+
+## 使用方法
+
+### 1. 配置参数
+
+编辑 `config.py` 文件：
+
+```python
+# 数据集配置
+DATASET_NAME = "your_dataset_name"
+DATA_PATH = "/path/to/your/bids/data"
+OUTPUT_PATH = "/path/to/output/derivatives"
+
+# 被试列表
+SUBJECT_LIST = ["sub-001", "sub-002"]  # 或设为 "all"
+
+# 分析需求
+ANALYSIS_REQUIREMENTS = {
+    "functional_connectivity": True,
+    "regional_homogeneity": True,
+    "alff": False,
+    # ... 其他分析选项
+}
+
+# 配置模式选择
+CONFIG_MODE = "default"  # "default", "llm", "rag"
+
+# LLM配置 (CONFIG_MODE="llm"时)
+LLM_MODEL = "llama3.1:8b"
+OLLAMA_URL = "http://localhost:11434"
+
+# RAG配置 (CONFIG_MODE="rag"时)
+CHROMADB_PATH = "./knowledge_db"
+RAG_COLLECTION = "cpac_knowledge"
+```
+
+### 2. 运行程序
+
+```bash
+python main.py
+```
+
+### 3. 程序流程
+
+1. **配置验证**：检查所有配置参数的有效性
+2. **用户输入**：输入分析描述和研究目标
+3. **配置加载**：根据选择的模式加载相应配置
+4. **数据预处理**：批量处理所有被试数据
+5. **报告生成**：生成预处理结果报告
+
+## 配置模式详解
+
+### 默认模式 (default)
+- 使用预设的标准CPAC配置
+- 适合标准化预处理流程
+- 无需额外服务依赖
+
+### LLM模式 (llm)
+- 利用本地Ollama模型优化参数
+- 支持多种开源模型：
+  - `llama3.1:8b` - 通用模型
+  - `gemma3:27b` - Google Gemma模型
+  - `deepseek-coder:6.7b` - 代码优化模型
+- 根据数据特征智能调整预处理参数
+
+### RAG模式 (rag)
+- 基于知识库检索相关文献和最佳实践
+- 结合ChromaDB向量数据库
+- 提供基于循证的参数推荐
+
+## 输出文件
+
+### 日志文件
+- `log/user_analysis.json` - 用户分析描述和配置信息
+- `cpac_processing.log` - 详细处理日志
+
+### 处理结果
+- CPAC预处理输出：`OUTPUT_PATH/derivatives/`
+- 个体被试报告：自动生成HTML/PDF格式
+- 质量控制图表：运动参数、时间序列等
+
+## 故障排除
+
+### 常见问题
+
+1. **配置文件不存在**
+   ```bash
+   FileNotFoundError: 未找到config.py文件
+   ```
+   - 确保在项目根目录下创建了 `config.py`
+
+2. **Ollama连接失败**
+   ```bash
+   RuntimeError: 无法运行ollama命令
+   ```
+   - 检查Ollama是否正确安装并运行
+   - 验证模型是否已下载：`ollama list`
+
+3. **BIDS数据格式错误**
+   ```bash
+   被试数据无效: BIDS格式不符合要求
+   ```
+   - 检查数据是否符合BIDS标准
+   - 验证 `participants.tsv` 文件格式
+
+4. **ChromaDB权限问题**
+   ```bash
+   PermissionError: ChromaDB路径访问被拒绝
+   ```
+   - 检查数据库目录权限
+   - 确保路径存在且可写
+
+### 调试建议
+
+1. **启用详细日志**：检查 `cpac_processing.log`
+2. **逐步验证**：先运行单个被试测试
+3. **配置检查**：使用配置验证功能确认所有参数
+
+## 扩展功能
+
+### 添加新的LLM模型
+1. 在Ollama中拉取新模型
+2. 修改 `config.py` 中的 `AVAILABLE_MODELS`
+3. 在 `config_loader.py` 中添加模型判断逻辑
+
+### 自定义分析流程
+1. 修改 `ANALYSIS_REQUIREMENTS` 配置
+2. 相应调整CPAC配置文件
+3. 更新报告生成模板
+
+## 贡献指南
+
+欢迎提交Issue和Pull Request来改进项目。
+
+### 开发环境设置
+```bash
+# 克隆开发分支
+git clone -b develop <repository-url>
+
+# 安装开发依赖
+pip install -r requirements-dev.txt
+
+# 运行测试
+python -m pytest tests/
+```
+
+## 许可证
+
+本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
+
+## 联系方式
+
+- 项目维护者：[您的姓名]
+- 邮箱：[您的邮箱]
+- 问题反馈：[GitHub Issues链接]
+
+## 版本历史
+
+- **v1.0.0** - 初始版本
+  - 基础CPAC预处理功能
+  - 三种配置模式支持
+  - 自动化报告生成
+
+---
+
+*最后更新：2025年6月*
