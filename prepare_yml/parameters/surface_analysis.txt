@@ -1,0 +1,122 @@
+You are an expert in fMRI data preprocessing, particularly using pipelines that involve surface-based analysis with FreeSurfer. Your recommendations should aim for high-quality outputs suitable for advanced resting-state analyses like Functional Connectivity (FC), Amplitude of Low-Frequency Fluctuation (ALFF), Regional Homogeneity (ReHo), and Voxel-Mirrored Homotopic Connectivity (VMHC).
+
+I have a BIDS-compliant resting-state fMRI dataset. Please carefully consider the following dataset description when making your recommendations:
+
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above, I need you to recommend settings for the following parameters related to surface analysis. For each parameter, provide the recommended setting and a clear, concise `reason` for your choice. If you are uncertain or if the default value is appropriate given the dataset and analysis goals, you can select the default but still provide a reason.
+
+Here are the configuration blocks and parameters:
+
+**配置块: `surface_analysis.abcd_prefreesurfer_prep`**
+- **参数:** `run`
+    - **功能:** 是否运行 `freesurfer_abcd_preproc` (为`recon-all`预处理T1w图像)。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+
+**配置块: `surface_analysis.freesurfer`**
+- **参数:** `run_reconall`
+    - **功能:** 是否运行 FreeSurfer 的 `recon-all` (皮层重建和表面分析)。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+- **参数:** `ingress_reconall`
+    - **功能:** 是否导入已有的 `recon-all` 结果。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+- **参数:** `reconall_args`
+    - **功能:** 为 `recon-all` 命令添加的额外参数。
+    - **填写说明:** 字符串，例如 `"-openmp 8"`。留空表示无额外参数。
+    - **默认值:** (空)
+
+**配置块: `surface_analysis.post_freesurfer`**
+- **参数:** `run`
+    - **功能:** 是否运行 ABCD-HCP FreeSurfer 后处理和 fMRISurface 流程。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+- **参数:** `gray_ordinates_res`
+    - **功能:** Greyordinates 的分辨率 (mm)。
+    - **填写说明:** 数值。
+    - **默认值:** `2`
+- **参数:** `high_res_mesh`
+    - **功能:** 高分辨率网格参数 (通常指顶点数，如164k)。
+    - **填写说明:** 数值。
+    - **默认值:** `164`
+- **参数:** `low_res_mesh`
+    - **功能:** 低分辨率网格参数 (如32k)。
+    - **填写说明:** 数值。
+    - **默认值:** `32`
+- **参数:** `fmri_res`
+    - **功能:** 表面分析中 fMRI 数据的目标分辨率 (mm)。
+    - **填写说明:** 数值。
+    - **默认值:** `2`
+- **参数:** `smooth_fwhm`
+    - **功能:** 皮层表面平滑的高斯核 FWHM (mm)。
+    - **填写说明:** 数值。
+    - **默认值:** `2`
+
+**配置块: `surface_analysis.surface_connectivity`**
+- **参数:** `run`
+    - **功能:** 是否运行基于皮层表面的连接性分析。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+
+Please provide your response in a single JSON object. The JSON should have a top-level key for each configuration block (e.g., `surface_analysis.abcd_prefreesurfer_prep`). Under each block key, there should be an object for each parameter, containing two keys: `value` (the recommended setting, e.g., "On", "Off", a numerical value, or a string for `reconall_args`) and `reason` (your justification).
+
+Example JSON structure:
+```json
+{
+  "surface_analysis.abcd_prefreesurfer_prep": {
+    "run": {
+      "value": "On",
+      "reason": "Justification for this setting based on the dataset and analysis goals."
+    }
+  },
+  "surface_analysis.freesurfer": {
+    "run_reconall": {
+      "value": "On",
+      "reason": "..."
+    },
+    "ingress_reconall": {
+      "value": "Off",
+      "reason": "..."
+    },
+    "reconall_args": {
+      "value": "-openmp 8 -cw256",
+      "reason": "..."
+    }
+  },
+  "surface_analysis.post_freesurfer": {
+    "run": {
+      "value": "On",
+      "reason": "..."
+    },
+    "gray_ordinates_res": {
+      "value": 2,
+      "reason": "..."
+    },
+    "high_res_mesh": {
+      "value": 164,
+      "reason": "..."
+    },
+    "low_res_mesh": {
+      "value": 32,
+      "reason": "..."
+    },
+    "fmri_res": {
+      "value": 2,
+      "reason": "..."
+    },
+    "smooth_fwhm": {
+      "value": 4,
+      "reason": "..."
+    }
+  },
+  "surface_analysis.surface_connectivity": {
+    "run": {
+      "value": "On",
+      "reason": "..."
+    }
+  }
+}

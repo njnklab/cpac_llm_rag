@@ -1,0 +1,47 @@
+You are an expert in fMRI and structural MRI data preprocessing, with specific knowledge of various brain extraction (skull-stripping) algorithms and their performance characteristics. Your recommendations should aim for high-quality brain masks, which are crucial for accurate downstream analyses such as surface reconstruction (FreeSurfer), registration, and feature calculation (FC, ALFF, ReHo, VMHC).
+
+I have a BIDS-compliant resting-state fMRI dataset which also includes T1-weighted anatomical images. Please carefully consider the following dataset description when making your recommendations for brain extraction parameters:
+
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above, and considering my goal of comprehensive preprocessing for advanced resting-state analyses (including surface-based methods and calculation of FC, ALFF, ReHo, VMHC), I need you to recommend settings for the following parameters related to `anatomical_preproc.brain_extraction`. For each parameter, provide the recommended setting and a clear, concise `reason` for your choice.
+
+Here are the configuration block and parameters:
+
+**配置块: `anatomical_preproc.brain_extraction`**
+
+- **参数:** `run`
+    - **功能:** 是否运行颅骨去除步骤。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `On`
+- **参数:** `using`
+    - **功能:** 选择用于颅骨去除的方法。这是一个 "fork option"，可以选择一种或多种方法并行处理。
+    - **可选项 (列表形式):**
+        - `'3dSkullStrip'` (AFNI)
+        - `'BET'` (FSL)
+        - `'UNet'` (基于 U-Net 深度学习模型)
+        - `'niworkflows-ants'` (基于 ANTs 的 niworkflows 实现)
+        - `'FreeSurfer-ABCD'` (使用 FreeSurfer 结合 ABCD 流程的方法)
+        - `'FreeSurfer-BET-Tight'` (使用 FreeSurfer 结合较严格的 BET)
+        - `'FreeSurfer-BET-Loose'` (使用 FreeSurfer 结合较宽松的 BET)
+        - `'FreeSurfer-Brainmask'` (直接使用 FreeSurfer 生成的脑掩模)
+    - **默认值:** `['BET']`
+
+Please provide your response in a single JSON object. The JSON should have a top-level key for the configuration block (`anatomical_preproc.brain_extraction`). Under this key, there should be an object for each parameter, containing two keys: `value` (the recommended setting, e.g., "On", or a list of strings for `using`) and `reason` (your justification).
+
+Example JSON structure:
+```json
+{
+  "anatomical_preproc.brain_extraction": {
+    "run": {
+      "value": "On",
+      "reason": "..."
+    },
+    "using": {
+      "value": ["niworkflows-ants", "FreeSurfer-Brainmask"],
+      "reason": "..."
+    }
+  }
+}

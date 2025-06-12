@@ -1,0 +1,101 @@
+You are an expert in fMRI data preprocessing pipelines, specifically concerning the transformation of functional data into standard template spaces for group analysis. Your recommendations should ensure accurate spatial normalization while considering computational efficiency and the preservation of signal quality.
+
+I have a BIDS-compliant resting-state fMRI dataset. My overall goal is comprehensive preprocessing for advanced resting-state analyses (FC, ALFF, ReHo, VMHC) in a standard space. Please carefully consider the following dataset description:
+
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description, my primary registration strategy, and my analysis goals, I need you to recommend settings for the following parameters related to applying transformations to bring functional data into template space (`registration_workflows.functional_registration.func_registration_to_template`) and its sub-modules. For each parameter, provide the recommended `value` and a brief `reason`.
+
+Here are the configuration blocks and parameters:
+
+**Configuration Block: `registration_workflows.functional_registration.func_registration_to_template`**
+- **Parameter:** `run`
+    - **Function:** Whether to apply the functional-to-T1_template registration transform to the functional data.
+    - **Options:** `On`, `Off`
+    - **Default:** `On`
+- **Parameter:** `run_EPI`
+    - **Function:** Whether to apply the functional-to-EPI_template registration transform (if `EPI_registration` was run).
+    - **Options:** `On`, `Off`
+    - **Default:** `Off`
+    - **Sub-configuration Block: `output_resolution`**
+        - **Parameter:** `func_preproc_outputs`
+            - **Function:** Resolution (mm) for preprocessed, registered functional time series outputs.
+            - **Format:** String, e.g., `'3mm'`, `'2mm'`.
+            - **Default:** `'3mm'`
+        - **Parameter:** `func_derivative_outputs`
+            - **Function:** Resolution (mm) for registered derivative outputs (e.g., ALFF, ReHo).
+            - **Format:** String, e.g., `'3mm'`, `'2mm'`.
+            - **Default:** `'3mm'`
+    - **Sub-configuration Block: `target_template`**
+        - **Parameter:** `using`
+            - **Function:** Target template space(s) for functional outputs and derivatives. Fork option.
+            - **Options (list):** `['T1_template']`, `['EPI_template']`, `['T1_template', 'EPI_template']`
+            - **Default:** `['T1_template']`
+- **Sub-configuration Block: `ANTs_pipelines`**
+    - **Parameter:** `interpolation`
+        - **Function:** Interpolation method when using ANTs to apply transforms.
+        - **Options:** `'Linear'`, `'BSpline'`, `'LanczosWindowedSinc'`
+        - **Default:** `'LanczosWindowedSinc'`
+- **Sub-configuration Block: `FNIRT_pipelines`**
+    - **Parameter:** `interpolation`
+        - **Function:** Interpolation method when using FSL to apply transforms.
+        - **Options:** `'trilinear'`, `'sinc'`, `'spline'`
+        - **Default:** `'sinc'`
+- **Sub-configuration Block: `apply_transform`**
+    - **Parameter:** `using`
+        - **Function:** Strategy for applying combined transforms.
+        - **Options:** `'default'`, `'abcd'`, `'single_step_resampling_from_stc'`, `'dcan_nhp'`
+        - **Default:** `'default'`
+
+Please provide your response in a single JSON object. The JSON should have top-level keys for each configuration block and sub-block. Under each key, there should be an object for each parameter, containing `value` and a brief `reason`.
+
+Example JSON structure:
+```json
+{
+  "registration_workflows.functional_registration.func_registration_to_template": {
+    "run": {
+      "value": "On",
+      "reason": "..."
+    },
+    "run_EPI": {
+      "value": "Off",
+      "reason": "..."
+    },
+    "output_resolution": {
+      "func_preproc_outputs": {
+        "value": "2mm",
+        "reason": "..."
+      },
+      "func_derivative_outputs": {
+        "value": "2mm",
+        "reason": "..."
+      }
+    },
+    "target_template": {
+      "using": {
+        "value": ["T1_template"],
+        "reason": "..."
+      }
+    }
+  },
+  "registration_workflows.functional_registration.func_registration_to_template.ANTs_pipelines": {
+    "interpolation": {
+      "value": "LanczosWindowedSinc",
+      "reason": "..."
+    }
+  },
+  "registration_workflows.functional_registration.func_registration_to_template.FNIRT_pipelines": {
+    "interpolation": {
+      "value": "sinc",
+      "reason": "..."
+    }
+  },
+  "registration_workflows.functional_registration.func_registration_to_template.apply_transform": {
+    "using": {
+      "value": "single_step_resampling_from_stc",
+      "reason": "..."
+    }
+  }
+}

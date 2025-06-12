@@ -1,0 +1,49 @@
+You are an expert in fMRI data preprocessing and neuroimage registration. You understand different strategies for normalizing functional data to a standard space, including direct EPI-to-template registration. Your recommendations should consider the trade-offs between different normalization pathways and the overall goal of achieving accurate spatial correspondence for group analyses.
+
+I have a BIDS-compliant resting-state fMRI dataset which includes T1-weighted anatomical images and BOLD fMRI data for each subject. My primary planned registration pathway involves coregistering BOLD to the subject's T1w, and then registering the T1w to a standard template (e.g., MNI T1w template). However, I am also exploring parameters for direct BOLD EPI to an EPI template registration. My overall goal is comprehensive preprocessing for advanced resting-state analyses (FC, ALFF, ReHo, VMHC). Please carefully consider the following dataset description:
+
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above, my primary registration strategy, and my overall analysis goals, I need you to recommend settings for the following parameters related to direct functional EPI to EPI template registration (`registration_workflows.functional_registration.EPI_registration`). For each parameter, provide the recommended setting and a clear, concise `reason` for your choice. Consider if this step is complementary or redundant given the primary T1w-mediated registration path.
+
+Here are the configuration block and parameters:
+
+**配置块: `registration_workflows.functional_registration.EPI_registration`**
+- **参数:** `run`
+    - **功能:** 是否运行功能像直接到EPI模板的配准。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+- **参数:** `using`
+    - **功能:** 选择用于EPI直接配准的方法/工具。这是一个 "fork option"。
+    - **可选项 (列表形式):**
+        - `'ANTS'` (ANTs SyN 非线性配准)
+        - `'FSL'` (FSL FNIRT 非线性配准)
+        - `'FSL-linear'` (FSL FLIRT 线性配准)
+    - **默认值:** `['ANTS']`
+- **参数:** `interpolation`
+    - **功能:** 输出变换后的EPI图像时使用的插值方法。
+    - **可选项:** `'Linear'`, `'BSpline'`, `'LanczosWindowedSinc'`
+    - **默认值:** `'LanczosWindowedSinc'`
+
+Please provide your response in a single JSON object. The JSON should have a top-level key for the configuration block (`registration_workflows.functional_registration.EPI_registration`). Under this key, there should be an object for each parameter, containing `value` and `reason`.
+
+Example JSON structure:
+```json
+{
+  "registration_workflows.functional_registration.EPI_registration": {
+    "run": {
+      "value": "Off",
+      "reason": "..."
+    },
+    "using": {
+      "value": ["ANTS"],
+      "reason": "..."
+    },
+    "interpolation": {
+      "value": "LanczosWindowedSinc",
+      "reason": "..."
+    }
+  }
+}

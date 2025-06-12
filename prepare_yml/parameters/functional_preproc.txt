@@ -1,0 +1,94 @@
+You are an expert in fMRI data preprocessing, specializing in initial functional data preparation steps. You understand the importance of each preprocessing stage in ensuring data quality and suitability for downstream analyses like functional connectivity, ALFF, ReHo, and VMHC. Your recommendations should balance computational efficiency with the need for robust artifact removal and signal integrity.
+
+I have a BIDS-compliant resting-state fMRI dataset which includes T1-weighted anatomical images and BOLD fMRI data for each subject. My primary planned registration pathway involves coregistering BOLD to the subject's T1w, and then registering the T1w to a standard template (e.g., MNI T1w template). My overall goal is comprehensive preprocessing for advanced resting-state analyses (FC, ALFF, ReHo, VMHC). Please carefully consider the following dataset description:
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above, my primary analysis goals, and the nature of resting-state fMRI data, I need you to recommend settings for the following parameters related to initial functional data preprocessing (`functional_preproc`). For each parameter, provide the recommended setting and a clear, concise reason for your choice. Consider the typical requirements for human resting-state fMRI.
+
+Here are the configuration block and parameters:
+# **`functional_preproc`**
+
+**配置块: `functional_preproc`**
+
+- **参数:** `run`
+    - **功能:** 是否运行功能像预处理流程。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `On`
+    - **子配置块: `update_header`** (更新头文件信息)
+        - **参数:** `run`
+            - **功能:** 是否将原始数据的方向从 LPI (Left-Posterior-Inferior) 转换为 RPI (Right-Posterior-Inferior)。这是一个常见的方向标准化步骤。
+            - **可选项:** `On`, `Off`
+            - **默认值:** `On`
+    - **子配置块: `truncation`** (时间点截取)
+        - **参数:** `start_tr`
+            - **功能:** 指定分析中包含的第一个时间点 (TR) 的索引 (从0开始)。
+            - **填写说明:** 整数。如果数据配置文件中为特定扫描指定了起始TR，则会覆盖此处的全局设置。
+            - **默认值:** `0`
+    - **子配置块: `scaling`** (数据缩放 - 通常用于啮齿类动物流程)
+        - **参数:** `run`
+            - **功能:** 是否对功能原始数据进行缩放。
+            - **可选项:** `On`, `Off`
+            - **默认值:** `Off`
+        - **参数:** `scaling_factor`
+            - **功能:** 数据集单个体素大小的缩放因子。
+            - **填写说明:** 数值。
+            - **默认值:** `10`
+    - **子配置块: `despiking`** (去尖峰)
+        - **参数:** `run`
+            - **功能:** 是否运行 AFNI `3dDespike` 去除时间序列中的异常尖峰信号。这是一个 "fork option"。
+            - **可选项:** `[On]`, `[Off]`
+            - **默认值:** `[Off]`
+    - **子配置块: `slice_timing_correction`** (时间层校正)
+        - **参数:** `run`
+            - **功能:** 是否对体素时间序列进行插值，使其在同一时间点采样（校正不同时间层面采集的差异）。这是一个 "fork option"。
+            - **可选项:** `[On]`, `[Off]`
+            - **默认值:** `[On]`
+
+Please provide your response in a single JSON object. The JSON should have a top-level key for the configuration block (`functional_preproc`). Under this key, there should be an object for each parameter, containing `value` and `reason`. For sub-blocks, nest them appropriately.
+
+Example JSON structure:
+```json
+{
+  "functional_preproc": {
+    "run": {
+      "value": "On",
+      "reason": "..."
+    },
+    "update_header": {
+      "run": {
+        "value": "On",
+        "reason": "..."
+      }
+    },
+    "truncation": {
+      "start_tr": {
+        "value": 0,
+        "reason": "..."
+      }
+    },
+    "scaling": {
+      "run": {
+        "value": "Off",
+        "reason": "..."
+      },
+      "scaling_factor": {
+        "value": 10,
+        "reason": "..."
+      }
+    },
+    "despiking": {
+      "run": {
+        "value": "Off",
+        "reason": "..."
+      }
+    },
+    "slice_timing_correction": {
+      "run": {
+        "value": "On",
+        "reason": "..."
+      }
+    }
+  }
+}

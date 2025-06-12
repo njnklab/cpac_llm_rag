@@ -1,0 +1,93 @@
+You are an expert in fMRI data preprocessing, with specialized knowledge in denoising strategies, including temporal filtering and nuisance regression. You understand that effective removal of non-neuronal signal (e.g., physiological noise, motion artifacts, scanner drift) is critical for accurate and interpretable resting-state fMRI analyses. Your recommendations should optimize signal-to-noise ratio while preserving the underlying neural dynamics relevant for functional connectivity, ALFF, ReHo, and VMHC.
+
+I have a BIDS-compliant resting-state fMRI dataset which includes T1-weighted anatomical images and BOLD fMRI data for each subject. My primary planned registration pathway involves coregistering BOLD to the subject's T1w, and then registering the T1w to a standard template (e.g., MNI T1w template). My overall goal is comprehensive preprocessing for advanced resting-state analyses (FC, ALFF, ReHo, VMHC). Please carefully consider the following dataset description:
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above, my primary analysis goals, and the nature of resting-state fMRI data, I need you to recommend settings for the following parameters related to functional data filtering and nuisance regression (`functional_preproc.functional_filtering`). For each parameter, provide the recommended setting and a clear, concise reason for your choice. Consider standard practices for human resting-state fMRI denoising.
+
+Here are the configuration block and parameters:
+# **`functional_preproc.functional_filtering`**
+
+**配置块: `functional_preproc.functional_filtering`**
+
+- **参数:** `run`
+    - **功能:** 是否运行功能像滤波。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `On`
+    - **子配置块: `bandpass_filter`** (带通滤波)
+        - **参数:** `run`
+            - **功能:** 是否对功能时间序列进行带通滤波。
+            - **可选项:** `On`, `Off`
+            - **默认值:** `On`
+        - **参数:** `high_pass_filter_cutoff`
+            - **功能:** 带通滤波的最高频率截止值（Hz）。
+            - **填写说明:** 浮点数。
+            - **默认值:** `0.01`
+        - **参数:** `low_pass_filter_cutoff`
+            - **功能:** 带通滤波的最低频率截止值（Hz）。
+            - **填写说明:** 浮点数。
+            - **默认值:** `0.1`
+    - **子配置块: `nuisance_regression`** (协变量回归)
+        - **参数:** `run`
+            - **功能:** 是否运行协变量回归。
+            - **可选项:** `On`, `Off`
+            - **默认值:** `On`
+        - **参数:** `using`
+            - **功能:** 选择用于协变量回归的方法。
+            - **可选项 (列表形式):** `'global_signal_regression'` (全局信号回归), `'compcor'` (CompCor), `'tcompcor'` (temporal CompCor), `'acompcor'` (anatomical CompCor), `'motion_regressors'` (运动参数回归), `'aroma'` (ICA-AROMA), `'aroma_regression'` (ICA-AROMA + 回归), `'high_pass_filter'` (高通滤波 - 作为协变量回归的一种形式), `'low_pass_filter'` (低通滤波 - 作为协变量回归的一种形式)
+            - **默认值:** `['motion_regressors']`
+        - **参数:** `custom_nuisance_regressors_file`
+            - **功能:** 提供一个包含自定义协变量的CSV文件路径。
+            - **填写说明:** 文件路径。
+            - **默认值:** `''`
+        - **参数:** `remove_linear_trend`
+            - **功能:** 是否在协变量回归中去除线性趋势。
+            - **可选项:** `On`, `Off`
+            - **默认值:** `On`
+
+Please provide your response in a single JSON object. The JSON should have a top-level key for the configuration block (`functional_preproc.functional_filtering`). Under this key, there should be an object for each parameter, containing `value` and `reason`. For sub-blocks, nest them appropriately.
+
+Example JSON structure:
+```json
+{
+  "functional_preproc.functional_filtering": {
+    "run": {
+      "value": "On",
+      "reason": "..."
+    },
+    "bandpass_filter": {
+      "run": {
+        "value": "On",
+        "reason": "..."
+      },
+      "high_pass_filter_cutoff": {
+        "value": 0.01,
+        "reason": "..."
+      },
+      "low_pass_filter_cutoff": {
+        "value": 0.1,
+        "reason": "..."
+      }
+    },
+    "nuisance_regression": {
+      "run": {
+        "value": "On",
+        "reason": "..."
+      },
+      "using": {
+        "value": ["motion_regressors", "acompcor"],
+        "reason": "..."
+      },
+      "custom_nuisance_regressors_file": {
+        "value": "",
+        "reason": "..."
+      },
+      "remove_linear_trend": {
+        "value": "On",
+        "reason": "..."
+      }
+    }
+  }
+}

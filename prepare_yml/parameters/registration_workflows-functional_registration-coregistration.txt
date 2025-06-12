@@ -1,0 +1,126 @@
+You are an expert in fMRI data preprocessing, with a strong understanding of image registration techniques, particularly for aligning functional (BOLD EPI) images to a subject's own anatomical (T1-weighted) space. Your recommendations should prioritize accuracy and robustness, as this coregistration step is fundamental for mapping functional signals to anatomical structures and subsequently to standard space for group analyses (FC, ALFF, ReHo, VMHC).
+
+I have a BIDS-compliant resting-state fMRI dataset which includes T1-weighted anatomical images and BOLD fMRI data for each subject. The fMRI data has a TR of 2.5s, 100 dynamics, and 25 slices with provided slice timing information. My goal is comprehensive preprocessing. Please carefully consider the following dataset description when making your recommendations:
+
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above and my analysis goals, I need you to recommend settings for the following parameters related to functional to anatomical coregistration (`registration_workflows.functional_registration.coregistration`) and its sub-modules. For each parameter, provide the recommended setting and a clear, concise `reason` for your choice. Pay attention to "fork options".
+
+Here are the configuration blocks and parameters:
+
+**配置块: `registration_workflows.functional_registration.coregistration`**
+- **参数:** `run`
+    - **功能:** 是否运行功能像 (BOLD/EPI) 到该被试结构像 (T1) 的配准。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `On`
+- **参数:** `reference`
+    - **功能:** 配准时使用的结构像参考。
+    - **可选项:** `'brain'` (去颅骨的脑组织), `'restore-brain'`
+    - **默认值:** `brain`
+- **参数:** `using`
+    - **功能:** 选择功能-结构配准的方法。
+    - **可选项:** `'FSL'` (使用FSL FLIRT), `'ABCD'`
+    - **默认值:** `FSL`
+- **参数:** `input`
+    - **功能:** 选择配准时使用的功能像输入类型。
+    - **可选项:** `'brain'` (去颅骨的功能像), `'whole-head'`
+    - **默认值:** `brain`
+- **参数:** `interpolation`
+    - **功能:** 配准时使用的插值方法。
+    - **可选项:** `'trilinear'`, `'nearestneighbour'`, `'sinc'`, `'spline'`
+    - **默认值:** `trilinear`
+- **参数:** `cost`
+    - **功能:** 配准时使用的成本函数。
+    - **可选项:** `'corratio'`, `'mutualinfo'`, `'normmi'`
+    - **默认值:** `corratio`
+- **参数:** `dof`
+    - **功能:** 配准的自由度。
+    - **填写说明:** 整数。
+    - **默认值:** `6`
+
+**子配置块: `registration_workflows.functional_registration.coregistration.func_input_prep`**
+- **参数:** `reg_with_skull`
+    - **功能:** 选择用于功能-结构配准的功能像输入是否包含颅骨。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+- **参数:** `input`
+    - **功能:** 选择作为功能-结构配准输入的功能数据类型。
+    - **可选项 (列表形式):** `'Mean_Functional'`, `'Selected_Functional_Volume'`, `'fmriprep_reference'`
+    - **默认值:** `['Mean_Functional']`
+        
+**子配置块: `registration_workflows.functional_registration.coregistration.boundary_based_registration` (BBR)**
+- **参数:** `run`
+    - **功能:** 是否使用基于边界的配准 (BBR)。这是一个 "fork option"。
+    - **可选项:** `[On]`, `[Off]`
+    - **默认值:** `[On]`
+- **参数:** `reference`
+    - **功能:** BBR 使用的结构像参考。
+    - **可选项:** `'whole-head'`, `'brain'`
+    - **默认值:** `whole-head`
+- **参数:** `bbr_wm_map`
+    - **功能:** 选择使用 FSL FAST 生成的哪种图来创建 BBR 需要的白质掩模。
+    - **可选项:** `'probability_map'`, `'partial_volume_map'`
+    - **默认值:** `'probability_map'`
+
+Please provide your response in a single JSON object. The JSON should have top-level keys for each configuration block (e.g., `registration_workflows.functional_registration.coregistration`, and its sub-blocks). Under each block key, there should be an object for each parameter, containing `value` and `reason`.
+
+Example JSON structure:
+```json
+{
+  "registration_workflows.functional_registration.coregistration": {
+    "run": {
+      "value": "On",
+      "reason": "..."
+    },
+    "reference": {
+      "value": "brain",
+      "reason": "..."
+    },
+    "using": {
+      "value": "FSL",
+      "reason": "..."
+    },
+    "input": {
+      "value": "brain",
+      "reason": "..."
+    },
+    "interpolation": {
+      "value": "trilinear",
+      "reason": "..."
+    },
+    "cost": {
+      "value": "normmi",
+      "reason": "..."
+    },
+    "dof": {
+      "value": 6,
+      "reason": "..."
+    }
+  },
+  "registration_workflows.functional_registration.coregistration.func_input_prep": {
+    "reg_with_skull": {
+      "value": "Off",
+      "reason": "..."
+    },
+    "input": {
+      "value": ["Mean_Functional"],
+      "reason": "..."
+    }
+  },
+  "registration_workflows.functional_registration.coregistration.boundary_based_registration": {
+    "run": {
+      "value": "[On]",
+      "reason": "..."
+    },
+    "reference": {
+      "value": "whole-head",
+      "reason": "..."
+    },
+    "bbr_wm_map": {
+      "value": "probability_map",
+      "reason": "..."
+    }
+  }
+}

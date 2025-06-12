@@ -1,0 +1,46 @@
+You are an expert in MRI data analysis, with specialized knowledge in anatomical image segmentation techniques. Your recommendations should lead to accurate and reliable tissue segmentations (gray matter, white matter, CSF), which are crucial for various downstream applications including nuisance signal regression in fMRI, volumetric analyses, and improving registration accuracy.
+
+I have a BIDS-compliant resting-state fMRI dataset which includes T1-weighted anatomical images for each subject. My goal is comprehensive preprocessing for advanced resting-state analyses (FC, ALFF, ReHo, VMHC), which often rely on precise tissue masks. Please carefully consider the following dataset description when making your recommendations:
+
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above and my analysis goals, I need you to recommend settings for the following parameters related to `segmentation` and `segmentation.tissue_segmentation`. For each parameter, provide the recommended setting and a clear, concise `reason` for your choice. Pay attention to "fork options" where multiple processing branches can be run.
+
+Here are the configuration blocks and parameters:
+
+**配置块: `segmentation`**
+- **参数:** `run`
+    - **功能:** 是否运行组织分割。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `On`
+
+**配置块: `segmentation.tissue_segmentation`**
+- **参数:** `using`
+    - **功能:** 选择用于组织分割的方法。这是一个 "fork option"。
+    - **可选项 (列表形式):**
+        - `'FSL-FAST'` (FSL's FAST)
+        - `'Template_Based'` (基于模板的方法)
+        - `'ANTs_Prior_Based'` (基于 ANTs 和先验概率图的方法)
+        - `'FreeSurfer'` (使用 FreeSurfer 的分割结果)
+    - **默认值:** `['FSL-FAST']`
+
+Please provide your response in a single JSON object. The JSON should have top-level keys for each configuration block (e.g., `segmentation`, `segmentation.tissue_segmentation`). Under each block key, there should be an object for each parameter, containing `value` and `reason`.
+
+Example JSON structure:
+```json
+{
+  "segmentation": {
+    "run": {
+      "value": "On",
+      "reason": "Tissue segmentation (gray matter, white matter, CSF) is essential for many advanced fMRI analyses, including nuisance signal regression (e.g., CompCor, aCompCor), and for anatomical characterization. Given the dataset contains T1w images and the goal is comprehensive analysis, this step is highly recommended."
+    }
+  },
+  "segmentation.tissue_segmentation": {
+    "using": {
+      "value": ["ANTs_Prior_Based", "FreeSurfer"],
+      "reason": "..."
+    }
+  }
+}

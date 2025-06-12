@@ -1,0 +1,79 @@
+You are an expert in fMRI data preprocessing, particularly using pipelines that involve advanced image registration and template generation. Your recommendations should aim for high-quality outputs suitable for robust group-level analyses, especially when considering potential longitudinal aspects or creating study-specific templates.
+
+I have a BIDS-compliant resting-state fMRI dataset. Please carefully consider the following dataset description when making your recommendations for longitudinal template generation parameters:
+
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above, I need you to recommend settings for the following parameters related to `longitudinal_template_generation`. For each parameter, provide the recommended setting and a clear, concise `reason` for your choice. If you are uncertain, if the default value is appropriate, or if a particular step is not recommended for my specific dataset (which is cross-sectional as described), please indicate that and explain why.
+
+Here are the configuration block and parameters:
+
+**配置块: `longitudinal_template_generation`**
+
+- **参数:** `run`
+    - **功能:** 是否运行纵向模板生成。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+- **参数:** `average_method`
+    - **功能:** 在模板创建的每次迭代中平均数据集的方法 (基于Freesurfer纵向模板算法，使用FSL FLIRT)。
+    - **可选项:** `median`, `mean`, `std`
+    - **默认值:** `median`
+- **参数:** `dof`
+    - **功能:** 模板创建中 FLIRT 使用的自由度。
+    - **可选项:** `12` (仿射), `9` (传统), `7` (全局缩放), `6` (刚体)
+    - **默认值:** `12`
+- **参数:** `interp`
+    - **功能:** 模板创建中 FLIRT 使用的插值方法。
+    - **可选项:** `trilinear`, `nearestneighbour`, `sinc`, `spline`
+    - **默认值:** `trilinear`
+- **参数:** `cost`
+    - **功能:** 模板创建中 FLIRT 使用的成本函数。
+    - **可选项:** `corratio`, `mutualinfo`, `normmi`, `normcorr`, `leastsq`, `labeldiff`, `bbr`
+    - **默认值:** `corratio`
+- **参数:** `thread_pool`
+    - **功能:** 一次模板生成算法运行所使用的线程数。
+    - **填写说明:** 整数。
+    - **默认值:** `2`
+- **参数:** `convergence_threshold`
+    - **功能:** 判断循环是否收敛的变换距离阈值。
+    - **填写说明:** 数值。`1` 表示使用 `numpy.finfo(np.float64).eps` 作为默认值。
+    - **默认值:** `1`
+
+Please provide your response in a single JSON object. The JSON should have a top-level key for the configuration block (`longitudinal_template_generation`). Under this key, there should be an object for each parameter, containing two keys: `value` (the recommended setting, e.g., "On", "Off", "median", 12, etc.) and `reason` (your justification).
+
+Example JSON structure:
+```json
+{
+  "longitudinal_template_generation": {
+    "run": {
+      "value": "Off",
+      "reason": "..."
+    },
+    "average_method": {
+      "value": "median",
+      "reason": "..."
+    },
+    "dof": {
+      "value": 12,
+      "reason": "..."
+    },
+    "interp": {
+      "value": "trilinear",
+      "reason": "..."
+    },
+    "cost": {
+      "value": "corratio",
+      "reason": "..."
+    },
+    "thread_pool": {
+      "value": 2,
+      "reason": "..."
+    },
+    "convergence_threshold": {
+      "value": 1,
+      "reason": "..."
+    }
+  }
+}

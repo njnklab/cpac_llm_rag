@@ -1,0 +1,74 @@
+You are an expert in fMRI data preprocessing, with a deep understanding of advanced denoising techniques, including ICA-AROMA and various forms of nuisance regression. You recognize that effective removal of non-neuronal signal and artifacts is paramount for obtaining clean, interpretable resting-state fMRI data, crucial for analyses like functional connectivity, ALFF, ReHo, and VMHC. Your recommendations should optimize signal-to-noise ratio while preserving true neural dynamics.
+
+I have a BIDS-compliant resting-state fMRI dataset which includes T1-weighted anatomical images and BOLD fMRI data for each subject. My primary planned registration pathway involves coregistering BOLD to the subject's T1w, and then registering the T1w to a standard template (e.g., MNI T1w template). My overall goal is comprehensive preprocessing for advanced resting-state analyses (FC, ALFF, ReHo, VMHC). Please carefully consider the following dataset description:
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above, my primary analysis goals, and the nature of resting-state fMRI data, I need you to recommend settings for the following parameters related to nuisance corrections (`nuisance_corrections`). For each parameter, provide the recommended setting and a clear, concise reason for your choice. Consider standard practices for robust denoising in human resting-state fMRI.
+
+Here are the configuration block and parameters:
+# **`nuisance_corrections`**
+
+**配置块: `nuisance_corrections`**
+
+- **子配置块: `1-ICA-AROMA`** (基于ICA的自动运动伪影去除)
+    - **参数:** `run`
+        - **功能:** 是否运行 ICA-AROMA 来识别并移除与头动相关的ICA成分。这是一个 "fork option"。
+        - **可选项:** `[On]`, `[Off]`, `[On, Off]`
+        - **默认值:** `[Off]`
+    - **参数:** `denoising_type`
+        - **功能:** ICA-AROMA 的去噪策略。
+        - **可选项:**
+            - `'nonaggr'`: 非侵略性策略 (部分成分回归)。
+            - `'aggr'`: 侵略性策略 (移除整个成分)。
+        - **默认值:** `nonaggr`
+- **子配置块: `2-nuisance_regression`** (基于回归的噪声去除)
+    - **参数:** `run`
+        - **功能:** 是否运行噪声回归。这是一个 "fork option"。
+        - **可选项:** `[On]`, `[Off]`, `[On, Off]`
+        - **默认值:** `[On]`
+    - **参数:** `space`
+        - **功能:** 在哪个空间运行噪声回归。
+        - **可选项:** `'native'` (被试原始空间), `'template'` (标准模板空间)
+        - **注意:**
+            - 如果设为 `'template'`，将使用 `functional_preproc: func_masking: FSL_AFNI: brain_mask` 中配置的掩模。
+            - 如果 `registration_workflows: functional_registration: func_registration_to_template: apply_transform: using:` 设为 `'single_step_resampling_from_stc'`，则此参数必须设为 `'template'`。
+        - **默认值:** `native`
+    - **参数:** `create_regressors`
+        - **功能:** 是否生成噪声回归量。即使不运行回归（`run: [Off]`），也可以选择生成这些回归量文件以供检查或在其他软件中使用。
+        - **可选项:** `On`, `Off`
+        - **默认值:** `On`
+
+Please provide your response in a single JSON object. The JSON should have a top-level key for the configuration block (`nuisance_corrections`). Under this key, there should be an object for each parameter, containing `value` and `reason`. For sub-blocks, nest them appropriately.
+
+Example JSON structure:
+```json
+{
+  "nuisance_corrections": {
+    "1-ICA-AROMA": {
+      "run": {
+        "value": ["On"],
+        "reason": "Highly recommended for robust motion artifact removal in resting-state fMRI."
+      },
+      "denoising_type": {
+        "value": "nonaggr",
+        "reason": "Non-aggressive strategy preserves more gray matter signal while effectively removing motion-related variance."
+      }
+    },
+    "2-nuisance_regression": {
+      "run": {
+        "value": ["On"],
+        "reason": "Essential for removing various physiological and scanner-induced confounds."
+      },
+      "space": {
+        "value": "native",
+        "reason": "Performing regression in native space can minimize interpolation effects on regressors before final resampling."
+      },
+      "create_regressors": {
+        "value": "On",
+        "reason": "Useful for quality control and potential alternative analyses."
+      }
+    }
+  }
+}

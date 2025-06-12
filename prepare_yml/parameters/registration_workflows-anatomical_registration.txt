@@ -1,0 +1,61 @@
+You are an expert in neuroimage registration, with deep knowledge of various algorithms and tools for aligning anatomical (T1-weighted) images to standard templates. Your recommendations should aim for highly accurate and robust registrations, which are essential for group-level statistical analyses, comparing findings across studies, and for accurately localizing brain activity or structure in a common space.
+
+I have a BIDS-compliant resting-state fMRI dataset which includes T1-weighted anatomical images for each subject. My goal is comprehensive preprocessing for advanced resting-state analyses (FC, ALFF, ReHo, VMHC), which will ultimately require comparing results across subjects in a standard template space (e.g., MNI). Please carefully consider the following dataset description when making your recommendations:
+
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above and my analysis goals, I need you to recommend settings for the following parameters related to `registration_workflows.anatomical_registration` and its sub-module. For each parameter, provide the recommended setting and a clear, concise `reason` for your choice. Pay attention to "fork options" where multiple processing branches can be run.
+
+Here are the configuration blocks and parameters:
+
+**配置块: `registration_workflows.anatomical_registration`**
+- **参数:** `run`
+    - **功能:** 是否运行结构像到模板的配准。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `On`
+- **参数:** `resolution_for_anat`
+    - **功能:** 结构像在配准过程中以及输出时转换到的目标分辨率。
+    - **填写说明:** 字符串，例如 `'2mm'`, `'1mm'`。
+    - **默认值:** `'2mm'`
+- **参数:** `reg_with_skull`
+    - **功能:** 是否使用带颅骨的结构像配准到模板。
+    - **可选项:** `True`, `False`
+    - **默认值:** `True`
+
+**子配置块: `registration_workflows.anatomical_registration.registration`**
+- **参数:** `using`
+    - **功能:** 选择用于结构像配准的方法/工具。这是一个 "fork option"。
+    - **可选项 (列表形式):**
+        - `'ANTS'` (ANTs SyN 非线性配准)
+        - `'FSL'` (FSL FNIRT 非线性配准)
+        - `'FSL-linear'` (FSL FLIRT 线性配准)
+    - **默认值:** `['ANTS']`
+
+Please provide your response in a single JSON object. The JSON should have top-level keys for each configuration block (e.g., `registration_workflows.anatomical_registration`, `registration_workflows.anatomical_registration.registration`). Under each block key, there should be an object for each parameter, containing `value` and `reason`.
+
+Example JSON structure:
+```json
+{
+  "registration_workflows.anatomical_registration": {
+    "run": {
+      "value": "On",
+      "reason": "..."
+    },
+    "resolution_for_anat": {
+      "value": "1mm",
+      "reason": "..."
+    },
+    "reg_with_skull": {
+      "value": "False",
+      "reason": "..."
+    }
+  },
+  "registration_workflows.anatomical_registration.registration": {
+    "using": {
+      "value": ["ANTS"],
+      "reason": "..."
+    }
+  }
+}

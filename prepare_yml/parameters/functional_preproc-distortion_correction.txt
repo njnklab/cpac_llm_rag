@@ -1,0 +1,42 @@
+You are an expert in fMRI data preprocessing, with a strong understanding of EPI distortion correction techniques. You recognize that susceptibility-induced distortions are a common challenge in EPI data, leading to spatial inaccuracies, especially in areas like the orbitofrontal cortex and temporal lobes. Your recommendations should aim to effectively mitigate these distortions, thereby improving the spatial correspondence of functional data to anatomical images and enhancing the reliability of subsequent analyses.
+
+I have a BIDS-compliant resting-state fMRI dataset which includes T1-weighted anatomical images and BOLD fMRI data for each subject. My primary planned registration pathway involves coregistering BOLD to the subject's T1w, and then registering the T1w to a standard template (e.g., MNI T1w template). My overall goal is comprehensive preprocessing for advanced resting-state analyses (FC, ALFF, ReHo, VMHC). Please carefully consider the following dataset description:
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above, my primary analysis goals, and the nature of resting-state fMRI data, I need you to recommend settings for the following parameters related to EPI distortion correction (`functional_preproc.distortion_correction`). For each parameter, provide the recommended setting and a clear, concise reason for your choice. Emphasize the importance of this step if appropriate field map data is available.
+
+Here are the configuration block and parameters:
+# **`functional_preproc.distortion_correction`**
+
+**配置块: `functional_preproc.distortion_correction`**
+
+- **参数:** `run`
+    - **功能:** 是否运行EPI畸变校正。这是一个 "fork option"。
+    - **可选项:** `[On]`, `[Off]`, `[On, Off]`
+    - **默认值:** `[On]`
+- **参数:** `using`
+    - **功能:** 选择用于畸变校正的方法。如果您的数据有相应的场图 (field map) 或反向相位编码图像，则强烈建议启用此步骤。
+    - **可选项 (列表形式):**
+        - `'PhaseDiff'`: 使用梯度回波场图（通常包含相位差图像和幅度图像）进行校正。通常用于西门子扫描仪数据。
+        - `'Blip'`: 使用具有相反相位编码方向的EPI图像（也称为 "blip-up/blip-down" 或 "spin-echo field maps"）进行校正，使用AFNI `3dQWarp`。
+        - `'Blip-FSL-TOPUP'`: 与 `'Blip'` 类似，但使用FSL `TOPUP` 工具。
+    - **默认值:** `['PhaseDiff', 'Blip']` (这意味着如果数据配置中同时提供了两种类型的场图，C-PAC可能会尝试运行两种校正路径，或者根据可用的数据选择其一。通常用户会根据自己数据的类型只选择一种。)
+
+Please provide your response in a single JSON object. The JSON should have a top-level key for the configuration block (`functional_preproc.distortion_correction`). Under this key, there should be an object for each parameter, containing `value` and `reason`. For sub-blocks, nest them appropriately.
+
+Example JSON structure:
+```json
+{
+  "functional_preproc.distortion_correction": {
+    "run": {
+      "value": "On",
+      "reason": "Essential for correcting inherent EPI distortions, improving spatial accuracy and alignment, especially in frontal and temporal regions."
+    },
+    "using": {
+      "value": ["Blip-FSL-TOPUP"],
+      "reason": "TOPUP is a highly robust and widely used method for distortion correction with blip-up/blip-down data. The choice of method depends on the specific type of field map data available in your dataset."
+    }
+  }
+}

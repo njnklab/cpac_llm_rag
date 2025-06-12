@@ -1,0 +1,150 @@
+You are an expert in MRI data preprocessing, specializing in anatomical (T1-weighted) image processing pipelines. Your recommendations should ensure high-quality T1w images, which are fundamental for accurate brain extraction, surface reconstruction (e.g., FreeSurfer), registration to standard spaces, and ultimately for robust resting-state fMRI analyses (FC, ALFF, ReHo, VMHC).
+
+I have a BIDS-compliant resting-state fMRI dataset which also includes T1-weighted anatomical images for each subject. Please carefully consider the following dataset description when making your recommendations for the anatomical preprocessing parameters:
+
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above, and my goal of comprehensive preprocessing for advanced resting-state analyses, I need you to recommend settings for the following parameters related to `anatomical_preproc` and its sub-modules. For each parameter, provide the recommended setting and a clear, concise `reason` for your choice. Pay attention to "fork options" where multiple processing branches can be run.
+
+Here are the configuration blocks and parameters:
+
+**配置块: `anatomical_preproc`**
+- **参数:** `run`
+    - **功能:** 是否运行结构像（T1w）预处理流程。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `On`
+- **参数:** `run_t2`
+    - **功能:** 是否也对T2加权图像（如果提供）运行相应的预处理步骤。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+
+**配置块: `anatomical_preproc.non_local_means_filtering`**
+- **参数:** `run`
+    - **功能:** 是否运行基于 ANTs DenoiseImage 的非局部均值滤波（去噪）。这是一个 "fork option"。
+    - **可选项:** `[On]`, `[Off]`, `[On, Off]`
+    - **默认值:** `[Off]`
+- **参数:** `noise_model`
+    - **功能:** 非局部均值滤波使用的噪声模型。
+    - **可选项:** `'Gaussian'`, `'Rician'`
+    - **默认值:** `'Gaussian'`
+
+**配置块: `anatomical_preproc.n4_bias_field_correction`**
+- **参数:** `run`
+    - **功能:** 是否运行基于 ANTs 的 N4 偏置场校正。这是一个 "fork option"。
+    - **可选项:** `[On]`, `[Off]`, `[On, Off]`
+    - **默认值:** `[Off]`
+- **参数:** `shrink_factor`
+    - **功能:** N4 校正时对输入图像进行下采样的因子。
+    - **填写说明:** 整数，通常 `<= 4`。
+    - **默认值:** `2`
+
+**配置块: `anatomical_preproc.t1t2_bias_field_correction`**
+- **参数:** `run`
+    - **功能:** 是否运行基于 T1w 和 T2w 图像乘积的平方根进行的偏置场校正。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+- **参数:** `BiasFieldSmoothingSigma`
+    - **功能:** 偏置场平滑的 Sigma 值 (mm)。
+    - **填写说明:** 数值。
+    - **默认值:** `5`
+
+**配置块: `anatomical_preproc.acpc_alignment`**
+- **参数:** `run`
+    - **功能:** 是否运行 ACPC (前連合-后連合) 对齐。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+- **参数:** `run_before_preproc`
+    - **功能:** 是否在非局部均值滤波或N4偏置场校正之前运行 ACPC 对齐。
+    - **可选项:** `True`, `False`
+    - **默认值:** `True`
+- **参数:** `brain_size`
+    - **功能:** ACPC 对齐时脑部在 Z 轴方向的大小 (mm)。
+    - **填写说明:** 数值。
+    - **默认值:** `150`
+- **参数:** `FOV_crop`
+    - **功能:** ACPC 对齐中用于裁剪视野 (Field of View) 的工具。
+    - **可选项:** `robustfov`, `flirt`
+    - **默认值:** `robustfov`
+- **参数:** `acpc_target`
+    - **功能:** ACPC 对齐的目标。
+    - **可选项:** `'brain'`, `'whole-head'`
+    - **默认值:** `'whole-head'`
+- **参数:** `align_brain_mask`
+    - **功能:** 是否对脑掩模进行 ACPC 对齐。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `Off`
+
+Please provide your response in a single JSON object. The JSON should have top-level keys for each configuration block (e.g., `anatomical_preproc`, `anatomical_preproc.non_local_means_filtering`, etc.). Under each block key, there should be an object for each parameter, containing `value` and `reason`.
+
+Example JSON structure:
+```json
+{
+  "anatomical_preproc": {
+    "run": {
+      "value": "On",
+      "reason": "..."
+    },
+    "run_t2": {
+      "value": "Off",
+      "reason": "..."
+    }
+  },
+  "anatomical_preproc.non_local_means_filtering": {
+    "run": {
+      "value": "[On]",
+      "reason": "..."
+    },
+    "noise_model": {
+      "value": "Rician",
+      "reason": "..."
+    }
+  },
+  "anatomical_preproc.n4_bias_field_correction": {
+    "run": {
+      "value": "[On]",
+      "reason": "..."
+    },
+    "shrink_factor": {
+      "value": 2,
+      "reason": "..."
+    }
+  },
+  "anatomical_preproc.t1t2_bias_field_correction": {
+    "run": {
+      "value": "Off",
+      "reason": "..."
+    },
+    "BiasFieldSmoothingSigma": {
+      "value": 5,
+      "reason": "..."
+    }
+  },
+  "anatomical_preproc.acpc_alignment": {
+    "run": {
+      "value": "On",
+      "reason": "..."
+    },
+    "run_before_preproc": {
+      "value": "True",
+      "reason": "..."
+    },
+    "brain_size": {
+      "value": 150,
+      "reason": "..."
+    },
+    "FOV_crop": {
+      "value": "robustfov",
+      "reason": "..."
+    },
+    "acpc_target": {
+      "value": "whole-head",
+      "reason": "..."
+    },
+    "align_brain_mask": {
+      "value": "Off",
+      "reason": "..."
+    }
+  }
+}

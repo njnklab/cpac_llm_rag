@@ -1,0 +1,83 @@
+You are an expert in fMRI data preprocessing, with a comprehensive understanding of initial functional data preparation steps, including brain masking, signal normalization, and the generation of reference images for coregistration. You recognize that these steps are foundational for accurate spatial alignment and subsequent analyses, ensuring that only relevant brain signal is processed and that data are comparable across subjects. Your recommendations should balance computational efficiency with the need for robust data quality and consistency.
+
+I have a BIDS-compliant resting-state fMRI dataset which includes T1-weighted anatomical images and BOLD fMRI data for each subject. My primary planned registration pathway involves coregistering BOLD to the subject's T1w, and then registering the T1w to a standard template (e.g., MNI T1w template). My overall goal is comprehensive preprocessing for advanced resting-state analyses (FC, ALFF, ReHo, VMHC). Please carefully consider the following dataset description:
+[--- BEGIN DATASET DESCRIPTION (from dataset_description.txt) ---]
+{PASTE THE CONTENT OF YOUR dataset_description.txt HERE}
+[--- END DATASET DESCRIPTION ---]
+
+Based on the dataset description above, my primary analysis goals, and the nature of resting-state fMRI data, I need you to recommend settings for the following parameters related to functional data masking, mean image generation, normalization, and coregistration preparation. For each parameter, provide the recommended setting and a clear, concise reason for your choice. Consider standard practices for human resting-state fMRI.
+
+Here are the configuration blocks and parameters:
+# **`functional_preproc.func_masking`**
+
+**配置块: `functional_preproc.func_masking`**
+
+- **参数:** `run`
+    - **功能:** 是否为功能像生成脑掩模。
+    - **可选项:** `On`, `Off`
+    - **默认值:** `On`
+- **参数:** `using`
+    - **功能:** 选择用于生成功能像脑掩模的方法。这是一个 "fork option"。
+    - **可选项 (列表形式):**
+        - `'AFNI'` (使用 AFNI 工具，通常是 `3dAutomask` 或类似方法)
+        - `'FSL'` (使用 FSL BET 工具直接应用于功能像)
+        - `'FSL_AFNI'` (fMRIPrep 风格的 BOLD 掩模生成，结合 FSL 和 AFNI 工具)
+        - `'Anatomical_Refined'` (基于结构像掩模并进行优化)
+        - `'Anatomical_Based'` (DCAN Lab ABCD 流程风格，基于结构像掩模)
+        - `'Anatomical_Resampled'` (DCAN Lab ABCD 流程风格，重采样标准空间结构像掩模)
+        - `'CCS_Anatomical_Refined'` (CCS 流程风格，基于结构像掩模优化)
+    - **默认值:** `['AFNI']`
+    
+    **配置块: `functional_preproc.generate_func_mean`**
+    
+    - **参数:** `run`
+        - **功能:** 是否生成功能像时间序列的均值图像。这个均值图像常用于后续的配准或质量控制。
+        - **可选项:** `On`, `Off`
+        - **默认值:** `On`
+    
+    **配置块: `functional_preproc.normalize_func`**
+    
+    - **参数:** `run`
+        - **功能:** 是否对功能像进行标准化处理（例如，信号强度归一化）。
+        - **可选项:** `On`, `Off`
+        - **默认值:** `On`
+    
+    **配置块: `functional_preproc.coreg_prep`**
+    
+    - **参数:** `run`
+        - **功能:** 是否生成 sbref (single-band reference image) 图像。
+        - **可选项:** `On`, `Off`
+        - **默认值:** `On`
+
+Please provide your response in a single JSON object. The JSON should have a top-level key for `functional_preproc`. Under this key, there should be objects for `func_masking`, `generate_func_mean`, `normalize_func`, and `coreg_prep`, each containing its respective parameters with `value` and `reason`. For sub-blocks, nest them appropriately.
+
+Example JSON structure:
+```json
+{
+  "functional_preproc": {
+    "func_masking": {
+      "run": {
+        "value": "On",
+        "reason": "..."
+      },
+      "using": {
+        "value": ["FSL_AFNI"],
+        "reason": "..."
+      }
+    },
+    "generate_func_mean": {
+      "run": {
+        "value": "On",
+        "reason": "..."
+      }
+    },
+    "normalize_func": {
+      "value": "On",
+      "reason": "..."
+    },
+    "coreg_prep": {
+      "value": "On",
+      "reason": "..."
+    }
+  }
+}
