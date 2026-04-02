@@ -1,0 +1,65 @@
+{
+    "evaluation_time": "2026-03-10T04:44:18.129978",
+    "model_name": "qwen3:14b",
+    "embed_model": "nomic-embed-text:latest",
+    "db_path": "/home/a001/zhangyan/LitQuery/serpapi_db_nomic-embed-text",
+    "db_doc_count": 54706,
+    "total_samples": 30,
+    "metrics_summary": {
+        "faithfulness": {
+            "mean": 0.3,
+            "std": NaN,
+            "median": NaN,
+            "p10": NaN,
+            "p90": NaN,
+            "min": NaN,
+            "max": NaN,
+            "count": 30
+        },
+        "answer_relevancy": {
+            "mean": 0.75,
+            "std": 0.045422008589954724,
+            "median": 0.7245008861402747,
+            "p10": 0.6512335050690923,
+            "p90": 0.7689589496206414,
+            "min": 0.6205274392822817,
+            "max": 0.7807695370064877,
+            "count": 30
+        },
+        "context_utilization": {
+            "mean": 0.163,
+            "std": 0.32228506195826456,
+            "median": 0.0,
+            "p10": 0.0,
+            "p90": 0.8249999999658335,
+            "min": 0.0,
+            "max": 0.9999999999,
+            "count": 30
+        },
+        "cpac_plan_quality": {
+            "mean": 3.5,
+            "std": 0.3590109871423002,
+            "median": 5.0,
+            "p10": 5.0,
+            "p90": 5.0,
+            "min": 3.0,
+            "max": 5.0,
+            "count": 30
+        },
+        "evidence_uncertainty": {
+            "mean": 3.1,
+            "std": NaN,
+            "median": NaN,
+            "p10": NaN,
+            "p90": NaN,
+            "min": NaN,
+            "max": NaN,
+            "count": 30
+        }
+    },
+    "context_utilization": 0.163,
+    "faithfulness": 0.3,
+    "answer_relevancy": 0.75,
+    "cpac_plan_quality": 3.5,
+    "evidence_uncertainty": 3.1
+}

@@ -1,0 +1,51 @@
+# Core dependencies
+pydantic>=2.0
+pyyaml>=6.0
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+matplotlib>=3.7
+seaborn>=0.12
+tqdm>=4.65
+
+# BIDS and neuroimaging
+pybids>=0.16
+nibabel>=5.1
+mriqc>=23.0
+
+# LLM and RAG
+openai>=1.0
+chromadb>=0.4
+langchain>=0.1
+langchain-community>=0.0.10
+sentence-transformers>=2.2
+
+# HTTP requests
+requests>=2.31
+httpx>=0.25
+
+# AWS (optional, for Bedrock)
+boto3>=1.28
+anthropic>=0.8
+
+# Data processing
+openpyxl>=3.1
+xlrd>=2.0
+
+# Visualization
+plotly>=5.15
+
+# Scientific computing
+scipy>=1.11
+statsmodels>=0.14
+
+# PDF processing (for LitQuery)
+PyPDF2>=3.0
+
+# Optional: PyTorch for deep learning models
+# torch>=2.0
+# torch-geometric>=2.3
+# torchvision>=0.15
+
+# Optional: ComBat harmonization
+# neuroHarmonize>=2.0

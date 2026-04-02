@@ -1,0 +1,126 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.non_local_means_filtering.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Given the closed-eyes resting state acquisition and potential for noise, applying non-local means filtering can improve image quality and subsequent analyses by reducing noise while preserving edges."
+        },
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Bias field artifacts are common in MRI, and correcting for them is crucial for accurate segmentation and normalization. N4 bias field correction is a robust method for addressing this."
+        },
+        {
+            "parameter_path": "anatomical_preproc.brain_extraction.FSL-BET.Robustfov",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Enabling RobustFOV can help improve brain extraction, particularly in cases where the skull shape is unusual or there are artifacts. This is especially helpful for a clinical population like those with depression, where anatomical variations may be more common."
+        },
+        {
+            "parameter_path": "functional_preproc.scaling.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Scaling can improve signal quality, particularly important for group comparisons and machine learning tasks. Given the research goal of discriminating between depression and healthy controls, maximizing signal clarity is crucial."
+        },
+        {
+            "parameter_path": "functional_preproc.motion_estimates_and_correction.motion_correction.using",
+            "current_default": "3dvolreg",
+            "recommended_value": "mcflirt",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "mcflirt is generally considered more robust for handling head motion in fMRI data, especially when dealing with clinical populations where motion artifacts might be more prevalent. This can improve the accuracy of subsequent analyses."
+        },
+        {
+            "parameter_path": "functional_preproc.func_masking.using",
+            "current_default": "AFNI",
+            "recommended_value": "Anatomical_Based",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Using the anatomical image to create the functional mask provides better alignment between the functional and structural data, which is important for accurate spatial normalization and feature extraction. This is particularly useful when performing group-level analyses and machine learning."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.EPI_registration.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Given the research goal of investigating functional connectivity, registering the EPI data to a template space is crucial for group analysis and comparison with other studies. The default setting disables this essential step."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_preproc_outputs",
+            "current_default": "3mm",
+            "recommended_value": "2mm",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "A 2mm resolution will provide more detailed functional data for analysis, potentially improving the sensitivity of identifying differences between groups. Given the voxel size of 1.96x1.96x5.0, a 2mm output resolution is reasonable and balances detail with computational cost."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.cost",
+            "current_default": "corratio",
+            "recommended_value": "mutual_info",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "For functional to structural coregistration, mutual information is often a more robust cost function than correlation ratio, especially when dealing with different image contrasts."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "For group analyses and to ensure comparability across subjects, nuisance regression should be performed in a standard space (template) rather than native space."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.bandpass_filtering_order",
+            "current_default": "After",
+            "recommended_value": "Before",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Performing bandpass filtering *before* nuisance regression can improve the effectiveness of removing physiological noise, especially in resting-state fMRI data. It helps to isolate the frequencies of interest before regressing out unwanted signals."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.CSF_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.85",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Given the population (patients with depression and healthy controls), a slightly more lenient threshold for CSF segmentation may improve accuracy by capturing subtle structural differences related to depression. A value of 0.85 is often used in similar studies."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.WM_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.85",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Similar to CSF, a slightly more lenient threshold for white matter segmentation may improve accuracy by capturing subtle structural differences related to depression."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.GM_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.85",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Similar to CSF and WM, a slightly more lenient threshold for grey matter segmentation may improve accuracy by capturing subtle structural differences related to depression."
+        }
+    ],
+    "summary": {
+        "total_modifications": 14,
+        "high_confidence": 3,
+        "medium_confidence": 11,
+        "low_confidence": 0
+    }
+}

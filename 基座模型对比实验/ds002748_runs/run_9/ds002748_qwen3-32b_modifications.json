@@ -1,0 +1,166 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.run_t2",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Enabling T2 processing can improve anatomical contrast and aid in better segmentation for structural analysis, which is important for deriving accurate brain network features."
+        },
+        {
+            "parameter_path": "anatomical_preproc.non_local_means_filtering.run",
+            "current_default": "[Off]",
+            "recommended_value": "[On]",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Non-local means filtering reduces noise in anatomical images, which can enhance the quality of derived structural features used for connectivity analysis."
+        },
+        {
+            "parameter_path": "anatomical_preproc.non_local_means_filtering.noise_model",
+            "current_default": "'Gaussian'",
+            "recommended_value": "'Rician'",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Rician noise model is more accurate for MRI data, especially at low SNR, leading to better denoising of anatomical images."
+        },
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "[Off]",
+            "recommended_value": "[On]",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "N4 bias field correction is essential for correcting intensity inhomogeneities in T1-weighted images, improving segmentation accuracy."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "ACPC alignment standardizes the orientation of anatomical images, facilitating group-level analysis and improving registration accuracy with functional data."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.run_before_preproc",
+            "current_default": "true",
+            "recommended_value": "false",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Performing ACPC alignment after other preprocessing steps can yield more accurate results, as it is less affected by earlier transformations."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.FOV_crop",
+            "current_default": "robustfov",
+            "recommended_value": "False",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Disabling FOV cropping prevents potential loss of anatomical information at the edges, which is important for accurate alignment and subsequent analyses."
+        },
+        {
+            "parameter_path": "anatomical_preproc.brain_extraction.using",
+            "current_default": "['BET']",
+            "recommended_value": "['niworkflows-ants']",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "niworkflows-ants provides more accurate and robust brain extraction, especially for datasets with varying anatomical structures, improving the reliability of subsequent analyses."
+        },
+        {
+            "parameter_path": "registration_workflows.anatomical_registration.registration.ANTs.T1_registration.metric.type",
+            "current_default": "MI",
+            "recommended_value": "CC",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Switching from Mutual Information (MI) to Cross Correlation (CC) metric improves registration accuracy for T1w images with similar intensity distributions, which is typical in depression studies where subtle anatomical differences are being investigated."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.boundary_based_registration.reference",
+            "current_default": "whole-head",
+            "recommended_value": "brain",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Using brain as reference instead of whole-head improves coregistration accuracy for resting-state fMRI data by focusing on the brain tissue where functional signals are most relevant."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_preproc_outputs",
+            "current_default": "3mm",
+            "recommended_value": "2mm",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Higher spatial resolution (2mm) preserves more detail in functional data, which is important for detecting subtle network differences between depressed patients and healthy controls."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_derivative_outputs",
+            "current_default": "3mm",
+            "recommended_value": "2mm",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Matching preprocessing and derivative output resolutions ensures consistency in spatial analysis of functional connectivity features."
+        },
+        {
+            "parameter_path": "nuisance_corrections.1-ICA-AROMA.run",
+            "current_default": "[Off]",
+            "recommended_value": "[On]",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Enabling ICA-AROMA denoising helps remove motion-related artifacts and non-neural noise components, which is crucial for improving signal quality in resting-state fMRI studies aiming to detect subtle differences between patient and control groups."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Changing the regression space to 'template' ensures that nuisance regressors are calculated in a standardized anatomical space, which is more consistent across subjects and improves group-level analysis reliability."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.Regressors.Bandpass.bottom_frequency",
+            "current_default": "0.01",
+            "recommended_value": "0.008",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Lowering the bottom frequency to 0.008 Hz extends the low-frequency band to capture slower oscillations that may be relevant for resting-state connectivity analysis in depression studies."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.Regressors.Bandpass.top_frequency",
+            "current_default": "0.1",
+            "recommended_value": "0.08",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Reducing the top frequency to 0.08 Hz aligns with common resting-state fMRI bandpass filtering practices and may help reduce high-frequency noise."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisage_regression.regressor_masks.erode_anatomical_brain_mask.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Eroding the anatomical brain mask can reduce partial volume effects and improve the specificity of nuisance regression, particularly in cortical regions."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.regressor_masks.erode_csf.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Eroding the CSF mask can help avoid contamination of CSF signal in regions near the ventricles, improving the specificity of physiological noise correction."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.regressor_masks.erode_wm.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Eroding the white matter mask can reduce partial volume effects and improve the specificity of nuisance regression in white matter regions."
+        }
+    ],
+    "summary": {
+        "total_modifications": 19,
+        "high_confidence": 6,
+        "medium_confidence": 13,
+        "low_confidence": 0
+    }
+}

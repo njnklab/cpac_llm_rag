@@ -1,0 +1,32 @@
+Machine Learning Classification Results
+========================================
+Model: Ridge_Robust
+--------------------
+Accuracy (mean): 0.6317
+Accuracy (std): 0.0667
+Precision (mean): 0.1667
+Precision (std): 0.2108
+Recall (mean): 0.2000
+Recall (std): 0.2449
+F1-score (mean): 0.1800
+F1-score (std): 0.2227
+Confusion Matrix:
+[[44 13]
+ [15  4]]
+
+
+Model: Linear SVM_Robust
+--------------------
+Accuracy (mean): 0.6583
+Accuracy (std): 0.0619
+Precision (mean): 0.2833
+Precision (std): 0.1633
+Recall (mean): 0.3167
+Recall (std): 0.1856
+F1-score (mean): 0.2967
+F1-score (std): 0.1694
+Confusion Matrix:
+[[44 13]
+ [13  6]]
+
+

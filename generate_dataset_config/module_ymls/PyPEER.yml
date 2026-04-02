@@ -1,0 +1,34 @@
+PyPEER:
+
+  # Training of eye-estimation models. Commonly used for movies data/naturalistic viewing.
+  run: Off
+
+  # PEER scan names to use for training
+  # Example: ['peer_run-1', 'peer_run-2']
+  eye_scan_names: []
+
+  # Naturalistic viewing data scan names to use for eye estimation
+  # Example: ['movieDM']
+  data_scan_names: []
+
+  # Template-space eye mask
+  eye_mask_path: $FSLDIR/data/standard/MNI152_T1_${func_resolution}_eye_mask.nii.gz
+
+  # PyPEER Stimulus File Path
+  # This is a file describing the stimulus locations from the calibration sequence.
+  stimulus_path: None
+
+  minimal_nuisance_correction:
+
+    # PyPEER Minimal nuisance regression
+    # Note: PyPEER employs minimal preprocessing - these choices do not reflect what runs in the main pipeline.
+    #       PyPEER uses non-nuisance-regressed data from the main pipeline.
+
+    # Global signal regression (PyPEER only)
+    peer_gsr: true
+
+    # Motion scrubbing (PyPEER only)
+    peer_scrub: false
+
+    # Motion scrubbing threshold (PyPEER only)
+    scrub_thresh: 0.2

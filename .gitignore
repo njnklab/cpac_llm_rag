@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Data files (large files)
+*.nii
+*.nii.gz
+*.h5
+*.pkl
+*.pickle
+
+# Database files
+*.sqlite3
+*.db
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Model checkpoints
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+
+# Output directories (optional - comment out if you want to track outputs)
+# output/
+# outputs/
+# results/
+
+# Large CSV files (optional)
+# *.csv
+
+# Documentation builds
+docs/_build/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# MyPy
+.mypy_cache/
+
+# Profiling
+*.prof

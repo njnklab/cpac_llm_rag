@@ -1,0 +1,10 @@
+Results Enhanced (ComBat=True)
+==============================
+Features: FocalLoss, Mixup(alpha=0.2), GaussianNoise(0.02), CosineAnnealingLR
+--------------------
+accuracy: 0.6476 +- 0.0488
+precision: 0.5684 +- 0.1057
+recall: 0.4708 +- 0.1624
+f1: 0.5050 +- 0.1251
+balanced_accuracy: 0.6165 +- 0.0633
+auc: 0.6767 +- 0.0857

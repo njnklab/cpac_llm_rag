@@ -1,0 +1,31 @@
+run_id,user_input,answer_relevancy,context_utilization,cpac_plan_quality,evidence_uncertainty,faithfulness
+query_0000,"CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w ...",0.852,0.276,3.841,4.744,0.621
+query_0001,"CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_prepro...",0.897,0.29,4.248,2.73,0.324
+query_0002,"CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differenc...",0.882,0.136,4.619,4.549,0.282
+query_0003,"CPAC v1.8.7, ADHD-200: one site exhibits systematic skull-stripping failures (retains orbits or remo...",0.858,0.273,4.836,3.742,0.592
+query_0004,"CPAC v1.8.7, ADHD-200: field-of-view (FOV) varies across sites; within anatomical_preproc, should FO...",0.781,0.282,3.596,3.048,0.451
+query_0005,"CPAC v1.8.7, ADHD-200: for a site-adaptive strategy, which anatomical_preproc parameters are most ap...",0.867,0.131,4.116,4.058,0.639
+query_0006,"CPAC v1.8.7, ADHD-200 rs-fMRI (TR varies 2.0–2.5s, voxel 2.5–3.5mm, slice-timing sometimes missing, ...",0.744,0.518,4.031,3.874,0.591
+query_0007,"CPAC v1.8.7, ADHD-200: slice timing metadata is missing but TR is long (~2.5s); within functional_pr...",0.787,0.309,3.924,3.315,0.481
+query_0008,"CPAC v1.8.7, ADHD-200: pediatric high-motion causes frequent spike artifacts; within functional_prep...",0.767,0.059,5.0,3.784,0.327
+query_0009,"CPAC v1.8.7, ADHD-200: one site shows severe EPI distortion (OFC/temporal stretch) but has no fieldm...",0.813,0.337,4.559,3.465,0.193
+query_0010,"CPAC v1.8.7, ADHD-200: TR and voxel size differ across sites; within functional_preproc, how should ...",0.991,0.092,3.56,3.814,0.407
+query_0011,"CPAC v1.8.7, ADHD-200: for cross-site FC or ReHo comparisons, should functional_preproc enforce a un...",0.657,0.356,4.867,4.198,0.667
+query_0012,"CPAC v1.8.7, ADHD-200 (pediatric morphology, high motion, variable T1 quality): within registration_...",0.861,0.412,5.0,4.845,0.539
+query_0013,"CPAC v1.8.7, ADHD-200: one site has frequent EPI→T1 failures (skull alignment, large rotations); wit...",0.677,0.115,4.936,2.868,0.247
+query_0014,"CPAC v1.8.7, ADHD-200: pediatric samples may be biased by adult MNI templates; within registration_w...",0.768,0.383,3.405,4.935,0.531
+query_0015,"CPAC v1.8.7, ADHD-200: EPI contrast varies across sites; within registration_workflows, should multi...",0.893,0.3,4.026,2.368,0.573
+query_0016,"CPAC v1.8.7, ADHD-200: for site-adaptive configuration, which registration_workflows parameters can ...",0.811,0.361,5.0,3.629,0.319
+query_0017,"CPAC v1.8.7, ADHD-200: for high evidence consistency under high motion + no distortion correction, w...",0.72,0.523,3.892,4.147,0.527
+query_0018,"CPAC v1.8.7, ADHD-200 (high motion, no physio recordings, TR 2.0–2.5s): within nuisance_corrections,...",0.749,0.201,4.583,3.931,0.508
+query_0019,"CPAC v1.8.7, ADHD-200: under multi-site + high motion, should nuisance_corrections prioritize ICA-AR...",0.861,0.125,4.781,3.299,0.267
+query_0020,"CPAC v1.8.7, ADHD-200: TR differs across sites (2.0 vs 2.5s); within nuisance_corrections, how do fi...",0.748,0.105,3.76,3.589,0.567
+query_0021,"CPAC v1.8.7, ADHD-200: to avoid one-size-fits-all, how should GSR be presented for ADHD/pediatric mu...",0.823,0.116,4.281,3.39,0.608
+query_0022,"CPAC v1.8.7, ADHD-200: aggressive scrubbing can leave insufficient data (<4 minutes usable); within ...",0.81,0.227,2.372,3.322,0.713
+query_0023,"CPAC v1.8.7, ADHD-200: for per-site adaptation, which nuisance_corrections thresholds/strategies can...",0.754,0.289,3.702,4.329,0.707
+query_0024,"CPAC v1.8.7, ADHD-200 (variable T1 quality): within segmentation, how should WM/CSF mask generation ...",0.978,0.28,4.165,3.985,0.22
+query_0025,"CPAC v1.8.7, ADHD-200: low T1 contrast at some sites causes GM/WM confusion; within segmentation onl...",0.857,0.362,3.568,3.25,0.308
+query_0026,"CPAC v1.8.7, ADHD-200: pediatric CSF spaces differ from adults; within segmentation, why can adult-t...",0.644,0.24,5.0,4.364,0.599
+query_0027,"CPAC v1.8.7, ADHD-200: if nuisance modeling relies on CompCor, within segmentation, how should noise...",0.821,0.456,3.458,3.95,0.599
+query_0028,"CPAC v1.8.7, ADHD-200: a site shows systematically small WM masks (insufficient regression); within ...",0.753,0.198,4.052,4.304,0.599
+query_0029,"CPAC v1.8.7, ADHD-200: for site-adaptive configuration, which segmentation settings are appropriate ...",0.874,0.646,4.395,4.175,0.996

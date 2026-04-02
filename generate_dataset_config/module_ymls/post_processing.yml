@@ -1,0 +1,37 @@
+
+
+# OUTPUTS AND DERIVATIVES
+# -----------------------
+post_processing:
+
+  spatial_smoothing:
+
+    run: On
+
+    # Smooth the derivative outputs.
+    # Set as ['nonsmoothed'] to disable smoothing. Set as ['smoothed', 'nonsmoothed'] to get both.
+    #
+    # Options:
+    #     ['smoothed', 'nonsmoothed']
+    output: ['smoothed']
+
+    # Tool to use for smoothing.
+    # 'FSL' for FSL MultiImageMaths for FWHM provided
+    # 'AFNI' for AFNI 3dBlurToFWHM for FWHM provided
+    smoothing_method: ['FSL']
+
+    # Full Width at Half Maximum of the Gaussian kernel used during spatial smoothing.
+    # this is a fork point
+    #   i.e. multiple kernels - fwhm: [4,6,8]
+    fwhm: [4]
+
+  z-scoring:
+
+    run: On
+
+    # z-score standardize the derivatives. This may be needed for group-level analysis.
+    # Set as ['raw'] to disable z-scoring. Set as ['z-scored', 'raw'] to get both.
+    #
+    # Options:
+    #     ['z-scored', 'raw']
+    output: ['z-scored']

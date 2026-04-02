@@ -1,0 +1,57 @@
+{
+  "retrieval_mode": "bm25_only",
+  "evaluation_time": "2026-03-11T13:32:50.725894",
+  "total_samples": 6,
+  "metrics_summary": {
+    "faithfulness": {
+      "mean": NaN,
+      "std": NaN,
+      "median": NaN,
+      "p10": NaN,
+      "p90": NaN,
+      "min": NaN,
+      "max": NaN,
+      "count": 6
+    },
+    "answer_relevancy": {
+      "mean": 0.8213162466607534,
+      "std": 0.04008444672613047,
+      "median": 0.8188798540035296,
+      "p10": 0.7746969903827312,
+      "p90": 0.8703718955959994,
+      "min": 0.7714760343528083,
+      "max": 0.8850442210697717,
+      "count": 6
+    },
+    "context_utilization": {
+      "mean": 0.3333333333083333,
+      "std": 0.47140452075567635,
+      "median": 0.0,
+      "p10": 0.0,
+      "p90": 0.999999999925,
+      "min": 0.0,
+      "max": 0.99999999995,
+      "count": 6
+    },
+    "cpac_plan_quality": {
+      "mean": 5.0,
+      "std": 0.0,
+      "median": 5.0,
+      "p10": 5.0,
+      "p90": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "count": 6
+    },
+    "evidence_uncertainty": {
+      "mean": 3.3333333333333335,
+      "std": 1.247219128924647,
+      "median": 3.5,
+      "p10": 2.0,
+      "p90": 4.5,
+      "min": 1.0,
+      "max": 5.0,
+      "count": 6
+    }
+  }
+}

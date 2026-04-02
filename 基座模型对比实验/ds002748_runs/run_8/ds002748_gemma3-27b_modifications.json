@@ -1,0 +1,118 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.non_local_means_filtering.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Given the research goal of identifying subtle differences in brain structure related to depression, applying non-local means filtering can improve image quality by reducing noise and enhancing tissue boundaries. This is particularly important for accurate segmentation and analysis of regional brain volumes."
+        },
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "N4 bias field correction is crucial for removing intensity inhomogeneities that can affect downstream analyses, especially when comparing between groups (depression vs. healthy controls). This ensures more accurate tissue segmentation and reduces false positives in group comparisons."
+        },
+        {
+            "parameter_path": "anatomical_preproc.brain_extraction.FSL-BET.Robustfov",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Using a robust FOV setting in BET can help improve brain extraction accuracy, especially in cases where the skull shape is irregular or there are artifacts. This is important for ensuring that the analysis focuses on brain tissue and not non-brain structures."
+        },
+        {
+            "parameter_path": "functional_preproc.despiking.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Patients with depression may exhibit increased head motion and physiological noise, potentially creating spurious signals that could be mitigated by despiking."
+        },
+        {
+            "parameter_path": "functional_preproc.motion_estimates_and_correction.motion_correction.using",
+            "current_default": "3dvolreg",
+            "recommended_value": "mcflirt",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "While 3dvolreg is a valid option, mcflirt is generally preferred for its ability to handle larger motion and slice timing interactions more robustly, especially relevant given potential increased movement in the patient group."
+        },
+        {
+            "parameter_path": "functional_preproc.func_masking.using",
+            "current_default": "AFNI",
+            "recommended_value": "Anatomical_Refined",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Using an anatomical refined mask is generally better than AFNI for defining the brain, as it can improve the accuracy of subsequent analyses by more precisely delineating the brain volume."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.EPI_registration.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Given the research goal of investigating functional connectivity, registering the functional data to a template space is crucial for group-level analysis and comparison with other studies. Enabling this step allows for accurate spatial normalization of the fMRI data."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_preproc_outputs",
+            "current_default": "3mm",
+            "recommended_value": "2mm",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Reducing the output resolution to 2mm will provide finer detail for functional connectivity analysis, potentially improving the sensitivity of detecting subtle differences between groups. This is appropriate given the voxel size of 1.96x1.96x5 and the goal of identifying biomarkers for depression."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_derivative_outputs",
+            "current_default": "3mm",
+            "recommended_value": "2mm",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Consistent with the functional preprocessed outputs, reducing the resolution of derivative outputs to 2mm ensures alignment and facilitates accurate feature extraction for machine learning models."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "For group analyses and consistency with downstream steps (e.g., group ICA), nuisance regression should be performed in template space."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.CSF_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.85",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Given the population (patients with depression), a slightly more liberal threshold for CSF segmentation may improve accuracy by capturing subtle changes in CSF volume often associated with depression."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.WM_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.85",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Similar to CSF, a slightly more liberal threshold for white matter segmentation may be beneficial for capturing subtle changes potentially present in the depression cohort."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.GM_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.85",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "A more liberal threshold for gray matter segmentation may improve sensitivity to subtle structural differences in the depression cohort."
+        }
+    ],
+    "summary": {
+        "total_modifications": 13,
+        "high_confidence": 4,
+        "medium_confidence": 9,
+        "low_confidence": 0
+    }
+}

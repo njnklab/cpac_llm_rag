@@ -1,0 +1,70 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Corrects intensity inhomogeneity in T1 images, improving segmentation and registration accuracy for downstream connectivity analysis."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Aligns brains to ACPC space before preprocessing, ensuring consistent orientation and facilitating accurate brain extraction and subsequent spatial normalization."
+        },
+        {
+            "parameter_path": "functional_preproc.distortion_correction.run",
+            "current_default": "On",
+            "recommended_value": "Off",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The dataset lacks fieldmaps and phase encoding information, so distortion correction cannot be performed; disabling it prevents errors and unnecessary computation."
+        },
+        {
+            "parameter_path": "registration_workflows.anatomical_registration.registration.ANTs.T1_registration.metric.type",
+            "current_default": "CC",
+            "recommended_value": "MI",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The default metric for anatomical registration to MNI is mutual information (MI) to better capture intensity differences between T1-weighted structural images and the template, improving alignment accuracy for subsequent functional analyses."
+        },
+        {
+            "parameter_path": "nuisance_corrections.1-ICA-AROMA.run",
+            "current_default": "[Off]",
+            "recommended_value": "[On]",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Enabling ICA‑AROMA improves motion artifact removal, which is beneficial for distinguishing subtle connectivity differences between depressed patients and healthy controls."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Regressing out nuisance signals in template space ensures that regressors are aligned with the final data space, improving consistency across subjects and avoiding interpolation artifacts."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.Regressors.GlobalSignal.summary",
+            "current_default": "Mean",
+            "recommended_value": "None",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Global signal regression can artificially inflate group differences; omitting it preserves the true physiological variability relevant for classification."
+        }
+    ],
+    "summary": {
+        "total_modifications": 7,
+        "high_confidence": 6,
+        "medium_confidence": 1,
+        "low_confidence": 0
+    }
+}

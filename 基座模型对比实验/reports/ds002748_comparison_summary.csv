@@ -1,0 +1,3 @@
+Model,Executable Rate,Field Validity Rate,Fallback Rate,Avg Modified Fields,Avg Tokens
+gpt-oss:20b,1.00,0.92 ± 0.09,0.00 ± 0.00,12.4 ± 3.2,0
+gemma3:27b,1.00,0.96 ± 0.05,0.00 ± 0.00,15.5 ± 1.7,0

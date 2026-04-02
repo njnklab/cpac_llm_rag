@@ -1,0 +1,158 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Bias field correction improves T1 intensity homogeneity, which is important for accurate brain extraction and downstream segmentation; default Off may leave residual bias that can affect feature extraction."
+        },
+        {
+            "parameter_path": "anatomical_preproc.brain_extraction.using",
+            "current_default": "['BET']",
+            "recommended_value": "['3dSkullStrip']",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "The dataset has anisotropic 5mm slices; 3dSkullStrip is better suited for such data and tends to produce more reliable brain masks than BET on thick slices."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "AC-PC alignment standardizes head orientation across subjects, which improves comparability of functional connectivity measures; default Off may introduce subtle orientation differences."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.align_brain_mask",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Aligning the brain mask to the AC-PC plane ensures that the extracted brain region is consistently oriented, aiding later registration steps."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.brain_size",
+            "current_default": "150",
+            "recommended_value": "200",
+            "action": "modify",
+            "confidence": "low",
+            "rationale": "The thicker slices may require a larger brain size threshold to capture the full extent of the brain during alignment; default 150 may truncate peripheral regions."
+        },
+        {
+            "parameter_path": "functional_preproc.distortion_correction.run",
+            "current_default": "[On]",
+            "recommended_value": "[Off]",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The dataset contains no fieldmaps, so distortion correction cannot be performed. Disabling it prevents errors and unnecessary processing."
+        },
+        {
+            "parameter_path": "functional_preproc.slice_timing_correction.tpattern",
+            "current_default": "None",
+            "recommended_value": "interleaved",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The functional scans have 25 slices with slice timing information available, typically acquired in an interleaved order. Specifying the pattern allows accurate slice timing correction."
+        },
+        {
+            "parameter_path": "functional_preproc.slice_timing_correction.tzero",
+            "current_default": "None",
+            "recommended_value": "0.0",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Setting tzero to 0.0 aligns the first slice timing reference with the start of acquisition, which is appropriate for interleaved slice ordering and improves temporal alignment."
+        },
+        {
+            "parameter_path": "registration_workflows.anatomical_registration.resolution_for_anat",
+            "current_default": "2mm",
+            "recommended_value": "1mm",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Preserve higher anatomical detail for accurate registration and subsequent segmentation, aligning with typical 1mm T1 resolution in many studies."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_preproc_outputs",
+            "current_default": "3mm",
+            "recommended_value": "2mm",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Increase functional spatial resolution to 2mm isotropic, improving the fidelity of connectivity estimates while still being computationally tractable."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_derivative_outputs",
+            "current_default": "3mm",
+            "recommended_value": "2mm",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Ensure that derivative outputs (e.g., nuisance regressors) match the higher resolution functional data, facilitating more accurate modeling of physiological noise."
+        },
+        {
+            "parameter_path": "nuisance_corrections.1-ICA-AROMA.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "ICA-AROMA is effective at removing motion-related artefacts in resting‑state fMRI, which is critical for preserving true neural signal when discriminating depression from healthy controls."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Regressors are defined in template space to ensure consistent anatomical alignment across subjects, improving the accuracy of component extraction and subsequent connectivity analyses."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.bandpass_filtering_order",
+            "current_default": "'After'",
+            "recommended_value": "'Before'",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Applying band‑pass filtering before nuisance regression reduces the risk of reintroducing high‑frequency noise through the regression process, leading to cleaner low‑frequency signals for connectivity estimation."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.use",
+            "current_default": "Auto",
+            "recommended_value": "Custom",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The dataset has relatively thick slices (5 mm) which increases partial‑volume effects. Using custom thresholds allows finer control over tissue classification and reduces mislabeling of CSF, WM, and GM in such low‑resolution images."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.CSF_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.9",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Lowering the CSF threshold from 0.95 to 0.90 mitigates over‑classification of CSF in voxels with mixed tissue types due to slice thickness, improving segmentation accuracy for downstream connectivity analyses."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.WM_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.9",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "A reduced WM threshold better distinguishes white matter from adjacent gray matter and CSF in low‑resolution scans, enhancing the reliability of white‑matter masks used in network modeling."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.GM_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.9",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Adjusting the GM threshold to 0.90 improves gray‑matter delineation in thick slices, which is critical for accurate regional activity estimation in depression studies."
+        }
+    ],
+    "summary": {
+        "total_modifications": 18,
+        "high_confidence": 10,
+        "medium_confidence": 7,
+        "low_confidence": 1
+    }
+}

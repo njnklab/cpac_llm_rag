@@ -1,0 +1,116 @@
+{
+  "fold_metrics": [
+    {
+      "accuracy": 0.3125,
+      "precision": 0.2857142857142857,
+      "recall": 0.25,
+      "f1": 0.26666666666666666,
+      "specificity": 0.375,
+      "balanced_accuracy": 0.3125,
+      "auc": 0.28125,
+      "confusion_matrix": [
+        [
+          3,
+          5
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "fold": 1
+    },
+    {
+      "accuracy": 0.625,
+      "precision": 0.5454545454545454,
+      "recall": 0.8571428571428571,
+      "f1": 0.6666666666666666,
+      "specificity": 0.4444444444444444,
+      "balanced_accuracy": 0.6507936507936507,
+      "auc": 0.7777777777777777,
+      "confusion_matrix": [
+        [
+          4,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "fold": 2
+    },
+    {
+      "accuracy": 0.6,
+      "precision": 0.6666666666666666,
+      "recall": 0.2857142857142857,
+      "f1": 0.4,
+      "specificity": 0.875,
+      "balanced_accuracy": 0.5803571428571428,
+      "auc": 0.5178571428571428,
+      "confusion_matrix": [
+        [
+          7,
+          1
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "fold": 3
+    },
+    {
+      "accuracy": 0.6666666666666666,
+      "precision": 0.6,
+      "recall": 0.8571428571428571,
+      "f1": 0.7058823529411765,
+      "specificity": 0.5,
+      "balanced_accuracy": 0.6785714285714286,
+      "auc": 0.75,
+      "confusion_matrix": [
+        [
+          4,
+          4
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "fold": 4
+    },
+    {
+      "accuracy": 0.13333333333333333,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "specificity": 0.25,
+      "balanced_accuracy": 0.125,
+      "auc": 0.14285714285714285,
+      "confusion_matrix": [
+        [
+          2,
+          6
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "fold": 5
+    }
+  ],
+  "summary_metrics": {
+    "accuracy_mean": 0.46749999999999997,
+    "accuracy_std": 0.2086730563451938,
+    "precision_mean": 0.41956709956709953,
+    "precision_std": 0.24633919845081556,
+    "recall_mean": 0.45,
+    "recall_std": 0.3467046028431885,
+    "f1_mean": 0.407843137254902,
+    "f1_std": 0.2615894985352903,
+    "auc_mean": 0.49394841269841266,
+    "auc_std": 0.2510772175017082
+  }
+}

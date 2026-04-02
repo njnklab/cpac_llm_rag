@@ -1,0 +1,57 @@
+{
+  "retrieval_mode": "fusion_0.7_0.3",
+  "evaluation_time": "2026-03-11T14:55:12.849103",
+  "total_samples": 6,
+  "metrics_summary": {
+    "faithfulness": {
+      "mean": NaN,
+      "std": NaN,
+      "median": NaN,
+      "p10": NaN,
+      "p90": NaN,
+      "min": NaN,
+      "max": NaN,
+      "count": 6
+    },
+    "answer_relevancy": {
+      "mean": 0.8128123375633964,
+      "std": 0.025748491598391394,
+      "median": 0.805920307321481,
+      "p10": 0.7860454787335072,
+      "p90": 0.8464712266352012,
+      "min": 0.7779179464126544,
+      "max": 0.8504843283992702,
+      "count": 6
+    },
+    "context_utilization": {
+      "mean": 0.42222222218583333,
+      "std": 0.3608973726108826,
+      "median": 0.41666666662499996,
+      "p10": 0.0,
+      "p90": 0.8499999999325,
+      "min": 0.0,
+      "max": 0.9999999999,
+      "count": 6
+    },
+    "cpac_plan_quality": {
+      "mean": 5.0,
+      "std": 0.0,
+      "median": 5.0,
+      "p10": 5.0,
+      "p90": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "count": 6
+    },
+    "evidence_uncertainty": {
+      "mean": NaN,
+      "std": NaN,
+      "median": NaN,
+      "p10": NaN,
+      "p90": NaN,
+      "min": NaN,
+      "max": NaN,
+      "count": 6
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "T1-weighted images often exhibit intensity inhomogeneity; enabling N4 bias field correction improves tissue contrast and downstream segmentation accuracy, which is critical for reliable structural feature extraction."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "ACPC alignment standardizes brain orientation to a common anatomical reference, facilitating accurate registration and comparison across subjects—important for group-level connectivity analyses in the depression study."
+        },
+        {
+            "parameter_path": "functional_preproc.distortion_correction.run",
+            "current_default": "On",
+            "recommended_value": "Off",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The dataset lacks fieldmaps and phase‑encoding direction metadata, making distortion correction infeasible. Disabling it prevents errors and unnecessary processing."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_preproc_outputs",
+            "current_default": "\"3mm\"",
+            "recommended_value": "\"2mm\"",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Align the functional output resolution with the anatomical resolution (2mm) to ensure consistent spatial scaling for downstream connectivity analyses."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_derivative_outputs",
+            "current_default": "\"3mm\"",
+            "recommended_value": "\"2mm\"",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Derivatives (e.g., motion parameters, confounds) should match the functional data resolution for accurate feature extraction and model building."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.interpolation",
+            "current_default": "\"trilinear\"",
+            "recommended_value": "\"LanczosWindowedSinc\"",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Lanczos interpolation provides higher fidelity resampling, which is beneficial for high slice thickness (5mm) data to preserve edge information during coregistration."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.boundary_based_registration.reference",
+            "current_default": "\"whole-head\"",
+            "recommended_value": "\"brain\"",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Using a brain-only reference for boundary-based registration reduces the influence of skull and scalp, improving alignment accuracy for fMRI data."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.func_input_prep.Mean Functional.n4_correct_func",
+            "current_default": "false",
+            "recommended_value": "true",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Applying N4 bias field correction to the mean functional image improves intensity homogeneity, which enhances coregistration quality, especially with high slice thickness."
+        },
+        {
+            "parameter_path": "nuisance_corrections.1-ICA-AROMA.run",
+            "current_default": "[Off]",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Enabling ICA-AROMA improves motion artifact removal, which is essential for accurate functional connectivity estimates and reduces confounding in classification of depression versus healthy controls."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Processing data in a common template space ensures that nuisance regressors and subsequent analyses are applied consistently across subjects, facilitating group-level comparisons and machine learning feature extraction."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.use",
+            "current_default": "Auto",
+            "recommended_value": "Custom",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "The dataset’s T1 images have relatively coarse 5 mm slice thickness, increasing partial‑volume effects. Using custom thresholds allows us to lower the probability cutoff for CSF, WM and GM, improving tissue classification sensitivity in low‑resolution scans."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.CSF_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.8",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "A lower CSF threshold (0.8) captures more voxels likely to contain CSF, reducing mislabeling of CSF‑adjacent gray matter due to partial volume."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.WM_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.8",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Lowering the WM threshold improves detection of white‑matter voxels that may appear mixed with gray matter in low‑resolution images."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.GM_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.8",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "A reduced GM threshold better captures gray‑matter voxels that are partially mixed with CSF or WM, enhancing overall segmentation accuracy for subsequent feature extraction."
+        }
+    ],
+    "summary": {
+        "total_modifications": 14,
+        "high_confidence": 6,
+        "medium_confidence": 8,
+        "low_confidence": 0
+    }
+}

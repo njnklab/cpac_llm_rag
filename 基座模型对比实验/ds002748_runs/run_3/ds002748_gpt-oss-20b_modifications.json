@@ -1,0 +1,86 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "[Off]",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Bias field correction improves T1w image intensity homogeneity, which is critical for accurate tissue segmentation and downstream connectivity analyses in this cohort."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "ACPC alignment standardizes brain orientation across subjects, enhancing comparability of functional networks and reducing inter‑subject variability in a classification study."
+        },
+        {
+            "parameter_path": "functional_preproc.truncation.start_tr",
+            "current_default": "0",
+            "recommended_value": "4",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Discard the first 4 TRs to allow magnetization equilibrium and reduce initial signal instability, a common preprocessing step for resting‑state fMRI."
+        },
+        {
+            "parameter_path": "functional_preproc.distortion_correction.run",
+            "current_default": "[On]",
+            "recommended_value": "Off",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "No fieldmaps are available in the dataset; enabling distortion correction would fail or produce unreliable warps. Disabling it prevents errors and ensures a valid preprocessing workflow."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_preproc_outputs",
+            "current_default": "\"3mm\"",
+            "recommended_value": "\"2mm\"",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Using a 2mm output resolution for preprocessed functional outputs matches the anatomical resolution (≈2mm) and preserves spatial detail necessary for accurate connectivity estimation in depression biomarker studies."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_derivative_outputs",
+            "current_default": "\"3mm\"",
+            "recommended_value": "\"2mm\"",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Derivatives such as motion regressors and nuisance signals should be at the same spatial resolution as the functional data to maintain consistency in downstream analyses."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.reference",
+            "current_default": "\"brain\"",
+            "recommended_value": "\"T1w\"",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Coregistering functional data to the full T1-weighted image (rather than a brain mask) improves alignment accuracy, especially when voxel sizes differ and no fieldmaps are available."
+        },
+        {
+            "parameter_path": "nuisance_corrections.1-ICA-AROMA.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Enabling ICA-AROMA provides a data-driven approach to identify and regress out motion-related components, improving the quality of resting-state connectivity estimates which is critical for distinguishing depression from healthy controls."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Setting the regression space to template ensures that all nuisance regressors are aligned in a common reference space, facilitating accurate group-level comparisons and connectivity analyses across subjects."
+        }
+    ],
+    "summary": {
+        "total_modifications": 9,
+        "high_confidence": 8,
+        "medium_confidence": 1,
+        "low_confidence": 0
+    }
+}

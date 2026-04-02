@@ -1,0 +1,47 @@
+surface_analysis:
+
+  # Run freesurfer_abcd_preproc to obtain preprocessed T1w for reconall
+  abcd_prefreesurfer_prep:
+    run: Off
+
+  # Will run Freesurfer for surface-based analysis. Will output traditional Freesurfer derivatives.
+  # If you wish to employ Freesurfer outputs for brain masking or tissue segmentation in the voxel-based pipeline,
+  # select those 'Freesurfer-' labeled options further below in anatomical_preproc.
+  freesurfer:
+
+    run_reconall: Off
+
+    # Ingress freesurfer recon-all folder
+    ingress_reconall: Off
+
+    # Add extra arguments to recon-all command
+    reconall_args:
+
+
+  # Run ABCD-HCP post FreeSurfer and fMRISurface pipeline
+  post_freesurfer:
+
+    run: Off
+
+    subcortical_gray_labels: /opt/dcan-tools/pipeline/global/config/FreeSurferSubcorticalLabelTableLut.txt
+
+    freesurfer_labels: /opt/dcan-tools/pipeline/global/config/FreeSurferAllLut.txt
+
+    surf_atlas_dir: /opt/dcan-tools/pipeline/global/templates/standard_mesh_atlases
+
+    gray_ordinates_dir: /opt/dcan-tools/pipeline/global/templates/Greyordinates
+
+    gray_ordinates_res: 2
+
+    high_res_mesh: 164
+
+    low_res_mesh: 32
+
+    fmri_res: 2
+
+    smooth_fwhm: 2
+
+  surface_connectivity:
+    run: Off
+    surface_parcellation_template: /cpac_templates/Schaefer2018_200Parcels_17Networks_order.dlabel.nii
+

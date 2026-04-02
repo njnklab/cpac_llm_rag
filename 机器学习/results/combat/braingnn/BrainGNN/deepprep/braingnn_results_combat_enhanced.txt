@@ -1,0 +1,10 @@
+BrainGNN Results Enhanced (ComBat=True)
+==============================
+Features: FocalLoss, Sparsified Graph (Threshold=0.15), PyG Form, GaussianNoise(0.02), CosineAnnealingLR
+--------------------
+accuracy: 0.6143 +- 0.0516
+precision: 0.5258 +- 0.0812
+recall: 0.4083 +- 0.1364
+f1: 0.4512 +- 0.0915
+balanced_accuracy: 0.5814 +- 0.0535
+auc: 0.6420 +- 0.0810

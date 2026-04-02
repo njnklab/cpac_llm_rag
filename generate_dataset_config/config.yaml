@@ -1,0 +1,162 @@
+# C-PAC LLM Configuration Generator Settings
+# ===========================================
+
+# ============================================================================
+# Backend Configuration
+# ============================================================================
+backend:
+  # 选择使用 Ollama 本地模型还是 AWS Bedrock
+  # True: 使用 Ollama 本地模型, False: 使用 AWS Bedrock
+  use_ollama: true
+  
+  # --- AWS Bedrock 模型 ---
+  # aws_model: 'anthropic.claude-3-5-sonnet-20240620-v1:0'
+  # 其他可选: mistral.mistral-large-2402-v1:0
+  
+  # --- Ollama 本地模型 ---
+  # 支持单个模型字符串或模型列表
+  ollama_models:
+    - 'qwen3:32b'
+    - 'deepseek-r1:70b'
+    - 'gpt-oss:20b'
+    - 'gemma3:27b'
+    - 'llama3.1:70b-instruct-q4_K_M'
+  
+  # 默认使用的 Ollama 模型
+  ollama_default_model: 'qwen3:32b'
+
+
+# ============================================================================
+# RAG Configuration (LitQuery)
+# ============================================================================
+rag:
+  # 是否在调用生成配置的 LLM 前，先进行 RAG 知识检索
+  enabled: false
+  
+  # LitQuery 项目根目录 (相对于 workspace 的绝对路径)
+  litquery_dir: '/mnt/sda1/zhangyan/llm-cpac/LitQuery'
+  
+  # 数据库标识名
+  db_name: 'serpapi_db_qwen3'
+  
+  # RAG 使用的问答模型
+  model: 'qwen3:32b'
+  
+  # RAG 使用的 Embedding 模型
+  embed_model: 'nomic-embed-text:latest'
+  
+  # 是否让 RAG 总结阶段调用 OpenAI API
+  use_openai: false
+  
+  # 是否开启混合搜索
+  use_hybrid_search: true
+
+
+# ============================================================================
+# Path Configuration
+# ============================================================================
+paths:
+  # Input paths
+  bids_dataset_path: '/mnt/sda1/zhangyan/ADHD/ADHD200_subset/bids/OHSU'
+  yml_template_path: '/home/a001/zhangyan/cpac/llm_parameters/20250825全参数整理/pipeline_config_default.yml'
+  
+  # Root directory for all generated outputs
+  output_root_dir: '/home/a001/zhangyan/cpac/llm_parameters/20250825全参数整理/dataset_yaml'
+  
+  # Module YAML files directory (relative to script location)
+  module_ymls_dir: 'module_ymls'
+
+
+# ============================================================================
+# LLM API Configuration
+# ============================================================================
+llm_api:
+  # OpenAI-compatible API settings
+  # 注意: 如果需要在代码中使用，请设置环境变量 OPENAI_API_KEY
+  # 或者在此填写（不推荐，存在安全风险）
+  openai_api_key: null  # 或从环境变量读取: ${OPENAI_API_KEY}
+  openai_base_url: 'https://www.229991.xyz/v1'
+  
+  # AWS / Bedrock configuration
+  aws_region: 'us-east-1'
+  http_proxy: 'http://localhost:10808'
+  https_proxy: 'http://localhost:10808'
+
+
+# ============================================================================
+# Ollama Client Configuration
+# ============================================================================
+ollama:
+  host: 'localhost'
+  port: 11434
+  
+  # 各模型的最大上下文长度
+  model_context_lengths:
+    'llama3.1:70b-instruct-q4_K_M': 131072
+    'deepseek-r1:70b': 131072
+    'gpt-oss:20b': 131072
+    'qwen3:32b': 40960
+  
+  # 默认 Ollama options（严谨参数理解配置）
+  default_options:
+    num_ctx: 16384      # 单模块 prompt 较短，16K 足够
+    num_predict: 2048   # 单模块修改建议不会太长
+    num_gpu: -1
+    num_batch: 512
+    temperature: 0.2
+    top_p: 0.9
+    top_k: 40
+    repeat_penalty: 1.05
+    seed: 42
+
+
+# ============================================================================
+# Core Modules
+# ============================================================================
+core_modules:
+  - 'anatomical_preproc'
+  - 'functional_preproc'
+  - 'registration_workflows'
+  - 'nuisance_corrections'
+  - 'segmentation'
+
+
+# ============================================================================
+# Research Goal Template
+# ============================================================================
+# 可以在这里定义多个研究目标模板，通过名称引用
+research_goals:
+  # ds002748 示例
+  ds002748: |
+    The primary goal of this study is to investigate whether resting-state fMRI signals 
+    can be used to discriminate patients with mild depression from healthy controls based 
+    on functional brain network features. Using structural (anat) and functional (resting-state) 
+    data acquired under a closed-eyes condition, we aim to preprocess and extract imaging-derived 
+    features such as regional activity and connectivity metrics, and subsequently build machine 
+    learning classification models. By doing so, we seek to identify neuroimaging biomarkers 
+    that can support objective diagnosis and provide new insights into the neural mechanisms 
+    underlying depression.
+  
+  # ADHD-KKI 示例
+  adhd_kki: |
+    ADHD-200 multi-site rs-fMRI: build sensitive ADHD vs TD/subtype classifier from stable features 
+    (ReHo,fALFF,FC) with strict site-aware preprocessing + harmonization. KKI: Philips 3T, TR=2500ms 
+    (~6:40, ~3mm-scale). Prioritize vendor/susceptibility + motion QC (FD/DVARS,tSNR), motion-robust 
+    denoise/censoring, common-grid resampling before features. NeuroComBat on features/maps in-fold; LOSO CV.
+  
+  # ADHD-NeuroIMAGE 示例
+  adhd_neuroimage: |
+    ADHD-200 site-aware modeling for NeuroIMAGE to extract robust ReHo,fALFF,FC and classify ADHD vs TD/subtypes. 
+    NeuroIMAGE: Siemens Avanto, TR=1960ms, TE=40ms, long run (~8:47) with ~3mm slice / ~3.5mm in-plane. 
+    Key focus: TR-specific temporal filtering for fALFF, TE-driven susceptibility/dropout-aware registration, 
+    motion-robust denoise/censoring, and common-grid resampling before features. NeuroComBat in-fold; LOSO CV.
+  
+  # ADHD-OHSU 示例
+  adhd_ohsu: |
+    ADHD-200 site-aware modeling focusing on OHSU constraints for reliable ReHo,fALFF,FC and subtype classification. 
+    OHSU: Siemens TrioTim 3T, TR=2500ms, short (~3:32) and coarser (~3.8mm-scale) rs-fMRI. Use strict motion control 
+    (censoring+CompCor/Friston), conservative resampling/smoothing before ReHo, and regularized/stability-weighted FC for 
+    fewer frames. NeuroComBat in-fold; evaluate with LOSO (OHSU held out).
+
+# 当前使用的研究目标（填写上面定义的 key，或自定义文本）
+current_research_goal: 'ds002748'

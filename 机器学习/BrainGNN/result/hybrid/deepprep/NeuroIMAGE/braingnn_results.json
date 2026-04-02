@@ -1,0 +1,135 @@
+{
+  "fold_metrics": [
+    {
+      "accuracy": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "specificity": 1.0,
+      "balanced_accuracy": 0.5,
+      "auc": 0.56,
+      "confusion_matrix": [
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "val_auc": 0.875,
+      "fold": 1
+    },
+    {
+      "accuracy": 0.6,
+      "precision": 0.5714285714285714,
+      "recall": 0.8,
+      "f1": 0.6666666666666666,
+      "specificity": 0.4,
+      "balanced_accuracy": 0.6000000000000001,
+      "auc": 0.64,
+      "confusion_matrix": [
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "val_auc": 0.75,
+      "fold": 2
+    },
+    {
+      "accuracy": 0.8,
+      "precision": 0.7142857142857143,
+      "recall": 1.0,
+      "f1": 0.8333333333333334,
+      "specificity": 0.6,
+      "balanced_accuracy": 0.8,
+      "auc": 0.84,
+      "confusion_matrix": [
+        [
+          3,
+          2
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "val_auc": 0.6875,
+      "fold": 3
+    },
+    {
+      "accuracy": 0.4444444444444444,
+      "precision": 0.5,
+      "recall": 0.2,
+      "f1": 0.2857142857142857,
+      "specificity": 0.75,
+      "balanced_accuracy": 0.475,
+      "auc": 0.6,
+      "confusion_matrix": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "val_auc": 1.0,
+      "fold": 4
+    },
+    {
+      "accuracy": 0.3333333333333333,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "specificity": 0.75,
+      "balanced_accuracy": 0.375,
+      "auc": 0.65,
+      "confusion_matrix": [
+        [
+          3,
+          1
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "val_auc": 1.0,
+      "fold": 5
+    }
+  ],
+  "summary_metrics": {
+    "accuracy_mean": 0.5355555555555556,
+    "accuracy_std": 0.15782471915168628,
+    "precision_mean": 0.3571428571428571,
+    "precision_std": 0.2996596709057576,
+    "recall_mean": 0.4,
+    "recall_std": 0.41952353926806063,
+    "f1_mean": 0.3571428571428571,
+    "f1_std": 0.3413990157892366,
+    "auc_mean": 0.658,
+    "auc_std": 0.09641576634555159,
+    "specificity_mean": 0.7,
+    "specificity_std": 0.19748417658131498,
+    "balanced_accuracy_mean": 0.55,
+    "balanced_accuracy_std": 0.14404860290887936,
+    "confusion_matrix_sum": [
+      [
+        16,
+        7
+      ],
+      [
+        15,
+        10
+      ]
+    ]
+  }
+}

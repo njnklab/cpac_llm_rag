@@ -1,0 +1,33 @@
+Machine Learning Classification Results
+========================================
+Model: SVM_Optimized
+--------------------
+Accuracy (mean): 0.6410
+Accuracy (std): 0.0943
+Precision (mean): 0.7227
+Precision (std): 0.0675
+Recall (mean): 0.8073
+Recall (std): 0.1315
+F1-score (mean): 0.7569
+F1-score (std): 0.0750
+AUC: 0.5537
+Confusion Matrix:
+[[ 5 16]
+ [10 41]]
+
+Model: Random Forest_Optimized
+--------------------
+Accuracy (mean): 0.6686
+Accuracy (std): 0.0834
+Precision (mean): 0.7011
+Precision (std): 0.0498
+Recall (mean): 0.9218
+Recall (std): 0.0744
+F1-score (mean): 0.7962
+F1-score (std): 0.0584
+AUC: 0.4930
+Confusion Matrix:
+[[ 1 20]
+ [ 4 47]]
+
+ROC curve plot saved to: /mnt/sda1/zhangyan/cpac_output/机器学习/result/fmriprep/ds002748/fc_roc_curves.png

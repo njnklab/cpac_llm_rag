@@ -1,0 +1,110 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.non_local_means_filtering.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Given the relatively low voxel size (1.96x1.96x5mm) and the absence of fieldmaps, non-local means filtering can help reduce noise in the anatomical images."
+        },
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Although no fieldmaps are available, N4 bias field correction can still be beneficial in reducing intensity inhomogeneities in the anatomical images."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "ACPC alignment is crucial for ensuring consistent brain orientation across subjects, which is essential for group-level analyses and machine learning classification models."
+        },
+        {
+            "parameter_path": "functional_preproc.truncation.start_tr",
+            "current_default": "0",
+            "recommended_value": "5",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Removing initial volumes to account for signal stabilization and potential head motion."
+        },
+        {
+            "parameter_path": "functional_preproc.distortion_correction.run",
+            "current_default": "On",
+            "recommended_value": "Off",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "No fieldmaps are available for distortion correction, so this step should be skipped."
+        },
+        {
+            "parameter_path": "functional_preproc.slice_timing_correction.run",
+            "current_default": "On",
+            "recommended_value": "Off",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Slice timing correction is not necessary when using a multiband sequence, but since the phase encoding direction is missing, we cannot confirm if it's a multiband sequence. However, given the slice timing information is available, this step might be redundant."
+        },
+        {
+            "parameter_path": "registration_workflows.anatomical_registration.resolution_for_anat",
+            "current_default": "2mm",
+            "recommended_value": "1mm",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Given the voxel size of 1.96x1.96x5.0 mm, a resolution of 1mm is more suitable for anatomical registration to maintain spatial accuracy."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.reference",
+            "current_default": "brain",
+            "recommended_value": "whole-head",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Considering the research goal of investigating resting-state fMRI signals, using the whole-head as a reference may provide more comprehensive information about brain activity and connectivity."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_preproc_outputs",
+            "current_default": "3mm",
+            "recommended_value": "2mm",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "To maintain consistency with the anatomical registration resolution and to ensure sufficient spatial detail, a higher output resolution of 2mm is recommended for functional registration."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "To ensure accurate registration and alignment of functional data to a common space, which is crucial for group-level analyses and machine learning classification models."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.use",
+            "current_default": "Auto",
+            "recommended_value": "Custom",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Given the specific research goal of identifying neuroimaging biomarkers for depression, custom thresholding may provide more accurate tissue segmentation results tailored to the study's needs."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.FSL-FAST.thresholding.Custom.CSF_threshold_value",
+            "current_default": "0.95",
+            "recommended_value": "0.90",
+            "action": "modify",
+            "confidence": "low",
+            "rationale": "A slightly lower threshold for CSF may help in capturing more subtle differences in brain activity related to depression, although this adjustment is speculative and requires validation."
+        }
+    ],
+    "summary": {
+        "total_modifications": 12,
+        "high_confidence": 7,
+        "medium_confidence": 4,
+        "low_confidence": 1
+    }
+}

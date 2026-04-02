@@ -1,0 +1,1688 @@
+{
+    "bm25_only": [
+        {
+            "run_id": "bm25_only_sample_0",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.34850868124210993,
+                "answer_relevancy": 0.4497738720169611,
+                "context_utilization": 0.1460248537859874,
+                "cpac_plan_quality": 2.2349165596062317,
+                "evidence_uncertainty": 2.173788795311719
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_1",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.4574019496118723,
+                "answer_relevancy": 0.5667794518362603,
+                "context_utilization": 0.23495954491066381,
+                "cpac_plan_quality": 3.214871600824294,
+                "evidence_uncertainty": 2.322419016036278
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_2",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.43825175218555684,
+                "answer_relevancy": 0.6583467134396044,
+                "context_utilization": 0.22472010499800293,
+                "cpac_plan_quality": 1.6088948968044177,
+                "evidence_uncertainty": 1.0140283993627028
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_3",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.21639237522820431,
+                "answer_relevancy": 0.6132728373920928,
+                "context_utilization": 0.31260379017072965,
+                "cpac_plan_quality": 2.5991544410562217,
+                "evidence_uncertainty": 1.2698030887947682
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_4",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.49643886806334037,
+                "answer_relevancy": 0.56986232803942,
+                "context_utilization": 0.295742930143735,
+                "cpac_plan_quality": 2.280506098203977,
+                "evidence_uncertainty": 2.3918523347815763
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_5",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.29092339922067484,
+                "answer_relevancy": 0.5330417014264185,
+                "context_utilization": 0.24632118048252086,
+                "cpac_plan_quality": 3.1129904613108574,
+                "evidence_uncertainty": 2.557502449010553
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_6",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.30381394033326514,
+                "answer_relevancy": 0.6053664375167112,
+                "context_utilization": 0.20095999134608522,
+                "cpac_plan_quality": 2.2069429951383994,
+                "evidence_uncertainty": 1.8160046184846772
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_7",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.46255357749443493,
+                "answer_relevancy": 0.5102918272850366,
+                "context_utilization": 0.4533168201084971,
+                "cpac_plan_quality": 3.2445836017098784,
+                "evidence_uncertainty": 1.5752758804832219
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_8",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.37840823486129166,
+                "answer_relevancy": 0.5013221082293847,
+                "context_utilization": 0.4942173795597583,
+                "cpac_plan_quality": 2.5543957025576804,
+                "evidence_uncertainty": 3.2546105791341953
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_9",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.36709002112214695,
+                "answer_relevancy": 0.4373314990156392,
+                "context_utilization": 0.49014565803043686,
+                "cpac_plan_quality": 2.6037204095618818,
+                "evidence_uncertainty": 2.3662446158796433
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_10",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.4524908552209206,
+                "answer_relevancy": 0.5758415418898849,
+                "context_utilization": 0.075801353021683,
+                "cpac_plan_quality": 2.8343072489777925,
+                "evidence_uncertainty": 2.44812627833541
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_11",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.18422574183246912,
+                "answer_relevancy": 0.5366682130610136,
+                "context_utilization": 0.26251979155030924,
+                "cpac_plan_quality": 1.5677444339707103,
+                "evidence_uncertainty": 2.1960145914379443
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_12",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.2976048271561419,
+                "answer_relevancy": 0.36515221494319583,
+                "context_utilization": 0.4112536399448246,
+                "cpac_plan_quality": 3.590198003461799,
+                "evidence_uncertainty": 1.0
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_13",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.18053808910735547,
+                "answer_relevancy": 0.5120448725104348,
+                "context_utilization": 0.17519357781909972,
+                "cpac_plan_quality": 2.710776595468597,
+                "evidence_uncertainty": 2.964197873629413
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_14",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.1435396704961053,
+                "answer_relevancy": 0.5678781975647786,
+                "context_utilization": 0.289793078497004,
+                "cpac_plan_quality": 3.0296647898542686,
+                "evidence_uncertainty": 3.080239789804203
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_15",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.31639699688804146,
+                "answer_relevancy": 0.5776787389568298,
+                "context_utilization": 0.31802717046690054,
+                "cpac_plan_quality": 2.7822832542118463,
+                "evidence_uncertainty": 2.1798648723320535
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_16",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.37801418676289056,
+                "answer_relevancy": 0.5647672399740676,
+                "context_utilization": 0.09073497842605108,
+                "cpac_plan_quality": 2.800791193304694,
+                "evidence_uncertainty": 2.4449363629504273
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_17",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.22775725767189492,
+                "answer_relevancy": 0.4617207708036998,
+                "context_utilization": 0.1842460677179994,
+                "cpac_plan_quality": 2.737922993219642,
+                "evidence_uncertainty": 2.6398375663457543
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_18",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.43761450987710154,
+                "answer_relevancy": 0.5823707484014679,
+                "context_utilization": 0.3671624910297553,
+                "cpac_plan_quality": 2.814459739947624,
+                "evidence_uncertainty": 2.347683063348358
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_19",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.3635382360128427,
+                "answer_relevancy": 0.5477811364710302,
+                "context_utilization": 0.3861476316204628,
+                "cpac_plan_quality": 1.8195904868748503,
+                "evidence_uncertainty": 2.24570181628511
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_20",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.4365205716806642,
+                "answer_relevancy": 0.4899433934824649,
+                "context_utilization": 0.42394737337439037,
+                "cpac_plan_quality": 3.131243073442671,
+                "evidence_uncertainty": 2.495423648197277
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_21",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.3104475957250901,
+                "answer_relevancy": 0.6353236760779365,
+                "context_utilization": 0.32754019913344845,
+                "cpac_plan_quality": 1.7971418964537977,
+                "evidence_uncertainty": 1.9763657712925522
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_22",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.5246973700577057,
+                "answer_relevancy": 0.4870572397150236,
+                "context_utilization": 0.2871534439645558,
+                "cpac_plan_quality": 1.8274269112366968,
+                "evidence_uncertainty": 2.4976324041529456
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_23",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.4096297330638631,
+                "answer_relevancy": 0.7009943412037473,
+                "context_utilization": 0.4523520057321997,
+                "cpac_plan_quality": 2.3321302688804724,
+                "evidence_uncertainty": 1.5206650882875705
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_24",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.3112701020113467,
+                "answer_relevancy": 0.5945583948330102,
+                "context_utilization": 0.13391232259317756,
+                "cpac_plan_quality": 1.910803978900661,
+                "evidence_uncertainty": 2.2332729018615827
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_25",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.25348363238794885,
+                "answer_relevancy": 0.5012924789563521,
+                "context_utilization": 0.4234306663665497,
+                "cpac_plan_quality": 2.6118999482244494,
+                "evidence_uncertainty": 1.3611491889252165
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_26",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.28193962149098595,
+                "answer_relevancy": 0.5663004792274348,
+                "context_utilization": 0.02476649484246435,
+                "cpac_plan_quality": 2.5308732428992027,
+                "evidence_uncertainty": 1.9948688266866368
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_27",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.2585930655510107,
+                "answer_relevancy": 0.526443083397011,
+                "context_utilization": 0.4511895637044555,
+                "cpac_plan_quality": 2.4069563607316353,
+                "evidence_uncertainty": 2.781515727343307
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_28",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.4155413575526042,
+                "answer_relevancy": 0.6184025132632902,
+                "context_utilization": 0.5530661881911336,
+                "cpac_plan_quality": 2.882010591527373,
+                "evidence_uncertainty": 1.5447083653282356
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_29",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.20491010873363855,
+                "answer_relevancy": 0.583993621816679,
+                "context_utilization": 0.29990288083259564,
+                "cpac_plan_quality": 2.211139225617171,
+                "evidence_uncertainty": 2.078883281373585
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_30",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.3066774799029105,
+                "answer_relevancy": 0.5894017134308065,
+                "context_utilization": 0.4582863496763883,
+                "cpac_plan_quality": 2.2355036095110448,
+                "evidence_uncertainty": 1.4422020714286852
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_31",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.3915578420942218,
+                "answer_relevancy": 0.5178369005616,
+                "context_utilization": 0.06750826529839504,
+                "cpac_plan_quality": 3.1787572154366637,
+                "evidence_uncertainty": 3.2000013769061235
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_32",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.29323054158774564,
+                "answer_relevancy": 0.5886906281828771,
+                "context_utilization": 0.5451760430137695,
+                "cpac_plan_quality": 1.9381407831225683,
+                "evidence_uncertainty": 2.9382954053292765
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_33",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.11605605467695496,
+                "answer_relevancy": 0.5968399649850746,
+                "context_utilization": 0.41111295864407893,
+                "cpac_plan_quality": 1.9746809752353278,
+                "evidence_uncertainty": 2.6660715188762003
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_34",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.48843440222010637,
+                "answer_relevancy": 0.5964051596194037,
+                "context_utilization": 0.4315927177638851,
+                "cpac_plan_quality": 2.1348682764892617,
+                "evidence_uncertainty": 1.8567549254386355
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_35",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.20489360474524546,
+                "answer_relevancy": 0.4311300918549465,
+                "context_utilization": 0.24377442238369731,
+                "cpac_plan_quality": 3.152795218659052,
+                "evidence_uncertainty": 1.7134969517280823
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_36",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.36292493044761437,
+                "answer_relevancy": 0.5782099549690354,
+                "context_utilization": 0.34769369829868696,
+                "cpac_plan_quality": 2.1536444155608727,
+                "evidence_uncertainty": 2.630850253346354
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_37",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.3990597307194709,
+                "answer_relevancy": 0.6009082149932709,
+                "context_utilization": 0.4055697927528728,
+                "cpac_plan_quality": 2.40822804833519,
+                "evidence_uncertainty": 3.358871378782326
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_38",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.31840406145338424,
+                "answer_relevancy": 0.5588316138191906,
+                "context_utilization": 0.16963823737734007,
+                "cpac_plan_quality": 2.2830342357566518,
+                "evidence_uncertainty": 2.658196794095897
+            }
+        },
+        {
+            "run_id": "bm25_only_sample_39",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "bm25_only",
+            "metrics": {
+                "faithfulness": 0.2326761649326114,
+                "answer_relevancy": 0.6306272258893133,
+                "context_utilization": 0.4342145057761878,
+                "cpac_plan_quality": 2.330423525424413,
+                "evidence_uncertainty": 3.2122924907474655
+            }
+        }
+    ],
+    "vector_only": [
+        {
+            "run_id": "vector_only_sample_0",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.409175194674286,
+                "answer_relevancy": 0.8647990101094661,
+                "context_utilization": 1.0,
+                "cpac_plan_quality": 3.6088135893588777,
+                "evidence_uncertainty": 4.058146393737407
+            }
+        },
+        {
+            "run_id": "vector_only_sample_1",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.5567043310578313,
+                "answer_relevancy": 0.7352808946428503,
+                "context_utilization": 0.66594573915364,
+                "cpac_plan_quality": 3.2753381160878465,
+                "evidence_uncertainty": 2.9481433712059895
+            }
+        },
+        {
+            "run_id": "vector_only_sample_2",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.7609953767859208,
+                "answer_relevancy": 0.759330007963396,
+                "context_utilization": 0.7823205084531615,
+                "cpac_plan_quality": 2.7487853516333507,
+                "evidence_uncertainty": 3.684523473100606
+            }
+        },
+        {
+            "run_id": "vector_only_sample_3",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6349967809011962,
+                "answer_relevancy": 0.734414368028214,
+                "context_utilization": 0.6721157882870487,
+                "cpac_plan_quality": 4.121434135675601,
+                "evidence_uncertainty": 3.944393952187747
+            }
+        },
+        {
+            "run_id": "vector_only_sample_4",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.4985519495089403,
+                "answer_relevancy": 0.8504566244548863,
+                "context_utilization": 0.5398878065307064,
+                "cpac_plan_quality": 3.146563164981881,
+                "evidence_uncertainty": 4.076951316534237
+            }
+        },
+        {
+            "run_id": "vector_only_sample_5",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6708623617030914,
+                "answer_relevancy": 0.6145848900361303,
+                "context_utilization": 0.5776740666200899,
+                "cpac_plan_quality": 3.3907176799495384,
+                "evidence_uncertainty": 3.306459074204632
+            }
+        },
+        {
+            "run_id": "vector_only_sample_6",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6787620024010361,
+                "answer_relevancy": 0.7809518657551232,
+                "context_utilization": 0.6798151085253977,
+                "cpac_plan_quality": 3.758267248496168,
+                "evidence_uncertainty": 2.971293917464213
+            }
+        },
+        {
+            "run_id": "vector_only_sample_7",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.45461983369728165,
+                "answer_relevancy": 0.7111183810426063,
+                "context_utilization": 0.5256665870044395,
+                "cpac_plan_quality": 3.8741445592071817,
+                "evidence_uncertainty": 3.1510642885866114
+            }
+        },
+        {
+            "run_id": "vector_only_sample_8",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.8422856890012415,
+                "answer_relevancy": 0.6613604961924742,
+                "context_utilization": 0.6820951186285358,
+                "cpac_plan_quality": 3.6577569046336884,
+                "evidence_uncertainty": 3.0282208665412753
+            }
+        },
+        {
+            "run_id": "vector_only_sample_9",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6733171042711456,
+                "answer_relevancy": 0.8594498043369164,
+                "context_utilization": 0.8290166448218473,
+                "cpac_plan_quality": 3.1918704296571825,
+                "evidence_uncertainty": 3.6486756550573496
+            }
+        },
+        {
+            "run_id": "vector_only_sample_10",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.48608069557674327,
+                "answer_relevancy": 0.7648508047576806,
+                "context_utilization": 0.4037717662627413,
+                "cpac_plan_quality": 2.7844085083397214,
+                "evidence_uncertainty": 3.0068890416878338
+            }
+        },
+        {
+            "run_id": "vector_only_sample_11",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.5361370312737017,
+                "answer_relevancy": 0.7772061256577263,
+                "context_utilization": 0.7578210124577403,
+                "cpac_plan_quality": 3.398284325164493,
+                "evidence_uncertainty": 3.7589404820209467
+            }
+        },
+        {
+            "run_id": "vector_only_sample_12",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.8155347868708591,
+                "answer_relevancy": 0.7935408429104251,
+                "context_utilization": 0.6704110019788705,
+                "cpac_plan_quality": 3.430012564804323,
+                "evidence_uncertainty": 3.837578894407561
+            }
+        },
+        {
+            "run_id": "vector_only_sample_13",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6352523878252503,
+                "answer_relevancy": 0.6866331917923093,
+                "context_utilization": 0.5927497312764098,
+                "cpac_plan_quality": 4.503427842701365,
+                "evidence_uncertainty": 3.085746655123476
+            }
+        },
+        {
+            "run_id": "vector_only_sample_14",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.7135009264507379,
+                "answer_relevancy": 0.8781458678228273,
+                "context_utilization": 0.6715919564734915,
+                "cpac_plan_quality": 3.23815077273126,
+                "evidence_uncertainty": 3.9486620817495006
+            }
+        },
+        {
+            "run_id": "vector_only_sample_15",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6079505105564885,
+                "answer_relevancy": 0.7254137109216034,
+                "context_utilization": 0.4688158404631913,
+                "cpac_plan_quality": 3.570635052921163,
+                "evidence_uncertainty": 3.6475496012991604
+            }
+        },
+        {
+            "run_id": "vector_only_sample_16",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6817093281414223,
+                "answer_relevancy": 0.8745078313144106,
+                "context_utilization": 0.828644892502983,
+                "cpac_plan_quality": 4.07016235872564,
+                "evidence_uncertainty": 3.8223344406238438
+            }
+        },
+        {
+            "run_id": "vector_only_sample_17",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.5851959078688124,
+                "answer_relevancy": 0.8089317662152312,
+                "context_utilization": 0.5860287174684233,
+                "cpac_plan_quality": 4.041982729042026,
+                "evidence_uncertainty": 3.753703737014813
+            }
+        },
+        {
+            "run_id": "vector_only_sample_18",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.648787141809243,
+                "answer_relevancy": 0.8209213912382621,
+                "context_utilization": 0.760368542344648,
+                "cpac_plan_quality": 4.262099253704305,
+                "evidence_uncertainty": 3.756398101874706
+            }
+        },
+        {
+            "run_id": "vector_only_sample_19",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6641467346477428,
+                "answer_relevancy": 0.7198215162986777,
+                "context_utilization": 0.6130608835068425,
+                "cpac_plan_quality": 3.932326215539482,
+                "evidence_uncertainty": 3.1877590724548215
+            }
+        },
+        {
+            "run_id": "vector_only_sample_20",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.643196868574283,
+                "answer_relevancy": 0.8223592096656108,
+                "context_utilization": 0.48357379177623183,
+                "cpac_plan_quality": 3.963772444679298,
+                "evidence_uncertainty": 4.449962084071174
+            }
+        },
+        {
+            "run_id": "vector_only_sample_21",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6220137524140971,
+                "answer_relevancy": 0.6988753624561419,
+                "context_utilization": 0.8975794351013894,
+                "cpac_plan_quality": 3.6750122535554595,
+                "evidence_uncertainty": 3.9752411523784894
+            }
+        },
+        {
+            "run_id": "vector_only_sample_22",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6158727395544293,
+                "answer_relevancy": 0.6629586461632225,
+                "context_utilization": 0.6699187585595272,
+                "cpac_plan_quality": 4.1247189994536235,
+                "evidence_uncertainty": 3.0108500923183414
+            }
+        },
+        {
+            "run_id": "vector_only_sample_23",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.5588977085812017,
+                "answer_relevancy": 0.8004421732755834,
+                "context_utilization": 0.5502318901392192,
+                "cpac_plan_quality": 3.796692396662531,
+                "evidence_uncertainty": 3.178280600873693
+            }
+        },
+        {
+            "run_id": "vector_only_sample_24",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.7429903728587447,
+                "answer_relevancy": 0.7167156654832565,
+                "context_utilization": 0.44028213213602385,
+                "cpac_plan_quality": 4.777055063256612,
+                "evidence_uncertainty": 3.2735529397987815
+            }
+        },
+        {
+            "run_id": "vector_only_sample_25",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.5524967468439724,
+                "answer_relevancy": 0.8028082805281621,
+                "context_utilization": 0.4193916660427336,
+                "cpac_plan_quality": 3.6629742513458323,
+                "evidence_uncertainty": 3.5433580935164235
+            }
+        },
+        {
+            "run_id": "vector_only_sample_26",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.7606832185765845,
+                "answer_relevancy": 0.6370239453554247,
+                "context_utilization": 0.69558800857048,
+                "cpac_plan_quality": 4.002951275846072,
+                "evidence_uncertainty": 4.084574478391873
+            }
+        },
+        {
+            "run_id": "vector_only_sample_27",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6317253278104711,
+                "answer_relevancy": 0.6791004137277235,
+                "context_utilization": 0.8839801155060678,
+                "cpac_plan_quality": 3.434345985884124,
+                "evidence_uncertainty": 4.195426263584172
+            }
+        },
+        {
+            "run_id": "vector_only_sample_28",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.7602924507022493,
+                "answer_relevancy": 0.8302769606060745,
+                "context_utilization": 0.666195036627446,
+                "cpac_plan_quality": 4.3120962366007625,
+                "evidence_uncertainty": 3.1917511156232754
+            }
+        },
+        {
+            "run_id": "vector_only_sample_29",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.4655598811865794,
+                "answer_relevancy": 0.857351252116514,
+                "context_utilization": 0.3970962370372623,
+                "cpac_plan_quality": 3.7847917632819486,
+                "evidence_uncertainty": 3.0475653476549613
+            }
+        },
+        {
+            "run_id": "vector_only_sample_30",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.563966563864216,
+                "answer_relevancy": 0.7317388706225008,
+                "context_utilization": 0.7398955758735131,
+                "cpac_plan_quality": 3.287283473056853,
+                "evidence_uncertainty": 3.660040658227631
+            }
+        },
+        {
+            "run_id": "vector_only_sample_31",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6900705065865527,
+                "answer_relevancy": 0.768020113924259,
+                "context_utilization": 0.750785940108512,
+                "cpac_plan_quality": 4.145367556454385,
+                "evidence_uncertainty": 3.914847085262165
+            }
+        },
+        {
+            "run_id": "vector_only_sample_32",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.5537700186060954,
+                "answer_relevancy": 0.6967231269653767,
+                "context_utilization": 0.6339733774390401,
+                "cpac_plan_quality": 4.156032880937778,
+                "evidence_uncertainty": 3.3865016824815517
+            }
+        },
+        {
+            "run_id": "vector_only_sample_33",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.7449725116238605,
+                "answer_relevancy": 0.7878267345860454,
+                "context_utilization": 0.7027450040929094,
+                "cpac_plan_quality": 3.0178730165529832,
+                "evidence_uncertainty": 4.851124485343207
+            }
+        },
+        {
+            "run_id": "vector_only_sample_34",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6596353992274194,
+                "answer_relevancy": 0.7795860336190829,
+                "context_utilization": 0.5541038718159582,
+                "cpac_plan_quality": 3.236640378699784,
+                "evidence_uncertainty": 2.9852518005988604
+            }
+        },
+        {
+            "run_id": "vector_only_sample_35",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6430571686788078,
+                "answer_relevancy": 0.7942664336895001,
+                "context_utilization": 0.5268627352928914,
+                "cpac_plan_quality": 4.8126107582362625,
+                "evidence_uncertainty": 3.4542066109274683
+            }
+        },
+        {
+            "run_id": "vector_only_sample_36",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.5750349191176981,
+                "answer_relevancy": 0.8820602067558836,
+                "context_utilization": 0.5965835215139978,
+                "cpac_plan_quality": 4.006034640219513,
+                "evidence_uncertainty": 2.8220941887560542
+            }
+        },
+        {
+            "run_id": "vector_only_sample_37",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.526655579836817,
+                "answer_relevancy": 0.7681120203437789,
+                "context_utilization": 0.9251150174658465,
+                "cpac_plan_quality": 3.875983095940005,
+                "evidence_uncertainty": 3.1789124473949473
+            }
+        },
+        {
+            "run_id": "vector_only_sample_38",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.8430562655981182,
+                "answer_relevancy": 0.5559843462682332,
+                "context_utilization": 0.46003444659571224,
+                "cpac_plan_quality": 3.859404895238625,
+                "evidence_uncertainty": 3.952673630896854
+            }
+        },
+        {
+            "run_id": "vector_only_sample_39",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "vector_only",
+            "metrics": {
+                "faithfulness": 0.6810848488198629,
+                "answer_relevancy": 0.730272060850733,
+                "context_utilization": 0.5334482912035644,
+                "cpac_plan_quality": 4.321704010676853,
+                "evidence_uncertainty": 3.9163681311530767
+            }
+        }
+    ],
+    "fusion_0.7_0.3": [
+        {
+            "run_id": "fusion_0.7_0.3_sample_0",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7605786448068743,
+                "answer_relevancy": 1.0,
+                "context_utilization": 0.9811258936943082,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 3.4738004071196693
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_1",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7554402535831833,
+                "answer_relevancy": 0.9316999345431303,
+                "context_utilization": 0.6765265731054155,
+                "cpac_plan_quality": 4.375742064908462,
+                "evidence_uncertainty": 4.9186546419497095
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_2",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.9618686101380708,
+                "answer_relevancy": 0.8673703201212105,
+                "context_utilization": 1.0,
+                "cpac_plan_quality": 4.673874866463496,
+                "evidence_uncertainty": 4.884434606835088
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_3",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 1.0,
+                "answer_relevancy": 0.8901103968290144,
+                "context_utilization": 0.8308328691158208,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 5.0
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_4",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7546533083456486,
+                "answer_relevancy": 0.8399694147639587,
+                "context_utilization": 0.8093944756886293,
+                "cpac_plan_quality": 4.951623440756911,
+                "evidence_uncertainty": 3.5561559133757656
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_5",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7888946138002327,
+                "answer_relevancy": 0.9134218921248225,
+                "context_utilization": 0.6372549636777036,
+                "cpac_plan_quality": 3.899271907990634,
+                "evidence_uncertainty": 4.094259612872141
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_6",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 1.0,
+                "answer_relevancy": 0.8588296903042933,
+                "context_utilization": 1.0,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.458852901357642
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_7",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8010985684996695,
+                "answer_relevancy": 0.911531985577675,
+                "context_utilization": 0.7710615301700321,
+                "cpac_plan_quality": 4.933889704257556,
+                "evidence_uncertainty": 4.9961596442133995
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_8",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7431499720348467,
+                "answer_relevancy": 0.9238745042746175,
+                "context_utilization": 0.930001809540594,
+                "cpac_plan_quality": 4.48619320135088,
+                "evidence_uncertainty": 3.9825196364132696
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_9",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.9495572917154846,
+                "answer_relevancy": 1.0,
+                "context_utilization": 0.8676140882318885,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.987059913025516
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_10",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7599935794626759,
+                "answer_relevancy": 0.949480803411881,
+                "context_utilization": 0.6772197158541534,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 5.0
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_11",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8048460339809207,
+                "answer_relevancy": 0.999340773269482,
+                "context_utilization": 0.6955637519311362,
+                "cpac_plan_quality": 4.772087555801627,
+                "evidence_uncertainty": 4.265904928290944
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_12",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8189452232256984,
+                "answer_relevancy": 0.8522018796149508,
+                "context_utilization": 0.9894668488235081,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 3.8540581095470805
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_13",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.802981965594352,
+                "answer_relevancy": 0.91462544424994,
+                "context_utilization": 0.6444388974363094,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 5.0
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_14",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 1.0,
+                "answer_relevancy": 0.8639881952760246,
+                "context_utilization": 0.8790905147646,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.386273605875275
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_15",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.9649135574584576,
+                "answer_relevancy": 0.7904603515015063,
+                "context_utilization": 0.9474136738759311,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.894780310467063
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_16",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8317039861739226,
+                "answer_relevancy": 0.9123970803549784,
+                "context_utilization": 1.0,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.781966596935077
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_17",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.9063108756192301,
+                "answer_relevancy": 0.9556469851217922,
+                "context_utilization": 1.0,
+                "cpac_plan_quality": 4.482906722557087,
+                "evidence_uncertainty": 4.819205635598772
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_18",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8263660748061171,
+                "answer_relevancy": 0.9686585335832845,
+                "context_utilization": 0.5452185697682548,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.78413170405577
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_19",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.9732974846700736,
+                "answer_relevancy": 0.9264123256340987,
+                "context_utilization": 0.9495750786238265,
+                "cpac_plan_quality": 4.831565265431566,
+                "evidence_uncertainty": 4.241926874799656
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_20",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 1.0,
+                "answer_relevancy": 0.8555433287353253,
+                "context_utilization": 0.7144970317041404,
+                "cpac_plan_quality": 4.444428117447317,
+                "evidence_uncertainty": 4.679890194625905
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_21",
+            "dataset": "ds002748",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cortex or leaves skull; within anatomical_preproc, which specific options/parameters should be adjusted first to stabilize brain extraction (actionable parameter-level recommendations)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8950524589207215,
+                "answer_relevancy": 0.8636973084459436,
+                "context_utilization": 0.6668830197798064,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 3.5983487695586365
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_22",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.804257709310134,
+                "answer_relevancy": 1.0,
+                "context_utilization": 1.0,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.300379517859368
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_23",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8167871127443905,
+                "answer_relevancy": 0.8430028658695475,
+                "context_utilization": 0.6895594897892426,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 5.0
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_24",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7519347313229569,
+                "answer_relevancy": 0.8859444778111812,
+                "context_utilization": 0.7018399193942428,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.989895159937163
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_25",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.9897152777849766,
+                "answer_relevancy": 0.9889226990157522,
+                "context_utilization": 0.8142180046804659,
+                "cpac_plan_quality": 4.806171841288314,
+                "evidence_uncertainty": 4.852778340458081
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_26",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8316730976326423,
+                "answer_relevancy": 0.8317084615626863,
+                "context_utilization": 0.7231899647462312,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.676272054986311
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_27",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.9325306139388699,
+                "answer_relevancy": 0.9733287477311537,
+                "context_utilization": 0.8692167124265751,
+                "cpac_plan_quality": 4.659996133779487,
+                "evidence_uncertainty": 5.0
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_28",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7821919672800297,
+                "answer_relevancy": 0.8326511086133865,
+                "context_utilization": 0.9068274870439577,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 5.0
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_29",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7955689314171349,
+                "answer_relevancy": 1.0,
+                "context_utilization": 0.8639792232862876,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.839607236318001
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_30",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7373819903376465,
+                "answer_relevancy": 0.9020720289778752,
+                "context_utilization": 0.7029732877093134,
+                "cpac_plan_quality": 4.791008515063704,
+                "evidence_uncertainty": 4.732251183572907
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_31",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8044758296745355,
+                "answer_relevancy": 0.9955061130803202,
+                "context_utilization": 0.9489486584156296,
+                "cpac_plan_quality": 4.454449874807015,
+                "evidence_uncertainty": 4.1031074397749485
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_32",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.9944723165527412,
+                "answer_relevancy": 0.9531555948717103,
+                "context_utilization": 0.8345190545412758,
+                "cpac_plan_quality": 4.506103965453829,
+                "evidence_uncertainty": 5.0
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_33",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7627216592494847,
+                "answer_relevancy": 0.9729792384816817,
+                "context_utilization": 0.5534131970970324,
+                "cpac_plan_quality": 4.766623428467606,
+                "evidence_uncertainty": 4.87794029687188
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_34",
+            "dataset": "adhd200",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=ADHD-200 (8 sites, children/adolescents, heterogeneous scanners/protocols, T1w resolution varies ~1.0\u20131.2mm, some sites have low T1 contrast): within anatomical_preproc, how should brain extraction and bias-field correction be configured for cross-site robustness (parameter-table recommended)?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.9234773476072603,
+                "answer_relevancy": 0.7754707625177476,
+                "context_utilization": 0.8454075239888154,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 4.924782629875852
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_35",
+            "dataset": "adhd200",
+            "query_idx": 2,
+            "user_input": "CPAC v1.8.7, ADHD-200: some sites show strong intensity non-uniformity due to coil/scanner differences; within anatomical_preproc, which bias-field correction settings most improve cross-site robustness and what evidence-backed recommended ranges can be stated?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.7896541885889924,
+                "answer_relevancy": 0.7970392398954653,
+                "context_utilization": 0.6365138890064203,
+                "cpac_plan_quality": 4.78091485500544,
+                "evidence_uncertainty": 4.958516368982245
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_36",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.9187097935941925,
+                "answer_relevancy": 0.9610705923956745,
+                "context_utilization": 0.5410007426045993,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 5.0
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_37",
+            "dataset": "ds002748",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM contrast; in anatomical_preproc, how should bias-field correction and intensity normalization be configured for robustness, and which parameters are most likely to cause downstream segmentation/registration drift?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8730274828242314,
+                "answer_relevancy": 0.9773015224237563,
+                "context_utilization": 1.0,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 5.0
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_38",
+            "dataset": "adhd200",
+            "query_idx": 1,
+            "user_input": "CPAC v1.8.7, ADHD-200: pediatric brains differ in size and CSF proportions; within anatomical_preproc, what systematic biases can arise from adult templates/priors and how should template/parameter choices be adapted locally to this module?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.6895327758923259,
+                "answer_relevancy": 1.0,
+                "context_utilization": 1.0,
+                "cpac_plan_quality": 5.0,
+                "evidence_uncertainty": 5.0
+            }
+        },
+        {
+            "run_id": "fusion_0.7_0.3_sample_39",
+            "dataset": "ds002748",
+            "query_idx": 0,
+            "user_input": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+            "retrieval_mode": "fusion_0.7_0.3",
+            "metrics": {
+                "faithfulness": 0.8074489818317284,
+                "answer_relevancy": 0.9856303953278563,
+                "context_utilization": 0.9685190384573333,
+                "cpac_plan_quality": 4.486144374562802,
+                "evidence_uncertainty": 4.237309647165724
+            }
+        }
+    ]
+}

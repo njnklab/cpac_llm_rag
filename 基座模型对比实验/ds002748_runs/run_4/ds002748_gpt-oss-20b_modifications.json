@@ -1,0 +1,86 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The dataset has 5mm slice thickness and moderate field inhomogeneities; enabling N4 bias field correction will improve intensity homogeneity, which is beneficial for downstream segmentation and feature extraction."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Aligning subjects to a common AC-PC coordinate system enhances comparability across participants, which is useful for network analyses and classification. The alignment step is lightweight and does not require fieldmaps."
+        },
+        {
+            "parameter_path": "anatomical_preproc.brain_extraction.FSL-BET.frac",
+            "current_default": "0.5",
+            "recommended_value": "0.35",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "With 5mm slices, the default BET fraction tends to include extra non-brain tissue; reducing it to 0.35 improves brain mask accuracy while still retaining most of the brain volume."
+        },
+        {
+            "parameter_path": "functional_preproc.distortion_correction.run",
+            "current_default": "On",
+            "recommended_value": "Off",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Dataset lacks fieldmaps and phase‑encoding direction, so distortion correction cannot be performed; disabling prevents errors and unnecessary computation."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.interpolation",
+            "current_default": "trilinear",
+            "recommended_value": "LanczosWindowedSinc",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Higher-order Lanczos interpolation preserves fine structural detail during coregistration of functional to anatomical data, improving alignment quality for connectivity analyses."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.cost",
+            "current_default": "corratio",
+            "recommended_value": "MI",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Mutual information is more robust to intensity differences between T1-weighted structural and EPI images, which can enhance registration accuracy for datasets without fieldmaps."
+        },
+        {
+            "parameter_path": "registration_workflows.anatomical_registration.registration.ANTs.T1_registration.metric.type",
+            "current_default": "CC",
+            "recommended_value": "MI",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Using mutual information for the ANTs T1 registration step improves cross-modality alignment between native anatomy and MNI space, yielding more accurate spatial normalization for functional analyses."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "single_step_resampling_from_stc",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Regression regressors must be in template space to match the standard atlas used for connectivity analysis; the default single_step_resampling_from_stc is incompatible with subsequent atlas‑based feature extraction."
+        },
+        {
+            "parameter_path": "nuisance_corrections.1-ICA-AROMA.run",
+            "current_default": "[Off]",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Enabling ICA‑AROMA reduces motion‑related confounds in resting‑state data, improving the reliability of functional connectivity features used for classification of depression versus healthy controls."
+        }
+    ],
+    "summary": {
+        "total_modifications": 9,
+        "high_confidence": 5,
+        "medium_confidence": 4,
+        "low_confidence": 0
+    }
+}

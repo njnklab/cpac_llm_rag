@@ -1,0 +1,35 @@
+longitudinal_template_generation:
+
+  # If you have multiple T1w's, you can generate your own run-specific custom
+  # T1w template to serve as an intermediate to the standard template for
+  # anatomical registration.
+
+  # This runs before the main pipeline as it requires multiple T1w sessions
+  # at once.
+  run: Off
+
+  # Freesurfer longitudinal template algorithm using FSL FLIRT
+  # Method to average the dataset at each iteration of the template creation
+  # Options: median, mean or std
+  average_method: median
+
+  # Degree of freedom for FLIRT in the template creation
+  # Options: 12 (affine), 9 (traditional), 7 (global rescale) or 6 (rigid body)
+  dof: 12
+
+  # Interpolation parameter for FLIRT in the template creation
+  # Options: trilinear, nearestneighbour, sinc or spline
+  interp: trilinear
+
+  # Cost function for FLIRT in the template creation
+  # Options: corratio, mutualinfo, normmi, normcorr, leastsq, labeldiff or bbr
+  cost: corratio
+
+  # Number of threads used for one run of the template generation algorithm
+  thread_pool: 2
+
+  # Threshold of transformation distance to consider that the loop converged
+  # (-1 means numpy.finfo(np.float64).eps and is the default)
+  convergence_threshold: -1
+
+

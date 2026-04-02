@@ -1,0 +1,126 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Bias field correction improves intensity homogeneity, essential for accurate tissue segmentation and downstream analyses."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "ACPC alignment ensures consistent head orientation before preprocessing, facilitating reliable registration to standard space."
+        },
+        {
+            "parameter_path": "anatomical_preproc.brain_extraction.using",
+            "current_default": "['BET']",
+            "recommended_value": "['UNet']",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "The UNet-based extractor performs better on low‑resolution, thick‑slice T1 images, yielding more accurate brain masks for this dataset."
+        },
+        {
+            "parameter_path": "functional_preproc.scaling.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Standardizing BOLD signal intensity (e.g., scaling to mean=10) is common for functional connectivity analyses and improves comparability across subjects."
+        },
+        {
+            "parameter_path": "functional_preproc.truncation.start_tr",
+            "current_default": "0",
+            "recommended_value": "5",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Discarding the first 5 volumes (~12.5 s) allows magnetization to reach steady state, reducing transient signal artifacts that can bias connectivity estimates."
+        },
+        {
+            "parameter_path": "functional_preproc.distortion_correction.run",
+            "current_default": "On",
+            "recommended_value": "Off",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "No fieldmaps are available in this dataset; attempting distortion correction would fail or produce unreliable results, so it is safer to disable it."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.interpolation",
+            "current_default": "trilinear",
+            "recommended_value": "LanczosWindowedSinc",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Improves interpolation quality for low‑resolution 5mm slice fMRI, preserving spatial detail needed for connectivity analysis."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.EPI_registration.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Enables non‑linear distortion correction via ANTS when no fieldmaps are available, improving alignment to template and reducing spatial bias in network metrics."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_preproc_outputs",
+            "current_default": "3mm",
+            "recommended_value": "2mm",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Higher resolution outputs (2mm) provide finer spatial granularity for functional connectivity features, balancing interpolation error against feature resolution."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.func_registration_to_template.output_resolution.func_derivative_outputs",
+            "current_default": "3mm",
+            "recommended_value": "2mm",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Consistent higher resolution for derivative outputs ensures accurate spatial mapping of time‑series derivatives used in connectivity calculations."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Regressors should be applied in template space to ensure consistent alignment across subjects for group analyses."
+        },
+        {
+            "parameter_path": "nuisance_corrections.1-ICA-AROMA.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "ICA-AROMA can effectively remove motion‑related artifacts without fieldmaps, improving signal quality for classification."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.bandpass_filtering_order",
+            "current_default": "After",
+            "recommended_value": "Before",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Applying band‑pass filtering before regression reduces the risk of regressor contamination with high‑frequency noise."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.using",
+            "current_default": "['FSL-FAST']",
+            "recommended_value": "['ANTs_Prior_Based']",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The structural images have relatively thick 5 mm slices, leading to partial‑volume effects that can reduce the accuracy of FSL‑FAST segmentation. ANTs Prior‑Based segmentation uses high‑resolution priors and is more robust to anisotropic voxels, providing cleaner tissue masks which are important for accurate ROI definition and connectivity analysis in this depression study."
+        }
+    ],
+    "summary": {
+        "total_modifications": 14,
+        "high_confidence": 5,
+        "medium_confidence": 9,
+        "low_confidence": 0
+    }
+}

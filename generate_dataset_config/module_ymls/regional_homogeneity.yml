@@ -1,0 +1,18 @@
+
+
+regional_homogeneity:
+
+  # ReHo
+  # Calculate Regional Homogeneity (ReHo) for all voxels.
+  run: On
+
+  # space: Template or Native
+  target_space: ['Native']
+
+  # Number of neighboring voxels used when calculating ReHo
+  # 7 (Faces)
+  # 19 (Faces + Edges)
+  # 27 (Faces + Edges + Corners)
+  cluster_size: 27
+
+

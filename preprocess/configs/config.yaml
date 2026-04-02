@@ -1,0 +1,53 @@
+dataset:
+  id: "ADHD-KKI"
+  bids_root: "/mnt/sda1/zhangyan/ADHD/ADHD200_subset/bids/KKI"
+
+batch:
+  size: 30
+
+paths:
+  source_id_file: "/home/a001/zhangyan/cpac/processing_list/ADHD/KKI_id.txt"
+  to_process_file: "/home/a001/zhangyan/cpac/processing_list/ADHD/KKI_to_process_id.txt"
+  processed_file: "/home/a001/zhangyan/cpac/processing_list/ADHD/KKI_processed_id.txt"
+  log_file: "/home/a001/zhangyan/cpac/log/cpac_pipeline.log"
+  cpac_config: "/home/a001/zhangyan/cpac/config_yml/pipeline_config_default.yml"
+
+cpac:
+  output_dir: "/home/a001/zhangyan/cpac/output"
+  working_dir: "/home/a001/zhangyan/cpac/working"
+
+deepprep:
+  bids_dir: "/media/a001/6F5E-9C72/zhangyan/ADHD/ADHD200_subset/bids/KKI"
+  output_dir: "/home/a001/zhangyan/deepprep-work/KKI_output"
+  work_root: "/home/a001/zhangyan/deepprep-work/KKI_work"
+  fs_license: "/home/a001/zhangyan/deepprep-stl/license.txt"
+  docker_image: "pbfslab/deepprep:25.1.0"
+  gpu_ids: [0]
+  cpus_per_subject: 30
+  memory_per_subject_gb: 90
+  template_space: "MNI152NLin2009cAsym"
+  to_process_file: "/media/a001/6F5E-9C72/zhangyan/deepprep/KKI_to_process_id.txt"
+  processed_file: "/media/a001/6F5E-9C72/zhangyan/deepprep/KKI_processed_id.txt"
+  log_dir: "/media/a001/6F5E-9C72/zhangyan/deepprep/logs"
+  status_csv: "/media/a001/6F5E-9C72/zhangyan/deepprep/KKI_processing_status.csv"
+  qc_csv: "/media/a001/6F5E-9C72/zhangyan/deepprep/KKI_qc_summary.csv"
+
+fmriprep:
+  bids_dir: "/mnt/sda1/zhangyan/ADHD/ADHD200_subset/bids/NeuroIMAGE"
+  output_dir: "/mnt/sda1/zhangyan/fmriprep/NeuroIMAGE_output"
+  work_root: "/mnt/sda1/zhangyan/fmriprep/NeuroIMAGE_work"
+  bids_db_dir: "/mnt/sda1/zhangyan/fmriprep/NeuroIMAGE_bids_db"
+  fs_license: "/home/a001/zhangyan/freesurfer/license.txt"
+  subjects_txt: "subjects.txt"
+  done_txt: "NeuroIMAGE_done.txt"
+  image: "AUTO"
+  max_jobs: 2
+  nprocs: 14
+  mem_mb: 50000
+  omp_nthreads: 6
+  mni_space: "MNI152NLin2009cAsym"
+  level: "full"
+  skip_bids_validation: true
+  fd_threshold: 0.2
+  compute_tsnr: true
+  notrack: true

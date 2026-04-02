@@ -1,0 +1,72 @@
+network_centrality:
+
+  # Calculate Degree, Eigenvector Centrality, or Functional Connectivity Density.
+  run: On
+
+  # Maximum amount of RAM (in GB) to be used when calculating Degree Centrality.
+  # Calculating Eigenvector Centrality will require additional memory based on the size of the mask or number of ROI nodes.
+  memory_allocation: 1.0
+
+  # Full path to a NIFTI file describing the mask. Centrality will be calculated for all voxels within the mask.
+  template_specification_file: /cpac_templates/Mask_ABIDE_85Percent_GM.nii.gz
+
+  degree_centrality:
+
+    # Enable/Disable degree centrality by selecting the connectivity weights
+    #   weight_options: ['Binarized', 'Weighted']
+    # disable this type of centrality with:
+    #   weight_options: []
+    weight_options: ['Binarized', 'Weighted']
+
+    # Select the type of threshold used when creating the degree centrality adjacency matrix.
+    # options:
+    #   'Significance threshold', 'Sparsity threshold', 'Correlation threshold'
+    correlation_threshold_option: 'Sparsity threshold'
+
+    # Based on the Threshold Type selected above, enter a Threshold Value.
+    # P-value for Significance Threshold
+    # Sparsity value for Sparsity Threshold
+    # Pearson's r value for Correlation Threshold
+    correlation_threshold: 0.001
+
+  eigenvector_centrality:
+
+    # Enable/Disable eigenvector centrality by selecting the connectivity weights
+    #   weight_options: ['Binarized', 'Weighted']
+    # disable this type of centrality with:
+    #   weight_options: []
+    weight_options: ['Weighted']
+
+    # Select the type of threshold used when creating the eigenvector centrality adjacency matrix.
+    # options:
+    #   'Significance threshold', 'Sparsity threshold', 'Correlation threshold'
+    correlation_threshold_option: 'Sparsity threshold'
+
+    # Based on the Threshold Type selected above, enter a Threshold Value.
+    # P-value for Significance Threshold
+    # Sparsity value for Sparsity Threshold
+    # Pearson's r value for Correlation Threshold
+    correlation_threshold: 0.001
+
+  local_functional_connectivity_density:
+
+    # Enable/Disable lFCD by selecting the connectivity weights
+    #   weight_options: ['Binarized', 'Weighted']
+    # disable this type of centrality with:
+    #   weight_options: []
+    weight_options: ['Binarized', 'Weighted']
+
+    # Select the type of threshold used when creating the lFCD adjacency matrix.
+    # options:
+    #   'Significance threshold', 'Correlation threshold'
+    correlation_threshold_option: 'Correlation threshold'
+
+    # Based on the Threshold Type selected above, enter a Threshold Value.
+    # P-value for Significance Threshold
+    # Sparsity value for Sparsity Threshold
+    # Pearson's r value for Correlation Threshold
+    correlation_threshold: 0.6
+
+
+# PACKAGE INTEGRATIONS
+# --------------------

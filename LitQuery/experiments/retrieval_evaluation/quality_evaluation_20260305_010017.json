@@ -1,0 +1,77 @@
+{
+  "evaluation_time": "2026-03-05T01:00:17.010053",
+  "model": "qwen3:14b",
+  "query": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+  "evaluations": [
+    {
+      "db_name": "minilm",
+      "relevance_score": 2,
+      "completeness_score": 1,
+      "actionability_score": 1,
+      "overall_score": 2,
+      "strengths": [
+        "部分文档涉及MRI处理技术",
+        "包含神经影像学分析相关方法"
+      ],
+      "weaknesses": [
+        "无CPAC配置细节",
+        "未讨论脑提取/偏场校正/空间归一化参数"
+      ],
+      "recommendation": "查阅CPAC官方文档和BIDS-Apps指南，优先使用默认参数并验证解剖预处理质量",
+      "reasoning": "检索结果均为通用神经影像学研究，未涉及CPAC具体配置参数或预处理流程细节，无法回答脑提取、偏场校正和空间归一化的具体配置建议及失败模式分析"
+    },
+    {
+      "db_name": "mxbai",
+      "relevance_score": 5,
+      "completeness_score": 3,
+      "actionability_score": 2,
+      "overall_score": 3,
+      "strengths": [
+        "文档4可能涉及多流水线比较，间接相关",
+        "文档1和2可能包含预处理通用原则"
+      ],
+      "weaknesses": [
+        "无文档明确讨论CPAC配置参数",
+        "未覆盖bias-field correction等具体步骤",
+        "缺乏失败模式分析"
+      ],
+      "recommendation": "查阅CPAC官方文档或相关BIDS预处理指南，结合HCP流水线经验进行配置",
+      "reasoning": "检索结果缺乏CPAC特定配置信息，仅文档4可能涉及多流水线比较，但未直接回答brain extraction等核心问题，其他文档聚焦方法论而非参数配置"
+    },
+    {
+      "db_name": "nomic-embed-text",
+      "relevance_score": 2,
+      "completeness_score": 1,
+      "actionability_score": 1,
+      "overall_score": 2,
+      "strengths": [
+        "部分文档涉及fMRI处理流程和自动化方法",
+        "涵盖神经影像学在疾病诊断中的应用"
+      ],
+      "weaknesses": [
+        "未提及CPAC工具的具体配置参数",
+        "缺乏对anatomical_preproc模块的直接指导"
+      ],
+      "recommendation": "建议查阅CPAC官方文档或相关BIDS处理指南，而非依赖这些泛用性研究文献",
+      "reasoning": "所有文档均未涉及CPAC工具的具体参数配置，且未讨论anatomical_preproc模块的脑提取、偏场校正或空间归一化配置，无法满足用户需求"
+    },
+    {
+      "db_name": "qwen3",
+      "relevance_score": 2,
+      "completeness_score": 1,
+      "actionability_score": 1,
+      "overall_score": 1,
+      "strengths": [
+        "部分文档涉及功能连接分析和可重复性研究，可能间接相关",
+        "文档标题包含关键词如'brain connectivity'"
+      ],
+      "weaknesses": [
+        "所有文档均未提及CPAC工具或其具体预处理配置",
+        "未涉及brain extraction、bias-field correction、spatial normalization等关键参数",
+        "缺乏针对ds002748数据集的特定建议"
+      ],
+      "recommendation": "建议查阅CPAC官方文档或相关BIDS预处理指南，检索结果无法提供所需配置信息",
+      "reasoning": "所有检索结果均未涉及CPAC工具的具体配置参数，也未讨论anatomical_preproc流程中的关键步骤。文档内容聚焦于脑连接分析、可重复性研究和机器学习应用，与用户询问的预处理配置无直接关联。"
+    }
+  ]
+}

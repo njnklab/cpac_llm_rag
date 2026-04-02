@@ -1,0 +1,14 @@
+amplitude_low_frequency_fluctuation:
+
+  # ALFF & f/ALFF
+  # Calculate Amplitude of Low Frequency Fluctuations (ALFF) and fractional ALFF (f/ALFF) for all voxels.
+  run: On
+
+  # space: Template or Native
+  target_space: ['Native']
+
+  # Frequency cutoff (in Hz) for the high-pass filter used when calculating f/ALFF.
+  highpass_cutoff: [0.01]
+
+  # Frequency cutoff (in Hz) for the low-pass filter used when calculating f/ALFF
+  lowpass_cutoff: [0.1]

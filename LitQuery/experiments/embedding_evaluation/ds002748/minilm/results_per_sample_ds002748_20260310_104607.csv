@@ -1,0 +1,31 @@
+run_id,user_input,answer_relevancy,context_utilization,cpac_plan_quality,evidence_uncertainty,faithfulness
+query_0000,"CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropi...",0.769,0.012,3.255,2.45,0.123
+query_0001,"CPAC v1.8.7, ds002748: T1w shows mild intensity non-uniformity (bias field) and slightly low GM/WM c...",0.743,0.165,2.076,3.61,0.008
+query_0002,"CPAC v1.8.7, ds002748: T1w has mild motion blur; skull-stripping intermittently removes frontal cort...",0.728,0.0,3.072,2.666,0.008
+query_0003,"CPAC v1.8.7, ds002748: only T1w (no T2, no fieldmap); if functional-to-template alignment frequently...",0.674,0.097,3.619,2.284,0.189
+query_0004,"CPAC v1.8.7, ds002748: orbitofrontal/temporal pole GM/WM contrast is imperfect; within anatomical_pr...",0.701,0.0,1.271,3.018,0.008
+query_0005,"CPAC v1.8.7, ds002748: target downstream ReHo/ALFF; within anatomical_preproc, how do choices for MN...",0.807,0.0,2.276,1.0,0.008
+query_0006,"CPAC v1.8.7, ds002748 rs-fMRI (TR=2.0s, voxel≈3mm, slice timing available, no fieldmap, phase-encodi...",0.787,0.005,3.1,2.602,0.019
+query_0007,"CPAC v1.8.7, ds002748: a subset of subjects has transient high motion (FD peak>0.8); within function...",0.669,0.0,2.632,2.977,0.008
+query_0008,"CPAC v1.8.7, ds002748: no fieldmap but orbitofrontal EPI distortion is evident; within functional_pr...",0.755,0.0,2.976,1.402,0.486
+query_0009,"CPAC v1.8.7, ds002748: physiological-like spikes and low-frequency drift are present; within functio...",0.807,0.0,2.391,3.238,0.325
+query_0010,"CPAC v1.8.7, ds002748: after resampling, some subjects show edge ringing or unintended blur; within ...",0.613,0.316,2.806,2.674,0.147
+query_0011,"CPAC v1.8.7, ds002748: TR=2.0s and ALFF band of interest is 0.01–0.1Hz; should any temporal filterin...",0.79,0.027,2.66,2.146,0.444
+query_0012,"CPAC v1.8.7, ds002748 (no fieldmap, T1w 1mm, EPI ~3mm, PE=AP): within registration_workflows, what a...",0.694,0.0,3.454,2.88,0.164
+query_0013,"CPAC v1.8.7, ds002748: EPI→T1 alignment is often mislocalized in orbitofrontal/temporal regions (dis...",0.793,0.054,2.906,4.026,0.008
+query_0014,"CPAC v1.8.7, ds002748: downstream functional connectivity is sensitive to registration; within regis...",0.686,0.005,2.956,2.564,0.453
+query_0015,"CPAC v1.8.7, ds002748: a few subjects show abnormal T1→MNI warps (over-stretching); within registrat...",0.603,0.0,2.507,2.611,0.256
+query_0016,"CPAC v1.8.7, ds002748: EPI resolution is low and tissue boundaries are unclear; within registration_...",0.617,0.114,2.461,2.115,0.008
+query_0017,"CPAC v1.8.7, ds002748: you want outputs in both native and MNI 2mm spaces; within registration_workf...",0.751,0.135,2.494,1.842,0.11
+query_0018,"CPAC v1.8.7, ds002748 (TR=2.0s, mean FD≈0.15 with some spikes, no physiological recordings): within ...",0.768,0.0,2.99,3.018,0.008
+query_0019,"CPAC v1.8.7, ds002748: target ReHo and ALFF; within nuisance_corrections, should GSR and strict scru...",0.675,0.0,2.501,1.838,0.008
+query_0020,"CPAC v1.8.7, ds002748: moderate motion and small sample size; within nuisance_corrections, how shoul...",0.798,0.0,2.928,2.487,0.334
+query_0021,"CPAC v1.8.7, ds002748: after regression the time series looks over-cleaned (tSNR drops, low-frequenc...",0.614,0.0,3.999,2.103,0.53
+query_0022,"CPAC v1.8.7, ds002748: without physiological recordings, should WM/CSF mean regressors and linear tr...",0.742,0.0,3.276,2.772,0.008
+query_0023,"CPAC v1.8.7, ds002748: for high evidence-consistency, how should nuisance regression recommendations...",0.65,0.226,2.558,2.671,0.261
+query_0024,"CPAC v1.8.7, ds002748 (T1w only): within segmentation, what are recommended settings for tissue segm...",0.695,0.268,3.474,3.163,0.018
+query_0025,"CPAC v1.8.7, ds002748: CSF mask leaks into cortical sulci; within segmentation, which parameters sho...",0.751,0.0,2.509,2.08,0.051
+query_0026,"CPAC v1.8.7, ds002748: WM segmentation in frontal regions has holes/discontinuities; within segmenta...",0.678,0.108,1.531,2.248,0.03
+query_0027,"CPAC v1.8.7, ds002748: you plan to use CompCor; within segmentation, how should noise ROIs be constr...",0.716,0.068,2.149,1.752,0.008
+query_0028,"CPAC v1.8.7, ds002748: occasional segmentation failures occur despite good T1 quality; within segmen...",0.827,0.483,1.631,2.126,0.158
+query_0029,"CPAC v1.8.7, ds002748: to ensure cross-subject consistency, which segmentation parameters should be ...",0.701,0.189,2.543,2.701,0.008

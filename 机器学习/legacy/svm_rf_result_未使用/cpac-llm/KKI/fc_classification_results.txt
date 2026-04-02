@@ -1,0 +1,28 @@
+Machine Learning Classification Results
+========================================
+Model: BrainNetCNN
+--------------------
+Accuracy (mean): 0.7349
+Accuracy (std): 0.0555
+Precision (mean): 0.5000
+Precision (std): 0.0436
+Recall (mean): 0.7273
+Recall (std): 0.0615
+F1-score (mean): 0.5926
+F1-score (std): 0.0358
+Confusion Matrix:
+[[45, 16], [6, 16]]
+
+
+Model: BrainGNN
+--------------------
+Accuracy (mean): 0.7831
+Accuracy (std): 0.0723
+Precision (mean): 0.6250
+Precision (std): 0.0504
+Recall (mean): 0.4545
+Recall (std): 0.0540
+F1-score (mean): 0.5263
+F1-score (std): 0.0419
+Confusion Matrix:
+[[55, 6], [12, 10]]

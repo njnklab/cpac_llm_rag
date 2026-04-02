@@ -1,0 +1,325 @@
+================================================================================
+向量数据库检索测试报告
+================================================================================
+测试时间: 2026-03-05 00:35:56
+测试配置:
+  - 检索数量: 5
+  - 混合搜索: True
+  - Ollama地址: http://localhost:11434
+  - 模型: qwen3:14b
+================================================================================
+
+测试问题:
+--------------------------------------------------------------------------------
+CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?
+
+================================================================================
+
+性能对比:
+--------------------------------------------------------------------------------
+数据库                  文档数        检索时间         结果数     
+--------------------------------------------------------------------------------
+minilm               2355             1.40s  5       
+mxbai                5010             3.03s  5       
+nomic-embed-text     54706            1.58s  5       
+qwen3                54607            4.87s  5       
+--------------------------------------------------------------------------------
+
+
+================================================================================
+数据库: minilm
+路径: /home/a001/zhangyan/LitQuery/serpapi_db_minilm
+文档总数: 2355
+检索时间: 1.40秒
+检索到: 5 个文档
+================================================================================
+
+[1] 来源: Efficient 4D fMRI ASD Classification using Spatial-Temporal-Omics-based Learning Framework | 页: 2
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Efficient 4D fMRI ASD Classification using Spatial-Temporal-Omics-based Learning Framework.pdf
+    内容:
+      Finally, spatial normalization was conducted to align the brain
+      images with the Montreal Neurological Institute (MNI) tem-
+
+[2] 来源: A Brain Graph Foundation Model: Pre-Training and Prompt-Tuning across Broad Atlases and Disorders | 页: 28
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/A Brain Graph Foundation Model: Pre-Training and Prompt-Tuning across Broad Atlases and Disorders.pdf
+    内容:
+      assignment to define high-resolution, functionally coherent brain regions, enabling precise modeling
+      28
+
+[3] 来源: Automatic autism spectrum disorder detection using artificial intelligence methods with MRI neuroimaging: A review | 页: 6
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Automatic autism spectrum disorder detection using artificial intelligence methods with MRI neuroimaging: A review.pdf
+    内容:
+      (Khodatars et al., 2021). In reference (Khodatars et al., 2021),
+      each step of standard preprocessing for sMRI modalities is
+      explained.
+      Frontiers in Molecular Neuroscience 06 frontiersin.org
+
+[4] 来源: Inverted cone convolutional neural network for deboning MRIs | 页: 46
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Inverted cone convolutional neural network for deboning MRIs.pdf
+    内容:
+      35 
+       
+       
+      Figure 19.  Brain MRI scans preprocessed by Inverted Cone
+
+[5] 来源: Longitudinal reproducibility of default-mode network connectivity in healthy elderly participants: a multicentric resting-state fMRI study | 页: 10
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Longitudinal reproducibility of default-mode network connectivity in healthy elderly participants: a multicentric resting-state fMRI study.pdf
+    内容:
+      Before acquiring brain data , each site r an a baseline test using fBIRN agar phantoms  
+      (Friedman and Glover, 2006a ), distributed centrally and kept at each acquisition site (Glover et al.,
+
+
+================================================================================
+数据库: mxbai
+路径: /home/a001/zhangyan/LitQuery/serpapi_db_mxbai
+文档总数: 5010
+检索时间: 3.03秒
+检索到: 5 个文档
+================================================================================
+
+[1] 来源: functional MRI | 页: 94
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/functional MRI.pdf
+    内容:
+      corrected and segmented into CSF, WM and GM, followed by normalization of the 
+      co-registered anatomical and functional images to Montreal Neurological Institute 
+      (MNI) reference space by applying a 12 degrees -of-freedom transformation using 
+      SPM12.
+
+[2] 来源: A robust strategy for cleaning motion artifacts in resting state fMRI | 页: 51
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/A robust strategy for cleaning motion artifacts in resting state fMRI.pdf
+    内容:
+      36  
+      translated to (0, 0, 0) coordinates. Forth, ART-based identification of outlier scans was applied for scrubbing. Fifth, simultaneous Gray/White/CSF segmentation was applied to all the subjects, and the fMRI volumes were normalized to MNI space. Finally, a spatial convolution with a Gaussian kernel was applied.  
+       Figure 3-1. Preprocessing pipeline for dataset in Table 3-1.
+
+[3] 来源: Deep Learning Approaches for Preprocessing and Analysis of Neuroimaging Data | 页: 20
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Deep Learning Approaches for Preprocessing and Analysis of Neuroimaging Data.pdf
+    内容:
+      anatomical alignment and less uncontrolled spatial smoothing when directly compared to FSL's 
+      FEAT, particularly in areas susceptible to susceptibility distortion. While group-level statistical 
+      maps across pipelines were similar, fMRIPrep produced more accurate and cortical anatomy-
+      specific results.   
+      5 MRI preprocessing pipelines 
+      5.1 fMRIPrep
+
+[4] 来源: The HCP multi-pipeline dataset: an opportunity to investigate analytical variability in fMRI data analysis | 页: 1
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/The HCP multi-pipeline dataset: an opportunity to investigate analytical variability in fMRI data analysis.pdf
+    内容:
+      realignment to correct for subject motion, registration of the functional volumes to the structural one, bias field reduction,
+      arXiv:2312.14493v2  [q-bio.NC]  4 Oct 2024
+
+[5] 来源: Estimating brain functional networks based on adaptively-weighted fMRI signals for MCI identification | 页: 5
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Estimating brain functional networks based on adaptively-weighted fMRI signals for MCI identification.pdf
+    内容:
+      from 0.01 to 0.08 Hz. After that, the corrected images were
+      registered to Montreal Neurological Institute (MNI) standard
+      space, and, based on the automated anatomical labeling (AAL)
+      atlas (
+      Tzourio-Mazoyer et al., 2002 ), pre-processed fMRI signals
+      1http://www.nitrc.org/projects/modularbrain/
+      Frontiers in Aging Neuroscience | www.frontiersin.org 5 January 2021 | Volume 12 | Article 595322
+
+
+================================================================================
+数据库: nomic-embed-text
+路径: /home/a001/zhangyan/LitQuery/serpapi_db_nomic-embed-text
+文档总数: 54706
+检索时间: 1.58秒
+检索到: 5 个文档
+================================================================================
+
+[1] 来源: BrainCAT-a tool for automated and combined functional Magnetic Resonance Imaging and Diffusion Tensor Imaging brain connectivity analysis | 页: 4
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/BrainCAT-a tool for automated and combined functional Magnetic Resonance Imaging and Diffusion Tensor Imaging brain connectivity analysis.pdf
+    内容:
+      threshold.
+      T o perform group analysis, all subjects’ data must be in a
+      common standard space and the acquisitions need to be spatially
+      transformed so that each anatomical landmark is in the same posi-
+      tion across all the subjects (Evans et al., 2012). In BrainCA T , the
+      normalization step comprises three different stages. First, a rigid
+      alignment of the mean functional acquisition to the structural
+      scan is calculated. Afterwards, the structural volume is afﬁne regis-
+      tered to the Montreal Neurological Institute (MNI) standard space.
+      Finally, both transformations are concatenated and the result-
+      ing transformation matrix is applied to the functional scans. The
+      transformations are estimated and applied with FSL ’sﬂirt tool with
+      interpolation to 2 mm isotropic voxel size. At the end, BrainCA T
+      outputs 2D images with some orthogonal views of the normalized
+      brain that enable the user to check the accuracy of the normaliza-
+      tion. It also automatically applies skull stripping to the structural
+
+[2] 来源: Understanding the role of connectivity dynamics of resting-state functional MRI in the diagnosis of autism spectrum disorder: A comprehensive study | 页: 4
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Understanding the role of connectivity dynamics of resting-state functional MRI in the diagnosis of autism spectrum disorder: A comprehensive study.pdf
+    内容:
+      preprocessing strategies is applied for ﬁltration and signal correction. The main differences
+      between those strategies are whether global signal correction (inclusion of global mean
+      signal in nuisance regression) is made and whether ﬁltration (band-pass ﬁltering after
+      global signal correction) is performed. Those four strategies are denoted as: ﬁlt_global,
+      ﬁlt_noglobal, noﬁlt_global, and ﬁlt_noglobal. Lastly, structural MRI data, after skull
+      stripping, segmentation, normalization, and registration to the standard MNI-152 space,
+      is used for registration of the corresponding fMRI volumes to the same space after those
+      preprocessing steps. For each of the four strategies, we will have different outputs.
+      Different brain regions are identiﬁed on the registered data using a standard atlas
+      parcellation. The use of a standard atlas is to localize the fMRI features (time-series BOLD
+
+[3] 来源: fMRIflows: a consortium of fully automatic univariate and multivariate fMRI processing pipelines | 页: 8
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/fMRIflows: a consortium of fully automatic univariate and multivariate fMRI processing pipelines.pdf
+    内容:
+      Processing Pipelines
+      Output Generated After Executing the Anatomical 
+      Preprocessing Pipeline
+      After the execution of the anatomical preprocessing pipeline, 
+      the following files are generated for each subject: (1) image 
+      of the inhomogeneity-corrected full head image, (2) image 
+      of the extracted brain, (3) binary mask used for the brain 
+      extraction, (4) individual tissue probability maps for gray 
+      matter (GM), white matter (WM), cerebrospinal fluid (CSF), 
+      skull and head, (5) normalized anatomical image in template 
+      space, (6) reverse-normalized template image in subject 
+      space, (7) plus the corresponding transformation matrices 
+      used for output 5 and 6. Each anatomical preprocessing out-
+      put folder also contains (8) the ICBM 2009c brain template 
+      used for the normalization, sampled to the requested voxel 
+      resolution.
+      In addition to these files, the following three informa -
+      tive figures are generated: (1) tissue segmentation, (2) brain 
+      extraction and (3) spatial normalization of the anatomical
+
+[4] 来源: A deep learning pipeline to classify different stages of Alzheimer's disease from fMRI data | 页: 3
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/A deep learning pipeline to classify different stages of Alzheimer's disease from fMRI data.pdf
+    内容:
+      frequencies (the signal drifts). In this work, we used temporal
+      high-pass ﬁlter with 0.01 HZ cut-off frequency.
+      5) Spatial normalization: The next step in fMRI prepro-
+      cessing is spatial normalization. During the fMRI session, we
+      have a particular high-resolution structural scan (T1-weighting
+      TABLE II
+      PERCENTAGES AND SIZES OF DATASETS
+      Training Validation Testing
+      Percentage 60% 20% 20%
+      Images 793251 264417 264417
+      (T1w)) according to the subject’s brain shape and layout.
+      However, to analyze the data of many subjects we need to have
+      the same conditions. Only with equivalent brains (common
+      spatial domain) are we able to compare changes in speciﬁc
+      voxels in particular areas for all subjects. Registration of our
+      anatomical brain to a template as a process in the fsl FLIRT
+      toolbox [24][7] can perform the alignment of fMRI scans to
+      a common spatial domain (reference template).
+      For spatial normalization ﬁrst we need to put our fMRI data
+      in T1w space by using FSL’s FLIRT [24][7]. We used a linear
+
+[5] 来源: Automatic autism spectrum disorder detection using artificial intelligence methods with MRI neuroimaging: A review | 页: 6
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Automatic autism spectrum disorder detection using artificial intelligence methods with MRI neuroimaging: A review.pdf
+    内容:
+      diﬀerent software packages. The most common software
+      packages are brain extraction tools (BET) (Soltaninejad et al.,
+      2014), FMRIB software libraries (FSL), statistical parametric
+      mapping (SPM), and FreeSurfer (Khodatars et al., 2021). The
+      following is the standard preprocessing steps for fMRI and
+      sMRI neuroimaging modalities. Some of them are common
+      for both fMRI and sMRI modalities, so we will introduce
+      them in the fMRI-related section. Figure 3 shows the standard
+      fMRI and sMRI techniques. Also, the pipeline preprocessing
+      techniques for ABIDE datasets will be introduced in another
+      section.
+      The standard Preprocessing is a necessary step in fMRI,
+      and if preprocessing is not carried out properly, it will lead
+      to reduced performance of automated diagnosis of ASD.
+      This step aims to extract regions suspected of having ASD
+      and examine the function of brain neurons in those regions.
+      The preprocessing steps of fMRI include delineation of the
+      brain region, removal of the ﬁrst few volumes, slice timing
+
+
+================================================================================
+数据库: qwen3
+路径: /home/a001/zhangyan/LitQuery/serpapi_db_qwen3
+文档总数: 54607
+检索时间: 4.87秒
+检索到: 5 个文档
+================================================================================
+
+[1] 来源: BrainCAT-a tool for automated and combined functional Magnetic Resonance Imaging and Diffusion Tensor Imaging brain connectivity analysis | 页: 4
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/BrainCAT-a tool for automated and combined functional Magnetic Resonance Imaging and Diffusion Tensor Imaging brain connectivity analysis.pdf
+    内容:
+      threshold.
+      T o perform group analysis, all subjects’ data must be in a
+      common standard space and the acquisitions need to be spatially
+      transformed so that each anatomical landmark is in the same posi-
+      tion across all the subjects (Evans et al., 2012). In BrainCA T , the
+      normalization step comprises three different stages. First, a rigid
+      alignment of the mean functional acquisition to the structural
+      scan is calculated. Afterwards, the structural volume is afﬁne regis-
+      tered to the Montreal Neurological Institute (MNI) standard space.
+      Finally, both transformations are concatenated and the result-
+      ing transformation matrix is applied to the functional scans. The
+      transformations are estimated and applied with FSL ’sﬂirt tool with
+      interpolation to 2 mm isotropic voxel size. At the end, BrainCA T
+      outputs 2D images with some orthogonal views of the normalized
+      brain that enable the user to check the accuracy of the normaliza-
+      tion. It also automatically applies skull stripping to the structural
+
+[2] 来源: Evaluating and Improving Cross-Pipeline Reproducibility in Functional Connectomics: A Case Study | 页: 1
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Evaluating and Improving Cross-Pipeline Reproducibility in Functional Connectomics: A Case Study.pdf
+    内容:
+      Key StepsC-PAC New FeaturesAnatomical PreprocessingInitial PreprocessingNon-localMeans Filtering, N4 Bias CorrectionBrain ExtractionANTs-NiWorkflowsTissue SegmentationThresholding, ErosionFunctional PreprocessingMotionEstimationEstimation Order Option, FSL MCFLIRT OptionBrain ExtractionFSLBET + AFNI 3dAutoMaskCo-registrationN4 Correction on Mean EPINuisance Signal RegressionCosine Filter,Ventricle Mask Option,Brain Mask Erosion, Polynomial RegressionTable 1. C-PAC fMRIPrep-options configuration
+      Figure 2. Within/between pipeline comparison. Value depictsPearsoncorrelation.a. fMRIPrep test-retest similarity;b. C-PAC test-retest similarity;c. similarity between fMRIPrep and C-PAC with the fMRIPrep-options configuration; d. similarity between fMRIPrep and C-PAC with the default configuration.GS: global signal;CSF:cerebrospinalfluid;WM: white matter;aCompCor TS: 1Dtimeseries for aCompCorextraction;FD: framewisedisplacement
+      1979
+      Figure1. Key step output visualization and comparison.
+      fMRIPrepCPAC: fMRIPrep
+
+[3] 来源: Learning pipeline-invariant representation for robust brain phenotype prediction | 页: 2
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Learning pipeline-invariant representation for robust brain phenotype prediction.pdf
+    内容:
+      Almagro et al., 2018; Jenkinson et al., 2012; Friston et al.,
+      1994).
+      These three pipelines differ at multiple preprocessing steps
+      including brain extraction, tissue segmentation and reg-
+      istration. The detailed preprocessing workflow of each
+      pipeline is as follows: 1) The C-PAC:Default structural
+      preprocessing workflow performs brain extraction via AFNI
+      3dSkullStrip (Cox, 1996), tissue segmentation via FSL
+      FAST (Zhang et al., 2001), and spatial normalization via
+      ANTs SyN non-linear alignment (Avants et al., 2008). 2)
+      The C-PAC:fMRIPrepstructural pipeline applies ANTs N4
+      bias field correction (Tustison et al., 2010) on the raw im-
+      ages, followed by ANTs brain extraction, a custom thresh-
+      olding and erosion algorithm to generate tissue segmenta-
+      tion masks (Esteban et al., 2019), and ANTs SyN alignment
+      to transform the data to the standard space. ANTs reg-
+      istration is performed using skull-stripped images, unlike
+      the C-PAC:Default pipeline which uses whole-head images.
+
+[4] 来源: Understanding the role of connectivity dynamics of resting-state functional MRI in the diagnosis of autism spectrum disorder: A comprehensive study | 页: 4
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Understanding the role of connectivity dynamics of resting-state functional MRI in the diagnosis of autism spectrum disorder: A comprehensive study.pdf
+    内容:
+      preprocessing strategies is applied for ﬁltration and signal correction. The main differences
+      between those strategies are whether global signal correction (inclusion of global mean
+      signal in nuisance regression) is made and whether ﬁltration (band-pass ﬁltering after
+      global signal correction) is performed. Those four strategies are denoted as: ﬁlt_global,
+      ﬁlt_noglobal, noﬁlt_global, and ﬁlt_noglobal. Lastly, structural MRI data, after skull
+      stripping, segmentation, normalization, and registration to the standard MNI-152 space,
+      is used for registration of the corresponding fMRI volumes to the same space after those
+      preprocessing steps. For each of the four strategies, we will have different outputs.
+      Different brain regions are identiﬁed on the registered data using a standard atlas
+      parcellation. The use of a standard atlas is to localize the fMRI features (time-series BOLD
+
+[5] 来源: Evaluating and Improving Cross-Pipeline Reproducibility in Functional Connectomics: A Case Study | 页: 1
+    文件: /home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Evaluating and Improving Cross-Pipeline Reproducibility in Functional Connectomics: A Case Study.pdf
+    内容:
+      End-to-End Preprocessing 
+      a
+      fMRIPrep Test-Retest C-PAC Test-Retest
+      fMRIPrep vs CPAC: fMRIPrepfMRIPrep vs CPAC: Defaultc. anatomical brainin template space
+      Pearson Corr: 0.95
+      a.original anatomical image
+      Pearson Corr: 1.00
+      e. functional brain in native space
+      Pearson Corr: 1.00d. original functional image
+      Pearson Corr: 1.00
+      b. anatomical brain in native space
+      Pearson Corr: 0.99
+      f. functional brain in template space
+      Pearson Corr: 0.98
+

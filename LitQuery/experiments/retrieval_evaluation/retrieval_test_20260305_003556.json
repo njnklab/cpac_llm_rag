@@ -1,0 +1,229 @@
+{
+  "test_time": "2026-03-05T00:35:56.807646",
+  "total_databases": 4,
+  "query": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+  "config": {
+    "n_results": 5,
+    "use_hybrid_search": true,
+    "ollama_base_url": "http://localhost:11434",
+    "model_name": "qwen3:14b"
+  },
+  "results": [
+    {
+      "db_name": "minilm",
+      "db_path": "/home/a001/zhangyan/LitQuery/serpapi_db_minilm",
+      "doc_count": 2355,
+      "query": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+      "start_time": "2026-03-05T00:35:45.927854",
+      "end_time": "2026-03-05T00:35:47.325953",
+      "duration_seconds": 1.398099,
+      "n_results": 5,
+      "use_hybrid": true,
+      "retrieved_count": 5,
+      "chunk_sources": [
+        {
+          "creation_time": 1770892508.201475,
+          "document_id": "Efficient 4D fMRI ASD Classification using Spatial-Temporal-Omics-based Learning Framework",
+          "file_type": "pdf",
+          "page": 2,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Efficient 4D fMRI ASD Classification using Spatial-Temporal-Omics-based Learning Framework.pdf",
+          "total_pages": 5
+        },
+        {
+          "creation_time": 1772380119.1227486,
+          "document_id": "A Brain Graph Foundation Model: Pre-Training and Prompt-Tuning across Broad Atlases and Disorders",
+          "file_type": "pdf",
+          "page": 28,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/A Brain Graph Foundation Model: Pre-Training and Prompt-Tuning across Broad Atlases and Disorders.pdf",
+          "total_pages": 30
+        },
+        {
+          "creation_time": 1770892929.914624,
+          "document_id": "Automatic autism spectrum disorder detection using artificial intelligence methods with MRI neuroimaging: A review",
+          "file_type": "pdf",
+          "page": 6,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Automatic autism spectrum disorder detection using artificial intelligence methods with MRI neuroimaging: A review.pdf",
+          "total_pages": 32
+        },
+        {
+          "creation_time": 1772381926.0984895,
+          "document_id": "Inverted cone convolutional neural network for deboning MRIs",
+          "file_type": "pdf",
+          "page": 46,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Inverted cone convolutional neural network for deboning MRIs.pdf",
+          "total_pages": 61
+        },
+        {
+          "creation_time": 1770892135.1969736,
+          "document_id": "Longitudinal reproducibility of default-mode network connectivity in healthy elderly participants: a multicentric resting-state fMRI study",
+          "file_type": "pdf",
+          "page": 10,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Longitudinal reproducibility of default-mode network connectivity in healthy elderly participants: a multicentric resting-state fMRI study.pdf",
+          "total_pages": 45
+        }
+      ]
+    },
+    {
+      "db_name": "mxbai",
+      "db_path": "/home/a001/zhangyan/LitQuery/serpapi_db_mxbai",
+      "doc_count": 5010,
+      "query": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+      "start_time": "2026-03-05T00:35:47.326037",
+      "end_time": "2026-03-05T00:35:50.360165",
+      "duration_seconds": 3.034128,
+      "n_results": 5,
+      "use_hybrid": true,
+      "retrieved_count": 5,
+      "chunk_sources": [
+        {
+          "creation_time": 1772378190.7218735,
+          "document_id": "functional MRI",
+          "file_type": "pdf",
+          "page": 94,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/functional MRI.pdf",
+          "total_pages": 278
+        },
+        {
+          "creation_time": 1772378645.7929778,
+          "document_id": "A robust strategy for cleaning motion artifacts in resting state fMRI",
+          "file_type": "pdf",
+          "page": 51,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/A robust strategy for cleaning motion artifacts in resting state fMRI.pdf",
+          "total_pages": 100
+        },
+        {
+          "creation_time": 1772380964.2355974,
+          "document_id": "Deep Learning Approaches for Preprocessing and Analysis of Neuroimaging Data",
+          "file_type": "pdf",
+          "page": 20,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Deep Learning Approaches for Preprocessing and Analysis of Neuroimaging Data.pdf",
+          "total_pages": 53
+        },
+        {
+          "creation_time": 1772381336.2552958,
+          "document_id": "The HCP multi-pipeline dataset: an opportunity to investigate analytical variability in fMRI data analysis",
+          "file_type": "pdf",
+          "page": 1,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/The HCP multi-pipeline dataset: an opportunity to investigate analytical variability in fMRI data analysis.pdf",
+          "total_pages": 10
+        },
+        {
+          "creation_time": 1770952679.5473657,
+          "document_id": "Estimating brain functional networks based on adaptively-weighted fMRI signals for MCI identification",
+          "file_type": "pdf",
+          "page": 5,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Estimating brain functional networks based on adaptively-weighted fMRI signals for MCI identification.pdf",
+          "total_pages": 11
+        }
+      ]
+    },
+    {
+      "db_name": "nomic-embed-text",
+      "db_path": "/home/a001/zhangyan/LitQuery/serpapi_db_nomic-embed-text",
+      "doc_count": 54706,
+      "query": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+      "start_time": "2026-03-05T00:35:50.360222",
+      "end_time": "2026-03-05T00:35:51.935521",
+      "duration_seconds": 1.575299,
+      "n_results": 5,
+      "use_hybrid": true,
+      "retrieved_count": 5,
+      "chunk_sources": [
+        {
+          "creation_time": 1772460814.3319697,
+          "document_id": "BrainCAT-a tool for automated and combined functional Magnetic Resonance Imaging and Diffusion Tensor Imaging brain connectivity analysis",
+          "file_type": "pdf",
+          "page": 4,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/BrainCAT-a tool for automated and combined functional Magnetic Resonance Imaging and Diffusion Tensor Imaging brain connectivity analysis.pdf",
+          "total_pages": 11
+        },
+        {
+          "creation_time": 1772460558.4010892,
+          "document_id": "Understanding the role of connectivity dynamics of resting-state functional MRI in the diagnosis of autism spectrum disorder: A comprehensive study",
+          "file_type": "pdf",
+          "page": 4,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Understanding the role of connectivity dynamics of resting-state functional MRI in the diagnosis of autism spectrum disorder: A comprehensive study.pdf",
+          "total_pages": 15
+        },
+        {
+          "creation_time": 1772462173.6822932,
+          "document_id": "fMRIflows: a consortium of fully automatic univariate and multivariate fMRI processing pipelines",
+          "file_type": "pdf",
+          "page": 8,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/fMRIflows: a consortium of fully automatic univariate and multivariate fMRI processing pipelines.pdf",
+          "total_pages": 20
+        },
+        {
+          "creation_time": 1772460075.7846546,
+          "document_id": "A deep learning pipeline to classify different stages of Alzheimer's disease from fMRI data",
+          "file_type": "pdf",
+          "page": 3,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/A deep learning pipeline to classify different stages of Alzheimer's disease from fMRI data.pdf",
+          "total_pages": 8
+        },
+        {
+          "creation_time": 1772461639.9325938,
+          "document_id": "Automatic autism spectrum disorder detection using artificial intelligence methods with MRI neuroimaging: A review",
+          "file_type": "pdf",
+          "page": 6,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Automatic autism spectrum disorder detection using artificial intelligence methods with MRI neuroimaging: A review.pdf",
+          "total_pages": 32
+        }
+      ]
+    },
+    {
+      "db_name": "qwen3",
+      "db_path": "/home/a001/zhangyan/LitQuery/serpapi_db_qwen3",
+      "doc_count": 54607,
+      "query": "CPAC v1.8.7, dataset=OpenNeuro ds002748 (single-site, BIDS-compliant, adult MDD/HC, T1w 1mm isotropic, no T2), rs-fMRI eyes-closed: in anatomical_preproc, what are the recommended configurations for brain extraction, bias-field correction, and spatial normalization, and what are the key failure modes for each choice?",
+      "start_time": "2026-03-05T00:35:51.935574",
+      "end_time": "2026-03-05T00:35:56.807576",
+      "duration_seconds": 4.872002,
+      "n_results": 5,
+      "use_hybrid": true,
+      "retrieved_count": 5,
+      "chunk_sources": [
+        {
+          "creation_time": 1771086353.5740542,
+          "document_id": "BrainCAT-a tool for automated and combined functional Magnetic Resonance Imaging and Diffusion Tensor Imaging brain connectivity analysis",
+          "file_type": "pdf",
+          "page": 4,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/BrainCAT-a tool for automated and combined functional Magnetic Resonance Imaging and Diffusion Tensor Imaging brain connectivity analysis.pdf",
+          "total_pages": 11
+        },
+        {
+          "creation_time": 1772382122.174553,
+          "document_id": "Evaluating and Improving Cross-Pipeline Reproducibility in Functional Connectomics: A Case Study",
+          "file_type": "pdf",
+          "page": 1,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Evaluating and Improving Cross-Pipeline Reproducibility in Functional Connectomics: A Case Study.pdf",
+          "total_pages": 1
+        },
+        {
+          "creation_time": 1772381242.0052035,
+          "document_id": "Learning pipeline-invariant representation for robust brain phenotype prediction",
+          "file_type": "pdf",
+          "page": 2,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Learning pipeline-invariant representation for robust brain phenotype prediction.pdf",
+          "total_pages": 11
+        },
+        {
+          "creation_time": 1771085928.5136282,
+          "document_id": "Understanding the role of connectivity dynamics of resting-state functional MRI in the diagnosis of autism spectrum disorder: A comprehensive study",
+          "file_type": "pdf",
+          "page": 4,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Understanding the role of connectivity dynamics of resting-state functional MRI in the diagnosis of autism spectrum disorder: A comprehensive study.pdf",
+          "total_pages": 15
+        },
+        {
+          "creation_time": 1772382122.1745532,
+          "document_id": "Evaluating and Improving Cross-Pipeline Reproducibility in Functional Connectomics: A Case Study",
+          "file_type": "pdf",
+          "page": 1,
+          "source": "/home/a001/zhangyan/LitQuery/LitCollector/papers_pdfs/Evaluating and Improving Cross-Pipeline Reproducibility in Functional Connectomics: A Case Study.pdf",
+          "total_pages": 1
+        }
+      ]
+    }
+  ]
+}

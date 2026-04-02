@@ -1,0 +1,24 @@
+Results (cpac-llm, ComBat=True)
+==============================
+Pipeline: Fisher Z -> ComBat -> SelectKBest(k=200) -> StandardScaler -> Classifier
+
+Model: Linear SVM
+--------------------
+Accuracy: 0.5549 +- 0.0978
+Precision: 0.4040 +- 0.1207
+Recall: 0.3995 +- 0.1779
+F1-score: 0.4143 +- 0.1476
+Balanced Accuracy: 0.5294 +- 0.1011
+Macro-F1: 0.5331 +- 0.1059
+Weighted-F1: 0.5528 +- 0.0988
+
+Model: Random Forest
+--------------------
+Accuracy: 0.6132 +- 0.0519
+Precision: 0.5245 +- 0.1040
+Recall: 0.2994 +- 0.0308
+F1-score: 0.3751 +- 0.0527
+Balanced Accuracy: 0.5608 +- 0.0471
+Macro-F1: 0.5314 +- 0.0444
+Weighted-F1: 0.5975 +- 0.0454
+

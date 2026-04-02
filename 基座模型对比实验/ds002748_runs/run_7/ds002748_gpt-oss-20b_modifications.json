@@ -1,0 +1,110 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.n4_bias_field_correction.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Bias field correction improves intensity homogeneity, especially important for thick-slice T1 images with variable voxel sizes to enhance downstream segmentation and registration."
+        },
+        {
+            "parameter_path": "anatomical_preproc.brain_extraction.using",
+            "current_default": "['BET']",
+            "recommended_value": "['FSL-BET']",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "FSL-BET with robustfov better handles anisotropic, thick-slice data than the default BET, yielding more accurate brain masks for this dataset."
+        },
+        {
+            "parameter_path": "anatomical_preproc.brain_extraction.FSL-BET.Robustfov",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Enabling robustfov improves brain extraction robustness in the presence of slice thickness and partial volume effects typical of this cohort."
+        },
+        {
+            "parameter_path": "anatomical_preproc.brain_extraction.FSL-BET.remove_eyes",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The dataset uses a closed-eyes resting state; removing eye tissue reduces contamination in the brain mask and downstream analyses."
+        },
+        {
+            "parameter_path": "anatomical_preproc.acpc_alignment.run",
+            "current_default": "Off",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "ACPC alignment standardizes head orientation across subjects, facilitating more reliable cross-subject comparisons for connectivity analyses."
+        },
+        {
+            "parameter_path": "functional_preproc.truncation.start_tr",
+            "current_default": "0",
+            "recommended_value": "5",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Discarding the first 5 TRs (≈12.5 s) is standard practice to allow magnetization to reach steady state and reduce transient motion artifacts, improving data quality for resting‑state connectivity analyses."
+        },
+        {
+            "parameter_path": "functional_preproc.distortion_correction.run",
+            "current_default": "[On]",
+            "recommended_value": "Off",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "The dataset lacks fieldmaps or reverse phase‑encoded pairs required for distortion correction; running the module would produce errors or unreliable results, so it is safer to disable it."
+        },
+        {
+            "parameter_path": "registration_workflows.anatomical_registration.resolution_for_anat",
+            "current_default": "2mm",
+            "recommended_value": "1mm",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Preserve higher anatomical detail for accurate cortical parcellation and connectivity estimation; dataset likely contains 1mm T1-weighted images."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.interpolation",
+            "current_default": "trilinear",
+            "recommended_value": "LanczosWindowedSinc",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Improved interpolation quality for coregistering thick-slice functional data to high-resolution anatomy, reducing interpolation artifacts."
+        },
+        {
+            "parameter_path": "registration_workflows.anatomical_registration.registration.ANTs.T1_registration.metric.type",
+            "current_default": "MI",
+            "recommended_value": "CC",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "Cross-correlation is more robust to intensity inhomogeneities across subjects for T1 registration, often yielding better alignment than mutual information."
+        },
+        {
+            "parameter_path": "nuisance_corrections.1-ICA-AROMA.run",
+            "current_default": "[Off]",
+            "recommended_value": "On",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Enable ICA-AROMA to automatically identify and regress out motion-related components, improving the quality of functional connectivity estimates for classification."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Resample nuisance regressors to template space to ensure consistent alignment across subjects, facilitating group-level connectivity analysis."
+        }
+    ],
+    "summary": {
+        "total_modifications": 12,
+        "high_confidence": 7,
+        "medium_confidence": 5,
+        "low_confidence": 0
+    }
+}

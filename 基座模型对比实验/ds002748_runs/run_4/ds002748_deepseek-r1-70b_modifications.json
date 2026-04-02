@@ -1,0 +1,54 @@
+{
+    "dataset_info": {
+        "name": "OHSU",
+        "summary": "[DATASET_LEVEL_SUMMARY]\n\n--- Dataset Description ---\n  - Name: Resting state with closed eyes for patients with depression and healthy participants\n  - BIDS Version: 1.0.2\n\n--- Cohort Size ---\n  - Num..."
+    },
+    "modifications": [
+        {
+            "parameter_path": "anatomical_preproc.brain_extraction.using",
+            "current_default": "['BET']",
+            "recommended_value": "['FSL-BET', 'UNet']",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "Using a combination of FSL-BET and UNet for brain extraction may improve accuracy, especially in cases where the default BET alone might not handle varying head sizes or pathologies effectively."
+        },
+        {
+            "parameter_path": "registration_workflows.anatomical_registration.resolution_for_anat",
+            "current_default": "2mm",
+            "recommended_value": "1.96mm",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The dataset's anatomical images have a voxel size of 1.96x1.96x5.0 mm. Using a resolution closer to the native voxel size (1.96mm) can improve registration accuracy by preserving more detailed structural information."
+        },
+        {
+            "parameter_path": "registration_workflows.functional_registration.coregistration.dof",
+            "current_default": "6",
+            "recommended_value": "12",
+            "action": "modify",
+            "confidence": "medium",
+            "rationale": "The functional data has a relatively thick slice thickness (5mm) compared to the in-plane resolution (1.96mm). Increasing the degrees of freedom from 6 to 12 allows for more flexible alignment, which can better account for the anisotropic voxels and improve coregistration accuracy."
+        },
+        {
+            "parameter_path": "nuisance_corrections.2-nuisance_regression.space",
+            "current_default": "native",
+            "recommended_value": "template",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The dataset includes both structural and functional data, and using a template space is more appropriate for multi-subject studies to ensure consistent registration across subjects."
+        },
+        {
+            "parameter_path": "segmentation.tissue_segmentation.using",
+            "current_default": "[ 'FSL-FAST' ]",
+            "recommended_value": "[ 'Template_Based' ]",
+            "action": "modify",
+            "confidence": "high",
+            "rationale": "The dataset lacks fieldmaps and has varying voxel sizes, making FSL-FAST less reliable. Template-based segmentation is more robust for such cases."
+        }
+    ],
+    "summary": {
+        "total_modifications": 5,
+        "high_confidence": 4,
+        "medium_confidence": 1,
+        "low_confidence": 0
+    }
+}
